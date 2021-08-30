@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="36" viewBox="0 0 40 36">
+  <g id="Group_90" data-name="Group 90" transform="translate(-46 -395)">
+    <g id="Icon" transform="translate(46 394.783)">
+      <rect id="Area" width="28" height="28" transform="translate(0 0.217)" fill="#fcfcfc" opacity="0"/>
+      <g id="Icon-2" data-name="Icon" transform="translate(1.999 2.216)">
+        <path id="Path" d="M24.5,13.417a9.777,9.777,0,0,1-1.05,4.433,9.916,9.916,0,0,1-8.867,5.483,9.764,9.764,0,0,1-4.433-1.05L3.5,24.5l2.217-6.65a9.764,9.764,0,0,1-1.05-4.433A9.916,9.916,0,0,1,10.15,4.55,9.777,9.777,0,0,1,14.583,3.5h.584A9.893,9.893,0,0,1,24.5,12.833Z" transform="translate(-1.999 -2.216)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      </g>
+    </g>
+    <g id="Icon-3" data-name="Icon" transform="translate(58 403)">
+      <rect id="Area-2" data-name="Area" width="28" height="28" fill="#fcfcfc" opacity="0"/>
+      <g id="Icon-4" data-name="Icon" transform="translate(3.5 3.283)">
+        <path id="Path-2" data-name="Path" d="M3.5,13.417c0,.571,8.08,2.167,8.08,2.167s-7.467,1.4-7.03,2.266a9.916,9.916,0,0,0,8.867,5.483,9.764,9.764,0,0,0,4.433-1.05L24.5,24.5l-2.217-6.65a9.764,9.764,0,0,0,1.05-4.433A9.916,9.916,0,0,0,17.85,4.55,9.777,9.777,0,0,0,13.417,3.5h-.584A9.893,9.893,0,0,0,3.5,12.833Z" transform="translate(-3.5 -3.5)" fill="#a696c8" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      </g>
+    </g>
+  </g>
+</svg>

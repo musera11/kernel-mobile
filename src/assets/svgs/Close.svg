@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="33.941" height="33.941" viewBox="0 0 33.941 33.941">
+  <g id="Group_186" data-name="Group 186" transform="translate(-0.028 4.971)" opacity="0.36">
+    <g id="Icon" transform="translate(16.999 -4.971) rotate(45)">
+      <rect id="Area" width="24" height="24" fill="none" opacity="0"/>
+      <g id="Icon-2" data-name="Icon" transform="translate(1.771 1.771)">
+        <circle id="Path" cx="10" cy="10" r="10" transform="translate(0.229 0.229)" fill="none" stroke="#3d3d3d" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <line id="Line" y2="8" transform="translate(10.229 6.229)" fill="none" stroke="#3d3d3d" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <line id="Line-2" data-name="Line" x2="8" transform="translate(6.229 10.229)" fill="none" stroke="#3d3d3d" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+    </g>
+  </g>
+</svg>

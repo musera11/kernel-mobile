@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <g id="Icon" opacity="0.36">
+    <rect id="Area" width="20" height="20" fill="#fcfcfc" opacity="0"/>
+    <g id="Icon-2" data-name="Icon" transform="translate(3.333 2.5)">
+      <rect id="Rect" width="15" height="15" rx="2" transform="translate(-0.833 0.833)" fill="none" stroke="#271f26" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <line id="Line" y2="3.333" transform="translate(10 -0.833)" fill="none" stroke="#271f26" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <line id="Line-2" data-name="Line" y2="3.333" transform="translate(3.334 -0.833)" fill="none" stroke="#271f26" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <line id="Line-3" data-name="Line" x2="15" transform="translate(-0.833 5.833)" fill="none" stroke="#271f26" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    </g>
+  </g>
+</svg>

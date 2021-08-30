@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="78.411" height="44" viewBox="0 0 78.411 44">
+  <g id="Group_70" data-name="Group 70" transform="translate(-57.145 -600)">
+    <g id="pacman" transform="translate(57.145 600)">
+      <path id="Path_29" data-name="Path 29" d="M22.04,13.889A2.444,2.444,0,1,0,19.6,11.444,2.444,2.444,0,0,0,22.04,13.889Z" transform="translate(2.563 -1.667)" fill="#636bae"/>
+      <path id="Path_30" data-name="Path 30" d="M28,4.5A21.914,21.914,0,0,1,41.877,9.428l3.538,3.538-3.165,3.165h0L31.876,26.5l8.895,8.893,0,0,4.656,4.654-3.453,3.453,0,0A22,22,0,1,1,28,4.5Zm-3.039,22L38.484,40.023a17.111,17.111,0,1,1,0-27.049L24.963,26.5Z" transform="translate(-5.998 -4.5)" fill="#636bae" fill-rule="evenodd"/>
+    </g>
+    <g id="pacman-2" data-name="pacman" transform="translate(96.13 600)">
+      <path id="Path_29-2" data-name="Path 29" d="M22.041,13.889a2.444,2.444,0,1,1,2.445-2.444A2.445,2.445,0,0,1,22.041,13.889Z" transform="translate(-7.22 -1.667)" fill="#636bae"/>
+      <path id="Path_30-2" data-name="Path 30" d="M23.42,4.5A21.916,21.916,0,0,0,9.543,9.428L6,12.966,9.17,16.131h0L19.544,26.5l-8.895,8.893,0,0L6,40.052l3.453,3.453,0,0A22,22,0,1,0,23.42,4.5Zm3.039,22L12.936,40.023a17.112,17.112,0,1,0,0-27.049L26.458,26.5Z" transform="translate(-5.998 -4.5)" fill="#636bae" fill-rule="evenodd"/>
+    </g>
+  </g>
+</svg>

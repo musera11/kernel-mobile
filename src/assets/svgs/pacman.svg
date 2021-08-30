@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40.149" height="22" viewBox="0 0 40.149 22">
+  <g id="pacman" transform="translate(-5.998 -4.5)">
+    <path id="Path_29" data-name="Path 29" d="M20.818,11.444A1.222,1.222,0,1,0,19.6,10.222,1.222,1.222,0,0,0,20.818,11.444Z" transform="translate(-2.518 -0.833)" fill="#636bae"/>
+    <path id="Path_47" data-name="Path 47" d="M20.818,11.444A1.222,1.222,0,1,0,19.6,10.222,1.222,1.222,0,0,0,20.818,11.444Z" transform="translate(10.482 5.501)" fill="#dcdc4b"/>
+    <path id="Path_48" data-name="Path 48" d="M20.818,11.444A1.222,1.222,0,1,0,19.6,10.222,1.222,1.222,0,0,0,20.818,11.444Z" transform="translate(17.294 5.501)" fill="#dcdc4b"/>
+    <path id="Path_49" data-name="Path 49" d="M20.818,11.444A1.222,1.222,0,1,0,19.6,10.222,1.222,1.222,0,0,0,20.818,11.444Z" transform="translate(24.107 5.501)" fill="#dcdc4b"/>
+    <path id="Path_30" data-name="Path 30" d="M17,4.5a10.957,10.957,0,0,1,6.938,2.464l1.769,1.769-1.582,1.582h0L18.937,15.5l4.447,4.446,0,0,2.328,2.327L23.983,24l0,0A11,11,0,1,1,17,4.5Zm-1.52,11,6.761,6.761a8.556,8.556,0,1,1,0-13.524L15.481,15.5Z" transform="translate(0)" fill="#636bae" fill-rule="evenodd"/>
+  </g>
+</svg>
