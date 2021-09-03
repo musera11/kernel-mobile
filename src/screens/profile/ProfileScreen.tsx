@@ -1,6 +1,7 @@
 import React from 'react';
 import {Image, ScrollView, StyleSheet, Text, View} from 'react-native';
-import Fontisto from 'react-native-vector-icons/Fontisto';
+// import LinearGradient from 'react-native-linear-gradient';
+// import Fontisto from 'react-native-vector-icons/Fontisto';
 import Header from '../../components/shared/Header';
 import {COLORS} from '../../services/colors.service';
 
@@ -17,14 +18,29 @@ const ProfileScreen = () => {
         />
       </View>
       <View style={styles.line2}>
-        <View style={styles.settingsWrapper}>
-          <Fontisto name="rocket" size={28} color={COLORS.white1} />
+        <View style={styles.settingsAddPhotosWrapper}>
+          {/* <LinearGradient
+            colors={[COLORS.green2, COLORS.yellow1]}
+            style={styles.settingsWrapper}>
+            <Fontisto name="rocket" size={28} color={COLORS.white1} />
+          </LinearGradient>
+          <Text style={styles.settingsAddPhotosText}>Settings</Text>
         </View>
-        <View style={styles.addPhotosWrapper}>
-          <Fontisto name="rocket" size={32} color={COLORS.white1} />
+        <View style={styles.settingsAddPhotosWrapper}>
+          <LinearGradient
+            colors={[COLORS.green2, COLORS.yellow1]}
+            style={styles.addPhotosWrapper}>
+            <Fontisto name="rocket" size={28} color={COLORS.white1} />
+          </LinearGradient> */}
+          <Text style={styles.settingsAddPhotosText}>Add Photos</Text>
         </View>
       </View>
-      <View style={styles.line3}></View>
+      <View style={styles.line3}>
+        <View style={styles.infoItemWrapper}>
+          <Text style={styles.infoItemKeyText}>Full Name</Text>
+          <Text style={styles.infoItemValueText}>John</Text>
+        </View>
+      </View>
     </ScrollView>
   );
 };
@@ -54,12 +70,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingLeft: 59,
     paddingRight: 59,
+    marginTop: 21,
   },
-  line3: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingLeft: 51,
-    paddingRight: 51,
+  settingsAddPhotosWrapper: {
+    alignItems: 'center',
   },
   settingsWrapper: {
     flexDirection: 'row',
@@ -67,6 +81,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: 56,
     height: 56,
+    borderRadius: 56,
   },
   addPhotosWrapper: {
     flexDirection: 'row',
@@ -74,5 +89,30 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: 56,
     height: 56,
+    borderRadius: 56,
+  },
+  settingsAddPhotosText: {
+    fontSize: 16,
+    color: COLORS.black1,
+    marginTop: 7,
+  },
+  line3: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingLeft: 51,
+    paddingRight: 51,
+  },
+  infoItemWrapper: {
+    justifyContent: 'center',
+  },
+  infoItemKeyText: {
+    fontSize: 12,
+    opacity: 0.54,
+    color: COLORS.black1,
+  },
+  infoItemValueText: {
+    marginTop: 14,
+    fontSize: 18,
+    color: COLORS.black1,
   },
 });

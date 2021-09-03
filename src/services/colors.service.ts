@@ -9,4 +9,6 @@ export const COLORS = {
   gray1: '#F5F4F9',
   gray2: '#ECEEE8',
   green1: '#DFF5EF',
+  green2: '#73B6A4',
+  yellow1: '#C2C957',
 };
