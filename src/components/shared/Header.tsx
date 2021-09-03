@@ -1,14 +1,16 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, ViewStyle} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
-const Header = () => {
+const Header: React.FC<{style?: ViewStyle}> = ({style}) => {
   const insets = useSafeAreaInsets();
 
   return (
-    <View style={[styles.container, {marginTop: insets.top}]}>
-      <Text>header</Text>
-    </View>
+    <>
+      <View style={[styles.container, {marginTop: insets.top}, {...style}]}>
+        <Text>header</Text>
+      </View>
+    </>
   );
 };
 
