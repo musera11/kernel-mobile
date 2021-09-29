@@ -8,7 +8,10 @@ export const COLORS = {
   brown1: '#A47560',
   gray1: '#F5F4F9',
   gray2: '#ECEEE8',
+  gray3: '#707070',
   green1: '#DFF5EF',
   green2: '#73B6A4',
+  red1: '#FF8080',
+  red2: '#FF1919',
   yellow1: '#C2C957',
 };

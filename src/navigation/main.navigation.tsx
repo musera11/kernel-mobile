@@ -8,6 +8,7 @@ import VenuesScreen from '../screens/venues/VenuesScreen';
 import ProfileScreen from '../screens/profile/ProfileScreen';
 import {COLORS} from '../services/colors.service';
 import {StyleSheet} from 'react-native';
+import ProfileSettingsScreen from '../screens/profile/ProfileSettingsScreent';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -87,6 +88,7 @@ function TabNavigation() {
           },
         };
       }}>
+      <Tab.Screen name="ProfileSettings" component={ProfileSettingsScreen} />
       <Tab.Screen name="Venues" component={VenuesScreen} />
       <Tab.Screen name="ChatRooms" component={ChatRoomsScreen} />
       <Tab.Screen name="Profile" component={ProfileScreen} />
