@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
+    "pixel4": "react-native run-android --deviceId=emulator-5556",
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
