@@ -1,4 +1,4 @@
-package com.rhinohub.empower;
+package com.empowerofyou.app;
 
 import com.facebook.react.ReactActivity;
 import android.os.Bundle;
