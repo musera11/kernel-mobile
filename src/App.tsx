@@ -1,6 +1,7 @@
-import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
 import React from 'react';
-import MainNavigation from './navigation/main.navigation';
+import {DefaultTheme} from '@react-navigation/native';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
+import StartupNavigation from './navigation/startup.navigation';
 
 const MyTheme = {
   ...DefaultTheme,
@@ -12,9 +13,9 @@ const MyTheme = {
 
 const App = () => {
   return (
-    <NavigationContainer theme={MyTheme}>
-      <MainNavigation />
-    </NavigationContainer>
+    <SafeAreaProvider>
+      <StartupNavigation theme={MyTheme} />
+    </SafeAreaProvider>
   );
 };
 

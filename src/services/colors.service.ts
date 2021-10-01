@@ -15,3 +15,11 @@ export const COLORS = {
   red2: '#FF1919',
   yellow1: '#C2C957',
 };
+
+// new colors
+export const COLORS1 = {
+  white: '#FFF',
+  gray1: '#F0F3F4',
+  black: '000',
+  black1: '#1B1C20',
+};
