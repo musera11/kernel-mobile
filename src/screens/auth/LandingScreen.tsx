@@ -5,9 +5,13 @@ import LoginButton from '../../components/auth/LoginButton';
 import SignUpButton from '../../components/auth/SignUpButton';
 import {COLORS1} from '../../services/colors.service';
 
-const LandingScreen = () => {
-  const onLoginPress = () => {};
-  const onSignUpPress = () => {};
+const LandingScreen = ({navigation}: {navigation: any}) => {
+  const onLoginPress = () => {
+    navigation.navigate('SignIn');
+  };
+  const onSignUpPress = () => {
+    navigation.navigate('SignUp');
+  };
   return (
     <View style={styles.container}>
       <LinearGradient
@@ -23,6 +27,7 @@ const LandingScreen = () => {
       </LinearGradient>
       <View style={styles.lowerContainer}>
         <Text style={styles.majorText}>Your Journey Begins Here.</Text>
+        <View style={styles.line} />
         <Text style={styles.minorText}>Holistic wellness is within reach.</Text>
         <View style={styles.buttonsWrapper}>
           <LoginButton onPress={onLoginPress} />
@@ -60,10 +65,17 @@ const styles = StyleSheet.create({
     marginLeft: 35,
     width: 200,
   },
+  line: {
+    width: 33,
+    height: 2,
+    backgroundColor: COLORS1.white,
+    marginTop: 15,
+    marginBottom: 13,
+    marginLeft: 35,
+  },
   minorText: {
     fontSize: 18,
     color: COLORS1.gray1,
-    marginTop: 29,
     marginLeft: 35,
     marginBottom: 50,
   },

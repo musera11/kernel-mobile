@@ -20,6 +20,9 @@ export const COLORS = {
 export const COLORS1 = {
   white: '#FFF',
   gray1: '#F0F3F4',
+  gray2: '#324755',
   black: '000',
   black1: '#1B1C20',
+  green1: '#87BCBF',
+  red: 'red',
 };
