@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {useDispatch} from 'react-redux';
 import {COLORS} from '../services/colors.service';
+import {WS_BOLD} from '../services/fonts.service';
 import {checkSignedInAction} from '../store/ducks/authDuck';
 
 const PingScreen = () => {
@@ -27,7 +28,8 @@ const styles = StyleSheet.create({
   },
   text: {
     color: COLORS.white1,
-    fontSize: 22,
+    fontSize: 28,
+    fontFamily: WS_BOLD,
   },
 });
 

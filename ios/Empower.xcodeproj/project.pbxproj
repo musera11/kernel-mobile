@@ -25,6 +25,16 @@
 		62A3D93026E24C9800649E20 /* MontserratAlternates-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 62A3D92626E24C9800649E20 /* MontserratAlternates-Regular.otf */; };
 		7EF68E3733C33B6898317E18 /* libPods-Empower-EmpowerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFE59519B596E51CEFDCCC0 /* libPods-Empower-EmpowerTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		D5BF6E0E270B391F00DF3ECE /* WorkSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D5BF6E0D270B391F00DF3ECE /* WorkSans-Bold.ttf */; };
+		D5BF6E13270B3A4900DF3ECE /* WorkSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D5BF6E0F270B3A4900DF3ECE /* WorkSans-Light.ttf */; };
+		D5BF6E14270B3A4900DF3ECE /* WorkSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D5BF6E10270B3A4900DF3ECE /* WorkSans-SemiBold.ttf */; };
+		D5BF6E15270B3A4900DF3ECE /* WorkSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D5BF6E11270B3A4900DF3ECE /* WorkSans-Regular.ttf */; };
+		D5BF6E16270B3A4900DF3ECE /* WorkSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D5BF6E12270B3A4900DF3ECE /* WorkSans-Medium.ttf */; };
+		D5BF6E18270B3C3700DF3ECE /* RiftSoft-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D5BF6E17270B3C3700DF3ECE /* RiftSoft-Bold.otf */; };
+		D5BF6E1D270B3D7B00DF3ECE /* RiftSoft-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = D5BF6E19270B3D7B00DF3ECE /* RiftSoft-Light.otf */; };
+		D5BF6E1E270B3D7B00DF3ECE /* RiftSoft-Demi.otf in Resources */ = {isa = PBXBuildFile; fileRef = D5BF6E1A270B3D7B00DF3ECE /* RiftSoft-Demi.otf */; };
+		D5BF6E1F270B3D7B00DF3ECE /* RiftSoft-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D5BF6E1B270B3D7B00DF3ECE /* RiftSoft-Regular.otf */; };
+		D5BF6E20270B3D7B00DF3ECE /* RiftSoft-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = D5BF6E1C270B3D7B00DF3ECE /* RiftSoft-Medium.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +75,16 @@
 		ABFE59519B596E51CEFDCCC0 /* libPods-Empower-EmpowerTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Empower-EmpowerTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0A881CF5CF3F2B244570E2A /* Pods-Empower.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Empower.debug.xcconfig"; path = "Target Support Files/Pods-Empower/Pods-Empower.debug.xcconfig"; sourceTree = "<group>"; };
 		D00AAFFCFCFDA5787532823F /* Pods-Empower.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Empower.release.xcconfig"; path = "Target Support Files/Pods-Empower/Pods-Empower.release.xcconfig"; sourceTree = "<group>"; };
+		D5BF6E0D270B391F00DF3ECE /* WorkSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "WorkSans-Bold.ttf"; path = "../src/assets/fonts/WorkSans-Bold.ttf"; sourceTree = "<group>"; };
+		D5BF6E0F270B3A4900DF3ECE /* WorkSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "WorkSans-Light.ttf"; path = "../src/assets/fonts/WorkSans-Light.ttf"; sourceTree = "<group>"; };
+		D5BF6E10270B3A4900DF3ECE /* WorkSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "WorkSans-SemiBold.ttf"; path = "../src/assets/fonts/WorkSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		D5BF6E11270B3A4900DF3ECE /* WorkSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "WorkSans-Regular.ttf"; path = "../src/assets/fonts/WorkSans-Regular.ttf"; sourceTree = "<group>"; };
+		D5BF6E12270B3A4900DF3ECE /* WorkSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "WorkSans-Medium.ttf"; path = "../src/assets/fonts/WorkSans-Medium.ttf"; sourceTree = "<group>"; };
+		D5BF6E17270B3C3700DF3ECE /* RiftSoft-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RiftSoft-Bold.otf"; path = "../src/assets/fonts/RiftSoft-Bold.otf"; sourceTree = "<group>"; };
+		D5BF6E19270B3D7B00DF3ECE /* RiftSoft-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RiftSoft-Light.otf"; path = "../src/assets/fonts/RiftSoft-Light.otf"; sourceTree = "<group>"; };
+		D5BF6E1A270B3D7B00DF3ECE /* RiftSoft-Demi.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RiftSoft-Demi.otf"; path = "../src/assets/fonts/RiftSoft-Demi.otf"; sourceTree = "<group>"; };
+		D5BF6E1B270B3D7B00DF3ECE /* RiftSoft-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RiftSoft-Regular.otf"; path = "../src/assets/fonts/RiftSoft-Regular.otf"; sourceTree = "<group>"; };
+		D5BF6E1C270B3D7B00DF3ECE /* RiftSoft-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RiftSoft-Medium.otf"; path = "../src/assets/fonts/RiftSoft-Medium.otf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -145,6 +165,16 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				D5BF6E1A270B3D7B00DF3ECE /* RiftSoft-Demi.otf */,
+				D5BF6E19270B3D7B00DF3ECE /* RiftSoft-Light.otf */,
+				D5BF6E1C270B3D7B00DF3ECE /* RiftSoft-Medium.otf */,
+				D5BF6E1B270B3D7B00DF3ECE /* RiftSoft-Regular.otf */,
+				D5BF6E17270B3C3700DF3ECE /* RiftSoft-Bold.otf */,
+				D5BF6E0F270B3A4900DF3ECE /* WorkSans-Light.ttf */,
+				D5BF6E12270B3A4900DF3ECE /* WorkSans-Medium.ttf */,
+				D5BF6E11270B3A4900DF3ECE /* WorkSans-Regular.ttf */,
+				D5BF6E10270B3A4900DF3ECE /* WorkSans-SemiBold.ttf */,
+				D5BF6E0D270B391F00DF3ECE /* WorkSans-Bold.ttf */,
 				62A3D92426E24C9800649E20 /* Montserrat-Bold.otf */,
 				62A3D91F26E24C9800649E20 /* MontserratAlternates-Light.otf */,
 				62A3D92126E24C9800649E20 /* MontserratAlternates-Medium.otf */,
@@ -283,6 +313,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5BF6E1D270B3D7B00DF3ECE /* RiftSoft-Light.otf in Resources */,
+				D5BF6E1E270B3D7B00DF3ECE /* RiftSoft-Demi.otf in Resources */,
+				D5BF6E1F270B3D7B00DF3ECE /* RiftSoft-Regular.otf in Resources */,
+				D5BF6E20270B3D7B00DF3ECE /* RiftSoft-Medium.otf in Resources */,
+				D5BF6E18270B3C3700DF3ECE /* RiftSoft-Bold.otf in Resources */,
+				D5BF6E13270B3A4900DF3ECE /* WorkSans-Light.ttf in Resources */,
+				D5BF6E14270B3A4900DF3ECE /* WorkSans-SemiBold.ttf in Resources */,
+				D5BF6E15270B3A4900DF3ECE /* WorkSans-Regular.ttf in Resources */,
+				D5BF6E16270B3A4900DF3ECE /* WorkSans-Medium.ttf in Resources */,
+				D5BF6E0E270B391F00DF3ECE /* WorkSans-Bold.ttf in Resources */,
 				62A3D92726E24C9800649E20 /* Oswald-Light.ttf in Resources */,
 				62A3D92826E24C9800649E20 /* Oswald-SemiBold.ttf in Resources */,
 				62A3D92926E24C9800649E20 /* MontserratAlternates-Light.otf in Resources */,
