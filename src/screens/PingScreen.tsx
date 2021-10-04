@@ -2,12 +2,13 @@ import React, {useEffect} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {useDispatch} from 'react-redux';
 import {COLORS} from '../services/colors.service';
+import {checkSignedInAction} from '../store/ducks/authDuck';
 
 const PingScreen = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // dispatch(checkSignedInAction());
+    dispatch(checkSignedInAction());
   }, [dispatch]);
 
   return (
