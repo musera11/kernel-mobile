@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {COLORS1} from '../../services/colors.service';
+import {RS_SEMI_BOLD} from '../../services/fonts.service';
 
 const SubmitButton: React.FC<{
   onPress: (event: GestureResponderEvent) => void;
@@ -31,5 +32,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 14,
     color: COLORS1.black1,
+    fontFamily: RS_SEMI_BOLD,
+    letterSpacing: 2,
   },
 });

@@ -14,6 +14,7 @@ import SubmitButton from '../../components/auth/SubmitButton';
 import Input from '../../components/auth/Input';
 import {COLORS1} from '../../services/colors.service';
 import Header from '../../components/shared/Header';
+import {WS_BOLD} from '../../services/fonts.service';
 
 const SignInScreen = () => {
   const signIn = () => {};
@@ -85,6 +86,7 @@ const styles = StyleSheet.create({
     height: 96,
   },
   majorText: {
+    fontFamily: WS_BOLD,
     fontSize: 30,
     color: COLORS1.white,
     marginTop: 30,

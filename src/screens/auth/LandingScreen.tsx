@@ -4,6 +4,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import LoginButton from '../../components/auth/LoginButton';
 import SignUpButton from '../../components/auth/SignUpButton';
 import {COLORS1} from '../../services/colors.service';
+import {WS_BOLD, WS_REGULAR} from '../../services/fonts.service';
 
 const LandingScreen = ({navigation}: {navigation: any}) => {
   const onLoginPress = () => {
@@ -64,6 +65,7 @@ const styles = StyleSheet.create({
     marginTop: 30,
     marginLeft: 35,
     width: 200,
+    fontFamily: WS_BOLD,
   },
   line: {
     width: 33,
@@ -78,6 +80,7 @@ const styles = StyleSheet.create({
     color: COLORS1.gray1,
     marginLeft: 35,
     marginBottom: 50,
+    fontFamily: WS_REGULAR,
   },
   buttonsWrapper: {
     alignItems: 'center',

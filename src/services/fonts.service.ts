@@ -10,6 +10,7 @@ export const M_MEDIUM = 'MontserratAlternates-Medium';
 export const M_SEMI_BOLD = 'MontserratAlternates-SemiBold';
 export const M_BOLD = 'Montserrat-Bold';
 
+// new
 export const WS_BOLD = 'WorkSans-Bold';
 export const WS_SEMI_BOLD = 'WorkSans-SemiBold';
 export const WS_MEDIUM = 'WorkSans-Medium';

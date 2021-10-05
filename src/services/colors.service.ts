@@ -21,6 +21,7 @@ export const COLORS1 = {
   white: '#FFF',
   gray1: '#F0F3F4',
   gray2: '#324755',
+  gray3: '#464749',
   black: '000',
   black1: '#1B1C20',
   green1: '#87BCBF',

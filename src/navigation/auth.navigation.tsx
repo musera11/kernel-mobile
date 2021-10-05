@@ -4,6 +4,7 @@ import LandingScreen from '../screens/auth/LandingScreen';
 import BGimageHoc from '../hocs/BGimageHoc';
 import SignInScreen from '../screens/auth/SignInScreen';
 import SignUpScreen from '../screens/auth/SignUpScreen';
+import InstructionsScreen from '../screens/auth/InstructionsScreen';
 
 const Stack = createStackNavigator();
 
@@ -13,6 +14,7 @@ function AuthStack() {
       <Stack.Screen name="Landing" component={BGimageHoc(LandingScreen)} />
       <Stack.Screen name="SignIn" component={BGimageHoc(SignInScreen)} />
       <Stack.Screen name="SignUp" component={SignUpScreen} />
+      <Stack.Screen name="Instructions" component={InstructionsScreen} />
     </Stack.Navigator>
   );
 }
