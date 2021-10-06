@@ -2,7 +2,7 @@ import {NavigationContainer, Theme} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
 import {useSelector} from 'react-redux';
-import PingScreen from '../screens/PingScreen';
+import PingScreen from '../screens/auth/PingScreen';
 import {_navigator} from '../services/navigation.service';
 import {RootState} from '../store/configureStore';
 import AuthNavigation from './auth.navigation';

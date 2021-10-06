@@ -5,12 +5,17 @@ import BGimageHoc from '../hocs/BGimageHoc';
 import SignInScreen from '../screens/auth/SignInScreen';
 import SignUpScreen from '../screens/auth/SignUpScreen';
 import InstructionsScreen from '../screens/ethos/InstructionsScreen';
+import ChooseEthosCardsScreen from '../screens/ethos/ChooseEthosCardsScreen';
 
 const Stack = createStackNavigator();
 
 function AuthStack() {
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
+      <Stack.Screen
+        name="ChooseEthosCards"
+        component={ChooseEthosCardsScreen}
+      />
       <Stack.Screen name="Landing" component={BGimageHoc(LandingScreen)} />
       <Stack.Screen name="SignIn" component={BGimageHoc(SignInScreen)} />
       <Stack.Screen name="SignUp" component={SignUpScreen} />
