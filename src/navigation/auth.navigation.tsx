@@ -4,7 +4,7 @@ import LandingScreen from '../screens/auth/LandingScreen';
 import BGimageHoc from '../hocs/BGimageHoc';
 import SignInScreen from '../screens/auth/SignInScreen';
 import SignUpScreen from '../screens/auth/SignUpScreen';
-import InstructionsScreen from '../screens/auth/InstructionsScreen';
+import InstructionsScreen from '../screens/ethos/InstructionsScreen';
 
 const Stack = createStackNavigator();
 

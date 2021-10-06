@@ -8,7 +8,7 @@ import VenuesScreen from '../screens/venues/VenuesScreen';
 import ProfileScreen from '../screens/profile/ProfileScreen';
 import {COLORS} from '../services/colors.service';
 import {StyleSheet} from 'react-native';
-import ProfileSettingsScreen from '../screens/profile/ProfileSettingsScreent';
+import ProfileSettingsScreen from '../screens/profile/ProfileSettingsScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();

@@ -10,9 +10,9 @@ import {
   View,
 } from 'react-native';
 import Fontisto from 'react-native-vector-icons/Fontisto';
-import DropDown from '../../components/Profile/DropDown';
-import Input from '../../components/Profile/Input';
-import InterestItem from '../../components/Profile/InterestItem';
+import DropDown from '../../components/profile/DropDown';
+import Input from '../../components/profile/Input';
+import InterestItem from '../../components/profile/InterestItem';
 import Header from '../../components/shared/Header';
 import {COLORS} from '../../services/colors.service';
 import {
@@ -29,7 +29,6 @@ const ProfileSettingsScreen = () => {
   const [showGender, setShowGender] = useState(false);
   const [fullName, setFullName] = useState('John doe');
   const [phone, setPhone] = useState('+995599123456');
-  const [selectedLanguage, setSelectedLanguage] = useState();
 
   const removeInterest = (index: number) => {
     setInterests(interests.filter((item, i) => i !== index));
