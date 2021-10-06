@@ -10,9 +10,13 @@ import {RS_SEMI_BOLD} from '../../services/fonts.service';
 
 const SubmitButton: React.FC<{
   onPress: (event: GestureResponderEvent) => void;
-}> = ({onPress}) => {
+  disabled?: boolean;
+}> = ({onPress, disabled = false}) => {
   return (
-    <TouchableOpacity style={styles.container} onPress={onPress}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={onPress}
+      disabled={disabled}>
       <Text style={styles.text}>SUBMIT</Text>
     </TouchableOpacity>
   );

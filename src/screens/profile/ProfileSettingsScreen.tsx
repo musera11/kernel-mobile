@@ -10,10 +10,10 @@ import {
   View,
 } from 'react-native';
 import Fontisto from 'react-native-vector-icons/Fontisto';
-import DropDown from '../../components/profile/DropDown';
-import Input from '../../components/profile/Input';
-import InterestItem from '../../components/profile/InterestItem';
-import Header from '../../components/shared/Header';
+// import DropDown from '../../components/profile/DropDown';
+// import Input from '../../components/profile/Input';
+// import InterestItem from '../../components/profile/InterestItem';
+// import Header from '../../components/shared/Header';
 import {COLORS} from '../../services/colors.service';
 import {
   M_MEDIUM,
@@ -42,9 +42,11 @@ const ProfileSettingsScreen = () => {
     setInterests([...interests, interestInputValue]);
   };
 
+  return null;
+
   return (
     <ScrollView style={styles.container}>
-      <Header />
+      {/*<Header />*/}
       <Text style={styles.settingsText}>Settings</Text>
       <View style={styles.yourInterestsTextAndIconWrapper}>
         <Text style={styles.yourInterestsText}>Your Interests</Text>
@@ -68,15 +70,15 @@ const ProfileSettingsScreen = () => {
         </TouchableOpacity>
       </View>
       <View style={styles.interestsContainer}>
-        {interests.map((int, i) => (
-          <InterestItem
-            interest={int}
-            index={i}
-            onRemovePress={removeInterest}
-            style={styles.interest}
-            key={int}
-          />
-        ))}
+        {/*{interests.map((int, i) => (*/}
+        {/*  <InterestItem*/}
+        {/*    interest={int}*/}
+        {/*    index={i}*/}
+        {/*    onRemovePress={removeInterest}*/}
+        {/*    style={styles.interest}*/}
+        {/*    key={int}*/}
+        {/*  />*/}
+        {/*))}*/}
       </View>
       <Text style={styles.hideFormOthersText}>Hide from others</Text>
       <View style={styles.switchersContainer}>
@@ -107,21 +109,21 @@ const ProfileSettingsScreen = () => {
         </View>
         <Text style={styles.hideShowText}>{showGender ? 'show' : 'hide'}</Text>
       </View>
-      <Input
-        value={fullName}
-        onChangeText={setFullName}
-        label="full Name"
-        inputContainerStyle={styles.inputContainerStyle}
-        mainContainerStyle={styles.inputMainContainerStyle}
-      />
-      <Input
-        value={phone}
-        onChangeText={setPhone}
-        label="Phone"
-        inputContainerStyle={styles.inputContainerStyle}
-        mainContainerStyle={styles.inputMainContainerStyle}
-      />
-      <DropDown />
+      {/*<Input*/}
+      {/*  value={fullName}*/}
+      {/*  onChangeText={setFullName}*/}
+      {/*  label="full Name"*/}
+      {/*  inputContainerStyle={styles.inputContainerStyle}*/}
+      {/*  mainContainerStyle={styles.inputMainContainerStyle}*/}
+      {/*/>*/}
+      {/*<Input*/}
+      {/*  value={phone}*/}
+      {/*  onChangeText={setPhone}*/}
+      {/*  label="Phone"*/}
+      {/*  inputContainerStyle={styles.inputContainerStyle}*/}
+      {/*  mainContainerStyle={styles.inputMainContainerStyle}*/}
+      {/*/>*/}
+      {/*<DropDown />*/}
     </ScrollView>
   );
 };

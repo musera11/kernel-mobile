@@ -28,6 +28,11 @@ export const mainReducer = (state = initialState, action: AnyAction) => {
   }
 };
 
+export const checkedSignedInAction = (isSignedIn: boolean) => ({
+  type: CHECKED_SIGNED_IN,
+  isSignedIn,
+});
+
 export const setDeviceTokenAction_SG = (data: any) => ({
   type: SET_DEVICE_TOKEN,
   data,
@@ -35,7 +40,7 @@ export const setDeviceTokenAction_SG = (data: any) => ({
 
 export const resetStoreAction = (isLoading = false) => ({
   type: RESET_STORE,
-  payload: isLoading,
+  isLoading,
 });
 
 export const navigateAction = (screen: string, params: Object) => {

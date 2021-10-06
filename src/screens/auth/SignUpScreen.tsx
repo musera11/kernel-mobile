@@ -1,26 +1,30 @@
 /* eslint-disable react-native/no-inline-styles */
+import AnimatedLottieView from 'lottie-react-native';
 import React, {useState} from 'react';
 import {
+  Dimensions,
   KeyboardAvoidingView,
+  LayoutAnimation,
   Platform,
+  ScrollView,
   StyleSheet,
   Text,
-  View,
-  ScrollView,
-  Dimensions,
-  LayoutAnimation,
   UIManager,
+  View,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import AnimatedLottieView from 'lottie-react-native';
-import SubmitButton from '../../components/auth/SubmitButton';
+import {useDispatch} from 'react-redux';
 import Input from '../../components/auth/Input';
-import {COLORS1} from '../../services/colors.service';
+import SubmitButton from '../../components/auth/SubmitButton';
 import Header from '../../components/shared/Header';
 import useKeyboardOffset from '../../hoocs/useKeyboard';
+import {COLORS1} from '../../services/colors.service';
 import {WS_BOLD, WS_REGULAR} from '../../services/fonts.service';
+import {signUpActionSG} from '../../store/ducks/authDuck';
+import {checkedSignedInAction} from '../../store/ducks/mainDuck';
 
-const SignUpScreen = ({navigation}: {navigation: any}) => {
+const SignUpScreen = () => {
+  const dispatch = useDispatch();
   const keyboardOffset = useKeyboardOffset();
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -29,6 +33,8 @@ const SignUpScreen = ({navigation}: {navigation: any}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showAnimation, setShowAnimation] = useState(false);
+  const emailReg =
+    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   if (Platform.OS === 'android') {
     if (UIManager.setLayoutAnimationEnabledExperimental) {
@@ -36,12 +42,37 @@ const SignUpScreen = ({navigation}: {navigation: any}) => {
     }
   }
 
+  const isDisabled = () => {
+    return (
+      firstName.trim().length === 0 ||
+      lastName.trim().length === 0 ||
+      phone.trim().length === 0 ||
+      companyCode.trim().length === 0 ||
+      !email.match(emailReg) ||
+      password.trim().length < 6
+    );
+  };
+
   const signUp = () => {
-    LayoutAnimation.spring();
-    setShowAnimation(true);
-    setTimeout(() => {
-      navigation.navigate('Instructions');
-    }, 7000);
+    dispatch(
+      signUpActionSG(
+        {
+          companyCode,
+          email,
+          firstName,
+          lastName,
+          password,
+          phone,
+        },
+        () => {
+          LayoutAnimation.spring();
+          setShowAnimation(true);
+          setTimeout(() => {
+            dispatch(checkedSignedInAction(true));
+          }, 7000);
+        },
+      ),
+    );
   };
 
   return (
@@ -84,12 +115,22 @@ const SignUpScreen = ({navigation}: {navigation: any}) => {
                   onChangeText={setEmail}
                   placeholder="Email"
                   inputContainerStyle={styles.inputContainer}
+                  textInputProps={{
+                    keyboardType: 'email-address',
+                    autoCompleteType: 'email',
+                  }}
                 />
                 <Input
                   value={phone}
                   onChangeText={setPhone}
                   placeholder="Phone"
                   inputContainerStyle={styles.inputContainer}
+                  textInputProps={{
+                    keyboardType: 'number-pad',
+                    autoCorrect: true,
+                    autoCompleteType: 'tel',
+                    textContentType: 'telephoneNumber',
+                  }}
                 />
                 <Input
                   value={password}
@@ -112,17 +153,19 @@ const SignUpScreen = ({navigation}: {navigation: any}) => {
                         Dimensions.get('window').height < 700 ? 20 : 70,
                     },
                   ]}>
-                  <SubmitButton onPress={signUp} />
+                  <SubmitButton onPress={signUp} disabled={isDisabled()} />
                 </View>
               </View>
             </KeyboardAvoidingView>
           </ScrollView>
         </LinearGradient>
       ) : (
-        <AnimatedLottieView
-          autoPlay
-          source={require('../../assets/animations/startup.json')}
-        />
+        <View style={styles.animationWrapper}>
+          <AnimatedLottieView
+            autoPlay
+            source={require('../../assets/animations/startup.json')}
+          />
+        </View>
       )}
     </>
   );
@@ -176,5 +219,9 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     borderBottomColor: COLORS1.white,
+  },
+  animationWrapper: {
+    flex: 1,
+    backgroundColor: COLORS1.gray2,
   },
 });

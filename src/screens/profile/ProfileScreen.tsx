@@ -1,14 +1,28 @@
 import React from 'react';
-import {TouchableOpacity} from 'react-native';
-import {Dimensions, Platform} from 'react-native';
-import {Image, ScrollView, StyleSheet, Text, View} from 'react-native';
+import {
+  Dimensions,
+  Image,
+  Platform,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Fontisto from 'react-native-vector-icons/Fontisto';
+import {useDispatch} from 'react-redux';
 import Header from '../../components/shared/Header';
 import {COLORS} from '../../services/colors.service';
 import {M_MEDIUM, M_SEMI_BOLD} from '../../services/fonts.service';
+import {logoutAction} from '../../store/ducks/authDuck';
 
 const ProfileScreen = () => {
+  const dispatch = useDispatch();
+  const LogOut = () => {
+    dispatch(logoutAction());
+  };
+
   return (
     <ScrollView style={styles.container}>
       <Header />
@@ -63,14 +77,14 @@ const ProfileScreen = () => {
               <Fontisto name="rocket" size={20} color={COLORS.red1} />
             </LinearGradient>
           </View>
-          <View style={styles.logoutWrapper}>
+          <TouchableOpacity style={styles.logoutWrapper} onPress={LogOut}>
             <Text style={styles.logoutText}>Log Out</Text>
             <LinearGradient
               colors={[COLORS.white1, COLORS.white2]}
               style={styles.logoutGradient}>
               <Fontisto name="rocket" size={19} color={COLORS.red1} />
             </LinearGradient>
-          </View>
+          </TouchableOpacity>
         </View>
       </View>
     </ScrollView>
