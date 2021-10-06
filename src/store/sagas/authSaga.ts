@@ -1,14 +1,18 @@
 import AsyncStorage from '@react-native-community/async-storage';
 import {put} from 'redux-saga/effects';
 import axiosInstance from '../../services/interceptor.service';
-import { ISignInData, ISignUpData } from '../../types/auth';
+import {ISignInData, ISignUpData} from '../../types/auth';
 // import {pushNotificationData} from '../../services/pushNotificationService';
 import {IUserData} from '../../types/main';
 // import {setMonitoringUsername} from '../../utils/monitoring';
 import {setUserDataAction} from '../ducks/authDuck';
 import {DEFAULT, notifyAction, resetStoreAction} from '../ducks/mainDuck';
 
-export function* signInSaga(payload: {data: ISignInData; callback: Function}) {
+export function* signInSaga(payload: {
+  data: ISignInData;
+  callback: Function;
+  type: string;
+}) {
   try {
     // const res: IUserData = yield axiosInstance.post('authorization/login', {
     //   data: payload.data,
@@ -31,7 +35,11 @@ export function* signInSaga(payload: {data: ISignInData; callback: Function}) {
   }
 }
 
-export function* signUpSaga(payload: {data: ISignUpData; callback: Function}) {
+export function* signUpSaga(payload: {
+  data: ISignUpData;
+  callback: Function;
+  type: string;
+}) {
   try {
     // const res: IUserData = yield axiosInstance.put('registration/register', {
     //   OS: Platform.OS,
