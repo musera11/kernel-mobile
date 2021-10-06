@@ -11,7 +11,7 @@ const notificationService = {
     payload?: string,
     interval?: number,
   ) => {
-    dropDownAlertRef.alertWithType(type, title, message, payload, interval);
+    dropDownAlertRef?.alertWithType(type, title, message, payload, interval);
   },
 };
 

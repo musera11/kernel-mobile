@@ -21,13 +21,13 @@ export type RootState = ReturnType<typeof appReducer>;
 
 const rootReducer = (state: ReturnType<typeof Object>, action: AnyAction) => {
   if (action.type === RESET_STORE) {
-    // state = {
-    //   mainReducer: {
-    //     isLoading: action.payload,
-    //     isSignedIn: false,
-    //   },
-    // };
-    return appReducer(undefined, action);
+    state = {
+      mainReducer: {
+        isLoading: action.isLoading,
+        isSignedIn: false,
+      },
+    };
+    return appReducer(state, action);
   }
   return appReducer(state, action);
 };

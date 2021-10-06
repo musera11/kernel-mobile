@@ -1,11 +1,12 @@
 import {AnyAction} from 'redux';
+import {ISignInData, ISignUpData} from '../../types/auth';
 import {IUserData} from '../../types/main';
 
 export const CHECK_SIGNED_IN = 'socialize/auth/checkSignedIn';
 export const SET_USER_DATA = 'socialize/auth/setUserData';
 export const UPDATE_USER_DATA = 'socialize/auth/updateUserData';
-export const REQUEST_SIGN_IN = 'socialize/auth/requestSignIn';
-export const REQUEST_SIGN_UP = 'socialize/auth/requestSignUp';
+export const REQUEST_SIGN_IN_SG = 'socialize/auth/requestSignIn_sg';
+export const REQUEST_SIGN_UP_SG = 'socialize/auth/requestSignUp_sg';
 export const LOGOUT = 'socialize/auth/logout';
 
 const initialState = {
@@ -34,12 +35,16 @@ export const checkSignedInAction = () => ({
   type: CHECK_SIGNED_IN,
 });
 
-export const signInAction = (data = {}) => ({
-  type: REQUEST_SIGN_IN,
+export const signInActionSG = (data: ISignInData, callback: Function) => ({
+  type: REQUEST_SIGN_IN_SG,
   data,
+  callback,
 });
-export const signUpAction = () => ({
-  type: REQUEST_SIGN_UP,
+
+export const signUpActionSG = (data: ISignUpData, callback: Function) => ({
+  type: REQUEST_SIGN_UP_SG,
+  data,
+  callback,
 });
 
 export const setUserDataAction = (userData: IUserData) => ({

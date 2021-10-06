@@ -4,21 +4,25 @@ import axiosInstance from '../../services/interceptor.service';
 import {IUserData} from '../../types/main';
 // import {setMonitoringUsername} from '../../utils/monitoring';
 import {setUserDataAction} from '../ducks/authDuck';
-import {CHECKED_SIGNED_IN, DEFAULT} from '../ducks/mainDuck';
+import {checkedSignedInAction, DEFAULT} from '../ducks/mainDuck';
 
 export function* checkSignedInSaga() {
   try {
-    const userData: IUserData = yield axiosInstance.get('auth/ping', {
-      removeLoader: true,
-    });
+    const userData: IUserData = yield axiosInstance.post(
+      'authorization/ping',
+      null,
+      {
+        removeLoader: true,
+      },
+    );
     if (userData.accessToken) {
       yield AsyncStorage.setItem('token', userData.accessToken);
     }
     // setMonitoringUsername(userData.username);
     yield put(setUserDataAction(userData));
-    yield put({type: CHECKED_SIGNED_IN, isSignedIn: true});
+    yield put(checkedSignedInAction(true));
   } catch (error) {
-    yield put({type: CHECKED_SIGNED_IN, isSignedIn: false});
+    yield put(checkedSignedInAction(false));
   }
 }
 
