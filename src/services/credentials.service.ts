@@ -1,5 +1,6 @@
 // export const backendUrl = 'http://localhost:8080/api/';
-export const backendUrl = 'https://api-dev.empowerofyou.com/';
+// export const backendUrl = 'http://192.168.1.5:8080/api/';
+export const backendUrl = 'https://api-dev.empowerofyou.com/api/';
 export const ENV = 'dev';
 
 //web socket

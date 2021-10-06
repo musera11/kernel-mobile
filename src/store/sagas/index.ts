@@ -8,6 +8,8 @@ import {
   REQUEST_SIGN_IN,
   REQUEST_SIGN_UP,
 } from '../ducks/authDuck';
+import {GET_CARDS} from '../ducks/ethosDuck';
+import {getCardsSaga} from './ethosSaga';
 
 function* actionWatcher() {
   yield takeLatest(CHECK_SIGNED_IN, checkSignedInSaga);
@@ -15,6 +17,7 @@ function* actionWatcher() {
   yield takeLatest(REQUEST_SIGN_IN, signInSaga);
   yield takeLatest(REQUEST_SIGN_UP, signUpSaga);
   yield takeLatest(LOGOUT, logoutSaga);
+  yield takeLatest(GET_CARDS, getCardsSaga);
 }
 
 export default function* rootSaga() {

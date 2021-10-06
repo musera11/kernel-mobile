@@ -7,7 +7,7 @@ import {
 } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 
-import {authReducer, mainReducer} from './ducks';
+import {authReducer, mainReducer, ethosReducer} from './ducks';
 import {RESET_STORE} from './ducks/mainDuck';
 
 export const sagaMiddleware = createSagaMiddleware();
@@ -15,6 +15,7 @@ export const sagaMiddleware = createSagaMiddleware();
 const appReducer = combineReducers({
   mainReducer,
   authReducer,
+  ethosReducer,
 });
 
 export type RootState = ReturnType<typeof appReducer>;

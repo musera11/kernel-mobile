@@ -6,6 +6,14 @@ import SignInScreen from '../screens/auth/SignInScreen';
 import SignUpScreen from '../screens/auth/SignUpScreen';
 import InstructionsScreen from '../screens/ethos/InstructionsScreen';
 import ChooseEthosCardsScreen from '../screens/ethos/ChooseEthosCardsScreen';
+import DimensionsScreen from '../screens/ethos/DimensionsScreen';
+import PhysicalDimensionScreen from '../screens/ethos/PhysicalDimensionScreen';
+import MentalDimensionScreen from '../screens/ethos/MentalDimensionScreen';
+import SocialDimensionScreen from '../screens/ethos/SocialDimensionScreen';
+import OccupationalDimensionScreen from '../screens/ethos/OccupationalDimensionScreen';
+import EnvironmentalDimensionScreen from '../screens/ethos/EnvironmentalDimensionScreen';
+import EmotionalDimensionScreen from '../screens/ethos/EmotionalDimensionScreen';
+import SpiritualDimensionScreen from '../screens/ethos/SpiritualDimensionScreen';
 
 const Stack = createStackNavigator();
 
@@ -15,6 +23,29 @@ function AuthStack() {
       <Stack.Screen
         name="ChooseEthosCards"
         component={ChooseEthosCardsScreen}
+      />
+      <Stack.Screen name="Dimensions" component={DimensionsScreen} />
+      <Stack.Screen
+        name="PhysicalDimension"
+        component={PhysicalDimensionScreen}
+      />
+      <Stack.Screen name="MentalDimension" component={MentalDimensionScreen} />
+      <Stack.Screen
+        name="OccupationalDimension"
+        component={OccupationalDimensionScreen}
+      />
+      <Stack.Screen name="SocialDimension" component={SocialDimensionScreen} />
+      <Stack.Screen
+        name="EnvironmentalDimension"
+        component={EnvironmentalDimensionScreen}
+      />
+      <Stack.Screen
+        name="EmotionalDimension"
+        component={EmotionalDimensionScreen}
+      />
+      <Stack.Screen
+        name="SpiritualDimension"
+        component={SpiritualDimensionScreen}
       />
       <Stack.Screen name="Landing" component={BGimageHoc(LandingScreen)} />
       <Stack.Screen name="SignIn" component={BGimageHoc(SignInScreen)} />
