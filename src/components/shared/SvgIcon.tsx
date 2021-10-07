@@ -10,6 +10,7 @@ import whiteBack from '../../assets/svgs/back_white.svg';
 import blackBack from '../../assets/svgs/back_black.svg';
 import whiteAudio from '../../assets/svgs/Audio_white.svg';
 import em from '../../assets/svgs/em.svg';
+import x from '../../assets/svgs/x.svg';
 const svgs: any = {
   add,
   email,
@@ -21,6 +22,7 @@ const svgs: any = {
   blackBack,
   em,
   whiteAudio,
+  x,
 };
 
 const SvgIcon = (props: any) => (
