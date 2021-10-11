@@ -6,7 +6,6 @@ import SignInScreen from '../screens/auth/SignInScreen';
 import SignUpScreen from '../screens/auth/SignUpScreen';
 import InstructionsScreen from '../screens/ethos/InstructionsScreen';
 import ChooseEthosCardsScreen from '../screens/ethos/ChooseEthosCardsScreen';
-import DimensionsScreen from '../screens/ethos/DimensionsScreen';
 import PhysicalDimensionScreen from '../screens/ethos/PhysicalDimensionScreen';
 import MentalDimensionScreen from '../screens/ethos/MentalDimensionScreen';
 import SocialDimensionScreen from '../screens/ethos/SocialDimensionScreen';
@@ -14,6 +13,7 @@ import OccupationalDimensionScreen from '../screens/ethos/OccupationalDimensionS
 import EnvironmentalDimensionScreen from '../screens/ethos/EnvironmentalDimensionScreen';
 import EmotionalDimensionScreen from '../screens/ethos/EmotionalDimensionScreen';
 import SpiritualDimensionScreen from '../screens/ethos/SpiritualDimensionScreen';
+import EditEthosCardsScreen from '../screens/ethos/EditEthosCardsScreen';
 
 const Stack = createStackNavigator();
 
@@ -24,11 +24,6 @@ function AuthStack() {
         name="ChooseEthosCards"
         component={ChooseEthosCardsScreen}
       />
-      <Stack.Screen name="Landing" component={BGimageHoc(LandingScreen)} />
-      <Stack.Screen name="SignIn" component={BGimageHoc(SignInScreen)} />
-      <Stack.Screen name="SignUp" component={SignUpScreen} />
-      <Stack.Screen name="Instructions" component={InstructionsScreen} />
-      <Stack.Screen name="Dimensions" component={DimensionsScreen} />
       <Stack.Screen
         name="PhysicalDimension"
         component={PhysicalDimensionScreen}
@@ -51,6 +46,11 @@ function AuthStack() {
         name="SpiritualDimension"
         component={SpiritualDimensionScreen}
       />
+      <Stack.Screen name="EditEthosCards" component={EditEthosCardsScreen} />
+      <Stack.Screen name="Landing" component={BGimageHoc(LandingScreen)} />
+      <Stack.Screen name="SignIn" component={BGimageHoc(SignInScreen)} />
+      <Stack.Screen name="SignUp" component={SignUpScreen} />
+      <Stack.Screen name="Instructions" component={InstructionsScreen} />
     </Stack.Navigator>
   );
 }

@@ -90,7 +90,7 @@ const ChooseEthosCardsScreen: React.FC<{navigation: any}> = ({navigation}) => {
 
   const onNextPress = () => {
     dispatch(setSelectedCardsAction(selectedCards));
-    navigation.navigate('Dimensions');
+    navigation.navigate('PhysicalDimension');
   };
 
   const onBackPress = () => {

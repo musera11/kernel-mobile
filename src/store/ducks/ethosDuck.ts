@@ -43,13 +43,14 @@ export const ethosReducer = (state = initialState, action: AnyAction) => {
         ...state,
       };
     case REMOVE_CARD_BY_DIMENSION:
-      i = state.cardsByDimension.findIndex(card => card._id === payload._id);
-      if (i !== -1) {
-        state.cardsByDimension.splice(i, 1);
+      if (state.cardsByDimension.length > 0) {
+        state.cardsByDimension.splice(state.cardsByDimension.length - 1, 1);
+        return {
+          ...state,
+        };
+      } else {
+        return state;
       }
-      return {
-        ...state,
-      };
     default:
       return state;
   }
@@ -74,7 +75,6 @@ export const addCardByDimensionAction = (card: EthosCardWithDimension) => ({
   payload: card,
 });
 
-export const removeCardByDimensionAction = (card: EthosCardWithDimension) => ({
+export const removeCardByDimensionAction = () => ({
   type: REMOVE_CARD_BY_DIMENSION,
-  payload: card,
 });

@@ -11,11 +11,20 @@ const DimensionContent: React.FC<{
   selectedCard: EthosCardType | undefined;
 }> = ({selectCard, selectedCard}) => {
   const {selectedCards} = useSelector((state: RootState) => state.ethosReducer);
+  const {cardsByDimension} = useSelector(
+    (state: RootState) => state.ethosReducer,
+  );
+  const getCardsToRender = () => {
+    return selectedCards.filter(
+      card => !cardsByDimension.find(cardByD => cardByD._id === card._id),
+    );
+  };
+
   return (
     <ScrollView
       contentContainerStyle={styles.container}
       showsVerticalScrollIndicator={false}>
-      {selectedCards.map((card, i) => (
+      {getCardsToRender().map((card, i) => (
         <EthosCard
           key={`${i}`}
           card={card}

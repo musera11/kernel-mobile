@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {useDispatch} from 'react-redux';
@@ -6,12 +6,21 @@ import DimensionContent from '../../components/ethos/DimensionContent';
 import EthosFooter from '../../components/ethos/EthosFooter';
 import {COLORS1} from '../../services/colors.service';
 import {WS_BOLD} from '../../services/fonts.service';
-import {addCardByDimensionAction} from '../../store/ducks/ethosDuck';
+import {
+  addCardByDimensionAction,
+  removeCardByDimensionAction,
+} from '../../store/ducks/ethosDuck';
 import {EthosCardType} from '../../types/ethos';
 
 const MentalDimensionScreen: React.FC<{navigation: any}> = ({navigation}) => {
   const dispatch = useDispatch();
   const [selectedCard, setSelectedCard] = useState<EthosCardType>();
+
+  useEffect(() => {
+    return () => {
+      dispatch(removeCardByDimensionAction());
+    };
+  }, [dispatch]);
 
   const selectCard = (card: EthosCardType) => {
     setSelectedCard(card);

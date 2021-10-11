@@ -13,7 +13,7 @@ import SvgIcon from '../shared/SvgIcon';
 const EthosFooter: React.FC<{
   theme?: 'light' | 'dark' | undefined;
   onNext: Function;
-  onBack: Function;
+  onBack?: Function;
   containerStyle?: ViewStyle;
   disableNext?: boolean;
 }> = ({theme, onNext, onBack, containerStyle, disableNext}) => {
@@ -22,26 +22,28 @@ const EthosFooter: React.FC<{
   };
 
   const back = () => {
-    onBack();
+    onBack && onBack();
   };
 
   return (
     <View style={[styles.container, containerStyle]}>
-      <TouchableOpacity
-        style={[
-          styles.backButton,
-          {borderColor: theme === 'light' ? COLORS1.white : COLORS1.gray2},
-        ]}
-        onPress={back}>
-        <SvgIcon name={theme === 'light' ? 'whiteBack' : 'blackBack'} />
-        <Text
+      {onBack && (
+        <TouchableOpacity
           style={[
-            styles.backText,
-            {color: theme === 'light' ? COLORS1.white : COLORS1.gray3},
-          ]}>
-          BACK
-        </Text>
-      </TouchableOpacity>
+            styles.backButton,
+            {borderColor: theme === 'light' ? COLORS1.white : COLORS1.gray2},
+          ]}
+          onPress={back}>
+          <SvgIcon name={theme === 'light' ? 'whiteBack' : 'blackBack'} />
+          <Text
+            style={[
+              styles.backText,
+              {color: theme === 'light' ? COLORS1.white : COLORS1.gray3},
+            ]}>
+            BACK
+          </Text>
+        </TouchableOpacity>
+      )}
       <View />
       <TouchableOpacity
         disabled={disableNext}
@@ -90,10 +92,12 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 15,
     fontFamily: RS_MEDIUM,
+    letterSpacing: 1.5,
   },
   backText: {
     fontSize: 15,
     fontFamily: RS_MEDIUM,
     marginLeft: 6,
+    letterSpacing: 1.5,
   },
 });
