@@ -149,6 +149,12 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
         }
+        release {
+            storeFile file('my-release-key.keystore')
+            storePassword 'empower123'
+            keyAlias 'my_alias'
+            keyPassword 'empower123'
+        }
     }
     buildTypes {
         debug {
