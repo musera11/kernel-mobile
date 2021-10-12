@@ -20,6 +20,9 @@ const Stack = createStackNavigator();
 function AuthStack() {
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
+      <Stack.Screen name="Landing" component={BGimageHoc(LandingScreen)} />
+      <Stack.Screen name="SignIn" component={BGimageHoc(SignInScreen)} />
+      <Stack.Screen name="SignUp" component={SignUpScreen} />
       <Stack.Screen
         name="ChooseEthosCards"
         component={ChooseEthosCardsScreen}
@@ -47,9 +50,6 @@ function AuthStack() {
         component={SpiritualDimensionScreen}
       />
       <Stack.Screen name="EditEthosCards" component={EditEthosCardsScreen} />
-      <Stack.Screen name="Landing" component={BGimageHoc(LandingScreen)} />
-      <Stack.Screen name="SignIn" component={BGimageHoc(SignInScreen)} />
-      <Stack.Screen name="SignUp" component={SignUpScreen} />
       <Stack.Screen name="Instructions" component={InstructionsScreen} />
     </Stack.Navigator>
   );

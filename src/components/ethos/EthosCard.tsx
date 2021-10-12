@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity, ViewStyle} from 'react-native';
+import {DraxView, DraxViewProps} from 'react-native-drax';
 import LinearGradient from 'react-native-linear-gradient';
 import {COLORS1} from '../../services/colors.service';
 import {RS_BOLD} from '../../services/fonts.service';
@@ -12,27 +13,58 @@ const EthosCard: React.FC<{
   containerStyle?: ViewStyle;
   disabled?: boolean;
   selected?: boolean;
-}> = ({card, onPress, containerStyle, disabled, selected, onRemove}) => {
+  draggable?: boolean;
+  draxViewProps?: DraxViewProps;
+}> = ({
+  card,
+  onPress,
+  containerStyle,
+  disabled,
+  selected,
+  onRemove,
+  draggable,
+  draxViewProps,
+}) => {
   return (
     <>
-      <TouchableOpacity
-        disabled={disabled}
-        style={[
-          styles.container,
-          {backgroundColor: !selected ? COLORS1.orange : undefined},
-          containerStyle,
-        ]}
-        onPress={() => (onPress ? onPress(card) : null)}>
-        {selected ? (
-          <LinearGradient
-            colors={['#72CCD0', '#87BCBF']}
-            style={styles.container}>
+      {!draggable ? (
+        <TouchableOpacity
+          disabled={disabled}
+          style={[
+            styles.container,
+            {backgroundColor: !selected ? COLORS1.orange : undefined},
+            containerStyle,
+          ]}
+          onPress={() => (onPress ? onPress(card) : null)}>
+          {selected ? (
+            <LinearGradient
+              colors={['#72CCD0', '#87BCBF']}
+              style={styles.container}>
+              <Text style={styles.text}>{card.title}</Text>
+            </LinearGradient>
+          ) : (
             <Text style={styles.text}>{card.title}</Text>
-          </LinearGradient>
-        ) : (
-          <Text style={styles.text}>{card.title}</Text>
-        )}
-      </TouchableOpacity>
+          )}
+        </TouchableOpacity>
+      ) : (
+        <DraxView
+          style={[
+            styles.container,
+            {backgroundColor: !selected ? COLORS1.orange : undefined},
+            containerStyle,
+          ]}
+          {...draxViewProps}>
+          {selected ? (
+            <LinearGradient
+              colors={['#72CCD0', '#87BCBF']}
+              style={styles.container}>
+              <Text style={styles.text}>{card.title}</Text>
+            </LinearGradient>
+          ) : (
+            <Text style={styles.text}>{card.title}</Text>
+          )}
+        </DraxView>
+      )}
       {onRemove && (
         <TouchableOpacity
           style={styles.x}

@@ -8,6 +8,7 @@ import {
 export const GET_CARDS = 'empower/ethos/getCards_sg';
 export const SET_ALL_CARDS = 'empower/ethos/setAllCards';
 export const SET_SELECTED_CARDS = 'empower/ethos/setSelectedCards';
+export const SET_CARDS_BY_DIMENSION = 'empower/ethos/setCardsByDimension';
 export const ADD_CARD_BY_DIMENSION = 'empower/ethos/addCardByDimension';
 export const REMOVE_CARD_BY_DIMENSION = 'empower/ethos/removeCardByDimension';
 
@@ -31,6 +32,11 @@ export const ethosReducer = (state = initialState, action: AnyAction) => {
       return {
         ...state,
         selectedCards: payload as EthosCardType[],
+      };
+    case SET_CARDS_BY_DIMENSION:
+      return {
+        ...state,
+        cardsByDimension: payload as EthosCardWithDimension[],
       };
     case ADD_CARD_BY_DIMENSION:
       i = state.cardsByDimension.findIndex(card => card._id === payload._id);
@@ -70,9 +76,14 @@ export const setSelectedCardsAction = (cards: EthosCardType[]) => ({
   payload: cards,
 });
 
-export const addCardByDimensionAction = (card: EthosCardWithDimension) => ({
+export const setCardsByDimensionAction = (cards: EthosCardType[]) => ({
+  type: SET_SELECTED_CARDS,
+  payload: cards,
+});
+
+export const addCardByDimensionAction = (cards: EthosCardWithDimension[]) => ({
   type: ADD_CARD_BY_DIMENSION,
-  payload: card,
+  payload: cards,
 });
 
 export const removeCardByDimensionAction = () => ({

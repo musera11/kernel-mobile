@@ -77,7 +77,7 @@ const SignUpScreen = () => {
 
   return (
     <>
-      {!showAnimation ? (
+      {showAnimation ? (
         <LinearGradient colors={['#72CCD0', '#87BCBF']} style={styles.flex1}>
           <Header statusBarMargin />
           {!keyboardOffset ? <View style={styles.flex1} /> : null}
