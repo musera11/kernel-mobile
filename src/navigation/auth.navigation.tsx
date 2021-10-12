@@ -21,7 +21,7 @@ function AuthStack() {
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen name="Landing" component={BGimageHoc(LandingScreen)} />
-      <Stack.Screen name="SignIn" component={BGimageHoc(SignInScreen)} />
+      <Stack.Screen name="SignIn" component={BGimageHoc(SignInScreen, true)} />
       <Stack.Screen name="SignUp" component={SignUpScreen} />
       <Stack.Screen
         name="ChooseEthosCards"

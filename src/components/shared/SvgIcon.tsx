@@ -11,6 +11,14 @@ import blackBack from '../../assets/svgs/back_black.svg';
 import whiteAudio from '../../assets/svgs/Audio_white.svg';
 import em from '../../assets/svgs/em.svg';
 import x from '../../assets/svgs/x.svg';
+import hands from '../../assets/svgs/hands.svg';
+import handsAndHart from '../../assets/svgs/handsAndHart.svg';
+import person from '../../assets/svgs/person.svg';
+import sun from '../../assets/svgs/sun.svg';
+import profileSettings from '../../assets/svgs/profileSettings.svg';
+import hart from '../../assets/svgs/hart.svg';
+import empower from '../../assets/svgs/empower.svg';
+
 const svgs: any = {
   add,
   email,
@@ -23,6 +31,13 @@ const svgs: any = {
   em,
   whiteAudio,
   x,
+  hands,
+  handsAndHart,
+  person,
+  sun,
+  profileSettings,
+  hart,
+  empower,
 };
 
 const SvgIcon = (props: any) => (

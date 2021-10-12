@@ -1,4 +1,3 @@
-import AnimatedLottieView from 'lottie-react-native';
 import React, {useState} from 'react';
 import {
   Dimensions,
@@ -20,9 +19,12 @@ import Header from '../../components/shared/Header';
 import {WS_BOLD} from '../../services/fonts.service';
 import {signInActionSG} from '../../store/ducks/authDuck';
 import {checkedSignedInAction} from '../../store/ducks/mainDuck';
+import Spinner from 'react-native-spinkit';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 const SignInScreen = () => {
   const dispatch = useDispatch();
+  const insets = useSafeAreaInsets();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showAnimation, setShowAnimation] = useState(false);
@@ -53,7 +55,7 @@ const SignInScreen = () => {
             behavior={'position'}>
             <LinearGradient
               colors={['rgba(0,0,0,0)', '#516A7B']}
-              style={styles.gradientContainer}>
+              style={[styles.gradientContainer, {marginTop: insets.top}]}>
               <Header style={styles.absolute} />
               <View style={styles.upperContainer}>
                 <Image
@@ -96,9 +98,11 @@ const SignInScreen = () => {
         </ScrollView>
       ) : (
         <View style={styles.animationWrapper}>
-          <AnimatedLottieView
-            autoPlay
-            source={require('../../assets/animations/startup.json')}
+          <Spinner
+            isVisible={true}
+            type={'Bounce'}
+            color={COLORS1.white}
+            size={80}
           />
         </View>
       )}
@@ -155,6 +159,8 @@ const styles = StyleSheet.create({
   },
   animationWrapper: {
     flex: 1,
-    backgroundColor: COLORS1.gray2,
+    backgroundColor: COLORS1.green2,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
