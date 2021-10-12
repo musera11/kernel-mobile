@@ -30,7 +30,7 @@ export function* signInSaga(payload: {
     payload.callback();
   } catch (error: any) {
     yield put(
-      notifyAction('error', 'Error', error.response?.data.message, true),
+      notifyAction('warning', 'Note', error.response?.data.message, true),
     );
   }
 }
@@ -60,7 +60,7 @@ export function* signUpSaga(payload: {
     payload.callback();
   } catch (error: any) {
     yield put(
-      notifyAction('error', 'Error', error.response?.data.message, true),
+      notifyAction('warning', 'Note', error.response?.data.message, true),
     );
   } finally {
     yield put({type: DEFAULT});

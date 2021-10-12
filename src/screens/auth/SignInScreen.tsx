@@ -44,7 +44,9 @@ const SignInScreen = () => {
   return (
     <>
       {!showAnimation ? (
-        <ScrollView showsVerticalScrollIndicator={false}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          keyboardShouldPersistTaps={'handled'}>
           <KeyboardAvoidingView
             style={styles.flex1}
             keyboardVerticalOffset={Platform.select({ios: 50, android: 0})}

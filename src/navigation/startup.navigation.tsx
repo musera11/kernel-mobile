@@ -24,7 +24,7 @@ const StartupNavigation: React.FC<{theme: Theme | undefined}> = ({theme}) => {
           <Stack.Screen name="Ping" component={PingScreen} />
         </Stack.Navigator>
       ) : isSignedIn ? (
-        <AuthNavigation />
+        <MainNavigation />
       ) : (
         <AuthNavigation />
       )}

@@ -1,5 +1,4 @@
 /* eslint-disable react-native/no-inline-styles */
-import AnimatedLottieView from 'lottie-react-native';
 import React, {useState} from 'react';
 import {
   Dimensions,
@@ -13,6 +12,7 @@ import {
   View,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import Spinner from 'react-native-spinkit';
 import {useDispatch} from 'react-redux';
 import Input from '../../components/auth/Input';
 import SubmitButton from '../../components/auth/SubmitButton';
@@ -77,7 +77,7 @@ const SignUpScreen = () => {
 
   return (
     <>
-      {showAnimation ? (
+      {!showAnimation ? (
         <LinearGradient colors={['#72CCD0', '#87BCBF']} style={styles.flex1}>
           <Header statusBarMargin />
           {!keyboardOffset ? <View style={styles.flex1} /> : null}
@@ -161,9 +161,11 @@ const SignUpScreen = () => {
         </LinearGradient>
       ) : (
         <View style={styles.animationWrapper}>
-          <AnimatedLottieView
-            autoPlay
-            source={require('../../assets/animations/startup.json')}
+          <Spinner
+            isVisible={true}
+            type={'Bounce'}
+            color={COLORS1.white}
+            size={80}
           />
         </View>
       )}
@@ -222,6 +224,8 @@ const styles = StyleSheet.create({
   },
   animationWrapper: {
     flex: 1,
-    backgroundColor: COLORS1.gray2,
+    backgroundColor: COLORS1.green2,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

@@ -26,6 +26,7 @@ export const COLORS1 = {
   black: '000',
   black1: '#1B1C20',
   green1: '#87BCBF',
+  green2: '#1abc9c',
   red: 'red',
   orange: '#FFBE76',
 };

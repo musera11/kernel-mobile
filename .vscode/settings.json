@@ -3,8 +3,10 @@
     "Drax",
     "Fontisto",
     "hocs",
+    "hoocs",
     "Ionicons",
     "middlewares",
+    "spinkit",
     "svgs"
   ]
 }
