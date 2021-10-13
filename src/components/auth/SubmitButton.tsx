@@ -14,7 +14,7 @@ const SubmitButton: React.FC<{
 }> = ({onPress, disabled = false}) => {
   return (
     <TouchableOpacity
-      style={styles.container}
+      style={[styles.container, disabled && styles.disabled]}
       onPress={onPress}
       disabled={disabled}>
       <Text style={styles.text}>SUBMIT</Text>
@@ -38,5 +38,8 @@ const styles = StyleSheet.create({
     color: COLORS1.black1,
     fontFamily: RS_SEMI_BOLD,
     letterSpacing: 2,
+  },
+  disabled: {
+    opacity: 0.5,
   },
 });

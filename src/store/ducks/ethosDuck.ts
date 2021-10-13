@@ -77,7 +77,7 @@ export const setSelectedCardsAction = (cards: EthosCardType[]) => ({
 });
 
 export const setCardsByDimensionAction = (cards: EthosCardType[]) => ({
-  type: SET_SELECTED_CARDS,
+  type: SET_CARDS_BY_DIMENSION,
   payload: cards,
 });
 

@@ -43,6 +43,10 @@ const SignInScreen = () => {
     );
   };
 
+  const disableSubmit = () => {
+    return !email.match(emailReg) || password.length < 6;
+  };
+
   return (
     <>
       {!showAnimation ? (
@@ -88,10 +92,7 @@ const SignInScreen = () => {
                 }}
               />
               <View style={styles.signInWrapper}>
-                <SubmitButton
-                  onPress={signIn}
-                  disabled={!email.match(emailReg) || password.length < 6}
-                />
+                <SubmitButton onPress={signIn} disabled={disableSubmit()} />
               </View>
             </View>
           </KeyboardAvoidingView>

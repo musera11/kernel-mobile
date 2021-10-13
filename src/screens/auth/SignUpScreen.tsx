@@ -42,7 +42,7 @@ const SignUpScreen = () => {
     }
   }
 
-  const isDisabled = () => {
+  const disableSubmit = () => {
     return (
       firstName.trim().length === 0 ||
       lastName.trim().length === 0 ||
@@ -153,7 +153,7 @@ const SignUpScreen = () => {
                         Dimensions.get('window').height < 700 ? 20 : 70,
                     },
                   ]}>
-                  <SubmitButton onPress={signUp} disabled={isDisabled()} />
+                  <SubmitButton onPress={signUp} disabled={disableSubmit()} />
                 </View>
               </View>
             </KeyboardAvoidingView>

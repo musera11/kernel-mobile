@@ -1,8 +1,6 @@
 import React, {useEffect} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View, Image} from 'react-native';
 import {useDispatch} from 'react-redux';
-import {COLORS} from '../../services/colors.service';
-import {WS_BOLD} from '../../services/fonts.service';
 import {checkSignedInAction} from '../../store/ducks/authDuck';
 
 const PingScreen = () => {
@@ -14,7 +12,11 @@ const PingScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>EMPOWER</Text>
+      <Image
+        source={require('../../assets/images/splash.png')}
+        resizeMode="contain"
+        style={styles.image}
+      />
     </View>
   );
 };
@@ -24,12 +26,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: COLORS.purple1,
+    backgroundColor: '#516A7B',
   },
-  text: {
-    color: COLORS.white1,
-    fontSize: 28,
-    fontFamily: WS_BOLD,
+  image: {
+    width: 176,
+    height: 133,
   },
 });
 

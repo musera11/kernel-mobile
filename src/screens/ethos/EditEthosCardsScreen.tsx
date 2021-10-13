@@ -31,6 +31,7 @@ const EditEthosCardsScreen = () => {
     }
     const draggingCardIndex = selectedCards.indexOf(draggingCard);
     const receivingCardIndex = cardsByDimension.indexOf(card);
+
     dispatch(setSelectedCardsAction(selectedCards));
     dispatch(setCardsByDimensionAction(cardsByDimension));
   };
