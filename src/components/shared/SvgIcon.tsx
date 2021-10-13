@@ -18,6 +18,7 @@ import sun from '../../assets/svgs/sun.svg';
 import profileSettings from '../../assets/svgs/profileSettings.svg';
 import hart from '../../assets/svgs/hart.svg';
 import empower from '../../assets/svgs/empower.svg';
+import library from '../../assets/svgs/library.svg';
 
 const svgs: any = {
   add,
@@ -38,6 +39,7 @@ const svgs: any = {
   profileSettings,
   hart,
   empower,
+  library,
 };
 
 const SvgIcon = (props: any) => (

@@ -4,7 +4,7 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import LinearGradient from 'react-native-linear-gradient';
 import SvgIcon from './SvgIcon';
 import {COLORS1} from '../../services/colors.service';
-import {RS_SEMI_BOLD} from '../../services/fonts.service';
+import {RS_BOLD, RS_SEMI_BOLD} from '../../services/fonts.service';
 import {ParamListBase, TabNavigationState} from '@react-navigation/routers';
 import {
   BottomTabDescriptorMap,
@@ -82,8 +82,13 @@ const TabBar: React.FC<{
               onPress={onPress}
               onLongPress={onLongPress}
               style={styles.tab}>
-              <SvgIcon name={getIconNameByRoute(route.name)} />
-              <Text style={styles.label}>{getLabelByRoute(route.name)}</Text>
+              <SvgIcon
+                name={getIconNameByRoute(route.name)}
+                style={isFocused ? styles.selectedSvg : styles.svg}
+              />
+              <Text style={[styles.label, isFocused && styles.sleetedLabel]}>
+                {getLabelByRoute(route.name)}
+              </Text>
             </TouchableOpacity>
           );
         })}
@@ -95,7 +100,11 @@ const TabBar: React.FC<{
 export default TabBar;
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'transparent',
+    borderRadius: 10,
+    position: 'absolute',
+    left: 0,
+    bottom: 0,
+    right: 0,
   },
   tabsWrapper: {
     flexDirection: 'row',
@@ -111,5 +120,17 @@ const styles = StyleSheet.create({
     color: COLORS1.white,
     fontFamily: RS_SEMI_BOLD,
     marginTop: 6,
+    opacity: 0.9,
+    letterSpacing: 1.2,
+  },
+  sleetedLabel: {
+    fontFamily: RS_BOLD,
+    color: 'blue',
+  },
+  svg: {
+    opacity: 0.9,
+  },
+  selectedSvg: {
+    opacity: 1,
   },
 });
