@@ -10,6 +10,7 @@ import {WS_BOLD, WS_SEMI_BOLD} from '../../services/fonts.service';
 import {RootState} from '../../store/configureStore';
 import {
   getCardsActionSG,
+  postCardsActionSG,
   setSelectedCardsAction,
 } from '../../store/ducks/ethosDuck';
 import {EthosCardType} from '../../types/ethos';
@@ -89,6 +90,7 @@ const ChooseEthosCardsScreen: React.FC<{navigation: any}> = ({navigation}) => {
   };
 
   const onNextPress = () => {
+    dispatch(postCardsActionSG(selectedCards.map(c => c._id)));
     dispatch(setSelectedCardsAction(selectedCards));
     navigation.navigate('PhysicalDimension');
   };

@@ -1,7 +1,6 @@
 import * as React from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import {View, StyleSheet, Text, Dimensions} from 'react-native';
 import {DraxProvider} from 'react-native-drax';
-import {ScrollView} from 'react-native-gesture-handler';
 import LinearGradient from 'react-native-linear-gradient';
 import {useDispatch, useSelector} from 'react-redux';
 import EthosCard from '../../components/ethos/EthosCard';
@@ -11,6 +10,7 @@ import {COLORS1} from '../../services/colors.service';
 import {RS_SEMI_BOLD, WS_BOLD} from '../../services/fonts.service';
 import {RootState} from '../../store/configureStore';
 import {
+  postCardsByDimensionsActionSG,
   setCardsByDimensionAction,
   setSelectedCardsAction,
 } from '../../store/ducks/ethosDuck';
@@ -21,6 +21,7 @@ const EditEthosCardsScreen: React.FC<{navigation: any}> = ({navigation}) => {
     (state: RootState) => state.ethosReducer,
   );
   const dispatch = useDispatch();
+  console.log(Dimensions.get('window').height);
 
   const [draggingCard, setDraggingCard] = React.useState<EthosCardType>();
 
@@ -41,6 +42,11 @@ const EditEthosCardsScreen: React.FC<{navigation: any}> = ({navigation}) => {
       selectedCards.findIndex(c => card._id === c._id),
       cardsByDimension.findIndex(c => card._id === c._id),
     ];
+    console.log(
+      {draggingCardIndex},
+      {receivingCardIndexInSelectedCards},
+      {receivingCardIndex},
+    );
     cardsByDimension[receivingCardIndex] = {
       dimension: card.dimension,
       ...draggingCard,
@@ -54,6 +60,14 @@ const EditEthosCardsScreen: React.FC<{navigation: any}> = ({navigation}) => {
   };
 
   const onNextPress = () => {
+    dispatch(
+      postCardsByDimensionsActionSG(
+        cardsByDimension.map(c => ({
+          ethosCardId: c._id,
+          type: c.dimension.toUpperCase(),
+        })),
+      ),
+    );
     navigation.navigate('SubmitSelectedEthosCards');
   };
 
@@ -86,9 +100,7 @@ const EditEthosCardsScreen: React.FC<{navigation: any}> = ({navigation}) => {
               />
             ))}
           </View>
-          <ScrollView
-            contentContainerStyle={styles.container}
-            showsVerticalScrollIndicator={false}>
+          <View style={styles.container}>
             {cardsByDimension.map((card, i) => (
               <View style={styles.texAndCardWrapper} key={`${i}`}>
                 <Text style={styles.dimensionText}>{card.dimension}</Text>
@@ -104,7 +116,7 @@ const EditEthosCardsScreen: React.FC<{navigation: any}> = ({navigation}) => {
                 />
               </View>
             ))}
-          </ScrollView>
+          </View>
           <EthosFooter onNext={onNextPress} containerStyle={styles.footer} />
         </LinearGradient>
       </DraxProvider>
@@ -119,12 +131,13 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingLeft: 25,
     paddingRight: 25,
+    paddingBottom: 10,
   },
   majorText: {
     color: COLORS1.gray2,
     fontSize: 18,
     fontFamily: WS_BOLD,
-    marginTop: 50,
+    marginTop: Dimensions.get('window').height < 750 ? 35 : 50,
     textAlign: 'center',
   },
   minorText: {
@@ -144,7 +157,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontFamily: RS_SEMI_BOLD,
     letterSpacing: 0.8,
-    marginTop: 22,
+    marginTop: Dimensions.get('window').height < 750 ? 5 : 22,
   },
   card: {
     margin: 7,
@@ -152,7 +165,7 @@ const styles = StyleSheet.create({
   lineCardsWrapper: {
     flexDirection: 'row',
     marginTop: 30,
-    marginBottom: 34,
+    marginBottom: Dimensions.get('window').height < 750 ? 15 : 34,
     justifyContent: 'space-around',
     paddingLeft: 42,
     paddingRight: 22,

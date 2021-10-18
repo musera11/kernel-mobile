@@ -5,7 +5,10 @@ import {
   EthosState,
 } from '../../types/ethos';
 
-export const GET_CARDS = 'empower/ethos/getCards_sg';
+export const GET_CARDS_SG = 'empower/ethos/getCards_sg';
+export const POST_CARDS_SG = 'empower/ethos/postCards_sg';
+export const POST_CARDS_BY_DIMENSION_SG =
+  'empower/ethos/postCardsByDimension_sg';
 export const SET_ALL_CARDS = 'empower/ethos/setAllCards';
 export const SET_SELECTED_CARDS = 'empower/ethos/setSelectedCards';
 export const SET_CARDS_BY_DIMENSION = 'empower/ethos/setCardsByDimension';
@@ -63,7 +66,22 @@ export const ethosReducer = (state = initialState, action: AnyAction) => {
 };
 
 export const getCardsActionSG = () => ({
-  type: GET_CARDS,
+  type: GET_CARDS_SG,
+});
+
+export const postCardsActionSG = (cards: any, successCallBack?: Function) => ({
+  type: POST_CARDS_SG,
+  cards,
+  successCallBack,
+});
+
+export const postCardsByDimensionsActionSG = (
+  cards: any,
+  successCallBack?: Function,
+) => ({
+  type: POST_CARDS_BY_DIMENSION_SG,
+  cards,
+  successCallBack,
 });
 
 export const setAllCardsAction = (cards: EthosCardType[]) => ({
