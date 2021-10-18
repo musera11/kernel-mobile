@@ -112,6 +112,7 @@ const ChooseEthosCardsScreen: React.FC<{navigation: any}> = ({navigation}) => {
             card={card}
             onPress={addCard}
             disabled={disableCard(card)}
+            selected={selectedCards.includes(card)}
             key={card._id}
             containerStyle={styles.card}
           />

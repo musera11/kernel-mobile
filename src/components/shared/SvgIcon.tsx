@@ -19,6 +19,7 @@ import profileSettings from '../../assets/svgs/profileSettings.svg';
 import hart from '../../assets/svgs/hart.svg';
 import empower from '../../assets/svgs/empower.svg';
 import library from '../../assets/svgs/library.svg';
+import audioWhite from '../../assets/svgs/audioWhite.svg';
 
 const svgs: any = {
   add,
@@ -40,6 +41,7 @@ const svgs: any = {
   hart,
   empower,
   library,
+  audioWhite,
 };
 
 const SvgIcon = (props: any) => (

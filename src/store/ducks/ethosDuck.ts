@@ -81,9 +81,9 @@ export const setCardsByDimensionAction = (cards: EthosCardType[]) => ({
   payload: cards,
 });
 
-export const addCardByDimensionAction = (cards: EthosCardWithDimension[]) => ({
+export const addCardByDimensionAction = (card: EthosCardWithDimension) => ({
   type: ADD_CARD_BY_DIMENSION,
-  payload: cards,
+  payload: card,
 });
 
 export const removeCardByDimensionAction = () => ({
