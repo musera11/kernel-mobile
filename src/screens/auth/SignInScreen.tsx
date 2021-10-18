@@ -1,26 +1,26 @@
+import LottieView from 'lottie-react-native';
 import React, {useState} from 'react';
 import {
   Dimensions,
   Image,
   KeyboardAvoidingView,
+  LayoutAnimation,
   Platform,
+  ScrollView,
   StyleSheet,
   Text,
   View,
-  ScrollView,
-  LayoutAnimation,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useDispatch} from 'react-redux';
-import SubmitButton from '../../components/auth/SubmitButton';
 import Input from '../../components/auth/Input';
-import {COLORS1} from '../../services/colors.service';
+import SubmitButton from '../../components/auth/SubmitButton';
 import Header from '../../components/shared/Header';
+import {COLORS1} from '../../services/colors.service';
 import {WS_BOLD} from '../../services/fonts.service';
 import {signInActionSG} from '../../store/ducks/authDuck';
 import {checkedSignedInAction} from '../../store/ducks/mainDuck';
-import Spinner from 'react-native-spinkit';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 const SignInScreen = () => {
   const dispatch = useDispatch();
@@ -99,11 +99,10 @@ const SignInScreen = () => {
         </ScrollView>
       ) : (
         <View style={styles.animationWrapper}>
-          <Spinner
-            isVisible={true}
-            type={'Bounce'}
-            color={COLORS1.white}
-            size={80}
+          <LottieView
+            source={require('../../assets/animations/startup.json')}
+            autoPlay
+            loop
           />
         </View>
       )}
