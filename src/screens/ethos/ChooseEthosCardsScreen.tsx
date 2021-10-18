@@ -104,8 +104,8 @@ const ChooseEthosCardsScreen: React.FC<{navigation: any}> = ({navigation}) => {
       <EthosHeader />
       <View style={styles.textsWrapper}>
         <Text style={styles.mainText}>
-          Choose 14 ethos cards that resonate with{' '}
-          <Text style={styles.youText}>YOU</Text>
+          Choose 14 Ethos cards These are the values that guide{' '}
+          <Text style={styles.youText}>your life</Text>
         </Text>
       </View>
       <ScrollView contentContainerStyle={styles.scrollView}>
@@ -209,7 +209,7 @@ const styles = StyleSheet.create({
     color: COLORS1.gray2,
     fontSize: 18,
     fontFamily: WS_BOLD,
-    width: 208,
+    width: 300,
     textAlign: 'center',
   },
   youText: {

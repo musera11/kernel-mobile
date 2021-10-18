@@ -90,6 +90,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: COLORS1.white,
     textAlign: 'center',
+    lineHeight: 25,
   },
   scrollView: {
     flexDirection: 'row',
