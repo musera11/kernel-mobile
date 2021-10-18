@@ -20,8 +20,8 @@ const ForYouScreen: React.FC<{navigation: any}> = ({navigation}) => {
       <TouchableOpacity onPress={() => dispatch(logoutAction())}>
         <Text>Sign out</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={navigation.navigate('ChooseEthosCards')}>
-        <Text>Sign out</Text>
+      <TouchableOpacity onPress={() => navigation.navigate('ChooseEthosCards')}>
+        <Text>Ethos Flow</Text>
       </TouchableOpacity>
     </>
   );

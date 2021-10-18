@@ -50,6 +50,7 @@ const EthosFooter: React.FC<{
         style={[
           styles.nextButton,
           {borderColor: theme === 'light' ? COLORS1.white : COLORS1.gray2},
+          disableNext && styles.halfOpacity,
         ]}
         onPress={next}>
         <Text
@@ -99,5 +100,8 @@ const styles = StyleSheet.create({
     fontFamily: RS_MEDIUM,
     marginLeft: 6,
     letterSpacing: 1.5,
+  },
+  halfOpacity: {
+    opacity: 0.5,
   },
 });
