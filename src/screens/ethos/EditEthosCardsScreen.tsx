@@ -182,6 +182,7 @@ const styles = StyleSheet.create({
   },
   receivingStyle: {
     borderColor: COLORS1.orange,
+    opacity: 0.8,
   },
   hoverDragReleasedStyle: {
     display: 'none',

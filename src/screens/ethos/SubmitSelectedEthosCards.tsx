@@ -49,7 +49,7 @@ const SubmitSelectedEthosCardsScreen: React.FC<{navigation: any}> = ({
                 disabled={true}
                 selected={true}
                 key={card._id}
-                // containerStyle={styles.card}
+                containerStyle={styles.card}
               />
             </View>
           ))}
@@ -112,6 +112,9 @@ const styles = StyleSheet.create({
     letterSpacing: 0.8,
     position: 'absolute',
     width: 120,
+  },
+  card: {
+    margin: 7,
   },
   footerWrapper: {
     width: '100%',
