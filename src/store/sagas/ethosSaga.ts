@@ -14,3 +14,39 @@ export function* getCardsSaga() {
     yield notifyAction('error', 'Error', 'Something went wrong', true);
   }
 }
+
+export function* postCardsSaga({
+  cards,
+  successCallBack,
+}: {
+  cards: any;
+  successCallBack?: Function;
+  type: string;
+}) {
+  try {
+    yield axiosInstance.post('registration/choose_ethos_cards', {
+      ethosCardIds: cards,
+    });
+    successCallBack && successCallBack();
+  } catch (error) {
+    yield notifyAction('error', 'Error', 'Something went wrong', true);
+  }
+}
+
+export function* postCardsByDimensionSaga({
+  cards,
+  successCallBack,
+}: {
+  cards: any;
+  successCallBack?: Function;
+  type: string;
+}) {
+  try {
+    yield axiosInstance.post('registration/choose_dimension_of_life', {
+      ethosCards: cards,
+    });
+    successCallBack && successCallBack();
+  } catch (error) {
+    yield notifyAction('error', 'Error', 'Something went wrong', true);
+  }
+}

@@ -4,7 +4,7 @@ import {useDispatch} from 'react-redux';
 import SvgIcon from '../../components/shared/SvgIcon';
 import {logoutAction} from '../../store/ducks/authDuck';
 
-const ForYouScreen = () => {
+const ForYouScreen: React.FC<{navigation: any}> = ({navigation}) => {
   const dispatch = useDispatch();
   return (
     <>
@@ -19,6 +19,9 @@ const ForYouScreen = () => {
       </View>
       <TouchableOpacity onPress={() => dispatch(logoutAction())}>
         <Text>Sign out</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('ChooseEthosCards')}>
+        <Text>Ethos Flow</Text>
       </TouchableOpacity>
     </>
   );
