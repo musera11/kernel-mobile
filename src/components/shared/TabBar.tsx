@@ -100,7 +100,8 @@ const TabBar: React.FC<{
 export default TabBar;
 const styles = StyleSheet.create({
   container: {
-    borderRadius: 10,
+    borderTopRightRadius: 10,
+    borderTopLeftRadius: 10,
     position: 'absolute',
     left: 0,
     bottom: 0,
@@ -120,12 +121,12 @@ const styles = StyleSheet.create({
     color: COLORS1.white,
     fontFamily: RS_SEMI_BOLD,
     marginTop: 6,
-    opacity: 0.9,
+    opacity: 0.7,
     letterSpacing: 1.2,
   },
   sleetedLabel: {
     fontFamily: RS_BOLD,
-    color: 'blue',
+    opacity: 1,
   },
   svg: {
     opacity: 0.9,

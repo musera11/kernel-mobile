@@ -42,11 +42,6 @@ const EditEthosCardsScreen: React.FC<{navigation: any}> = ({navigation}) => {
       selectedCards.findIndex(c => card._id === c._id),
       cardsByDimension.findIndex(c => card._id === c._id),
     ];
-    console.log(
-      {draggingCardIndex},
-      {receivingCardIndexInSelectedCards},
-      {receivingCardIndex},
-    );
     cardsByDimension[receivingCardIndex] = {
       dimension: card.dimension,
       ...draggingCard,
@@ -132,6 +127,7 @@ const styles = StyleSheet.create({
     paddingLeft: 25,
     paddingRight: 25,
     paddingBottom: 10,
+    flex: 1,
   },
   majorText: {
     color: COLORS1.gray2,
@@ -176,7 +172,6 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
-
     elevation: 5,
   },
   firstLineCard: {
