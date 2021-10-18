@@ -101,6 +101,7 @@ const EditEthosCardsScreen: React.FC<{navigation: any}> = ({navigation}) => {
                 <Text style={styles.dimensionText}>{card.dimension}</Text>
                 <EthosCard
                   draggable
+                  removeShadow
                   selected
                   card={card}
                   containerStyle={styles.card}

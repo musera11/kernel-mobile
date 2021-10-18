@@ -46,8 +46,9 @@ const SubmitSelectedEthosCardsScreen: React.FC<{navigation: any}> = ({
               </Text>
               <EthosCard
                 card={card}
-                disabled={true}
-                selected={true}
+                disabled
+                selected
+                removeShadow
                 key={card._id}
                 containerStyle={styles.card}
               />

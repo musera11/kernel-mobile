@@ -15,6 +15,7 @@ const EthosCard: React.FC<{
   selected?: boolean;
   draggable?: boolean;
   draxViewProps?: DraxViewProps;
+  removeShadow?: boolean;
 }> = ({
   card,
   onPress,
@@ -24,6 +25,7 @@ const EthosCard: React.FC<{
   onRemove,
   draggable,
   draxViewProps,
+  removeShadow,
 }) => {
   return (
     <>
@@ -31,7 +33,7 @@ const EthosCard: React.FC<{
         <TouchableOpacity
           disabled={disabled}
           style={[
-            styles.container,
+            removeShadow ? styles.containerWithoutShadow : styles.container,
             {backgroundColor: !selected ? COLORS1.orange : undefined},
             containerStyle,
           ]}
@@ -49,7 +51,7 @@ const EthosCard: React.FC<{
       ) : (
         <DraxView
           style={[
-            styles.container,
+            removeShadow ? styles.containerWithoutShadow : styles.container,
             {backgroundColor: !selected ? COLORS1.orange : undefined},
             containerStyle,
           ]}
@@ -95,8 +97,17 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.22,
     shadowRadius: 2.22,
-
     elevation: 3,
+  },
+  containerWithoutShadow: {
+    width: 70,
+    height: 75,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 10,
+    borderWidth: 2,
+    borderColor: COLORS1.white,
+    padding: 5,
   },
   text: {
     textAlign: 'center',

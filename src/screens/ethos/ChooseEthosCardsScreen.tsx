@@ -136,6 +136,7 @@ const ChooseEthosCardsScreen: React.FC<{navigation: any}> = ({navigation}) => {
                   selected
                   containerStyle={styles.selectedCard}
                   onRemove={showRemove(i, 1) ? removeCard : undefined}
+                  removeShadow
                 />
               </View>
             ) : (
@@ -158,6 +159,7 @@ const ChooseEthosCardsScreen: React.FC<{navigation: any}> = ({navigation}) => {
                   selected
                   containerStyle={styles.selectedCard}
                   onRemove={showRemove(i, 2) ? removeCard : undefined}
+                  removeShadow
                 />
               </View>
             ) : (
