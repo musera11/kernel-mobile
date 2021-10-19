@@ -20,6 +20,9 @@ import hart from '../../assets/svgs/hart.svg';
 import empower from '../../assets/svgs/empower.svg';
 import library from '../../assets/svgs/library.svg';
 import audioWhite from '../../assets/svgs/audioWhite.svg';
+import takeEthos from '../../assets/svgs/take_ethos.svg';
+import myGoalsMain from '../../assets/svgs/my_goals_main.svg';
+import gratitudeMain from '../../assets/svgs/gratitude_main.svg';
 
 const svgs: any = {
   add,
@@ -42,6 +45,9 @@ const svgs: any = {
   empower,
   library,
   audioWhite,
+  takeEthos,
+  myGoalsMain,
+  gratitudeMain,
 };
 
 const SvgIcon = (props: any) => (

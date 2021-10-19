@@ -15,6 +15,7 @@ import EmotionalDimensionScreen from '../screens/ethos/EmotionalDimensionScreen'
 import SpiritualDimensionScreen from '../screens/ethos/SpiritualDimensionScreen';
 import EditEthosCardsScreen from '../screens/ethos/EditEthosCardsScreen';
 import SubmitSelectedEthosCardsScreen from '../screens/ethos/SubmitSelectedEthosCards';
+import SidebarScreen from '../screens/sidebar/SidebarScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -54,6 +55,7 @@ function MainStack() {
         name="SubmitSelectedEthosCards"
         component={SubmitSelectedEthosCardsScreen}
       />
+      <Stack.Screen name="Sidebar" component={SidebarScreen} />
     </Stack.Navigator>
   );
 }
