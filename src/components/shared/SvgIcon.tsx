@@ -20,6 +20,10 @@ import hart from '../../assets/svgs/hart.svg';
 import empower from '../../assets/svgs/empower.svg';
 import library from '../../assets/svgs/library.svg';
 import audioWhite from '../../assets/svgs/audioWhite.svg';
+import tool from '../../assets/svgs/tool.svg';
+import done from '../../assets/svgs/done.svg';
+import arrowBack from '../../assets/svgs/arrowBack.svg';
+import personPencil from '../../assets/svgs/personPencil.svg';
 
 const svgs: any = {
   add,
@@ -42,6 +46,10 @@ const svgs: any = {
   empower,
   library,
   audioWhite,
+  personPencil,
+  arrowBack,
+  done,
+  tool,
 };
 
 const SvgIcon = (props: any) => (
