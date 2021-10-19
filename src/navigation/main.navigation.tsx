@@ -16,6 +16,7 @@ import SpiritualDimensionScreen from '../screens/ethos/SpiritualDimensionScreen'
 import EditEthosCardsScreen from '../screens/ethos/EditEthosCardsScreen';
 import SubmitSelectedEthosCardsScreen from '../screens/ethos/SubmitSelectedEthosCards';
 import MyAccomplishmentsScreen from '../screens/profile/MyAccomplishmentsScreen';
+import CheckInNotesScreen from '../screens/check-in/CheckInNotesScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -59,6 +60,7 @@ function MainStack() {
         name="MyAccomplishments"
         component={MyAccomplishmentsScreen}
       />
+      <Stack.Screen name="CheckInNotes" component={CheckInNotesScreen} />
     </Stack.Navigator>
   );
 }

@@ -24,6 +24,8 @@ import tool from '../../assets/svgs/tool.svg';
 import done from '../../assets/svgs/done.svg';
 import arrowBack from '../../assets/svgs/arrowBack.svg';
 import personPencil from '../../assets/svgs/personPencil.svg';
+import blackX from '../../assets/svgs/blackX.svg';
+import bigSun from '../../assets/svgs/bigSun.svg';
 
 const svgs: any = {
   add,
@@ -50,6 +52,8 @@ const svgs: any = {
   arrowBack,
   done,
   tool,
+  blackX,
+  bigSun,
 };
 
 const SvgIcon = (props: any) => (
