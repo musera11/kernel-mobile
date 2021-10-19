@@ -6,17 +6,39 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import ForYouCard from '../../components/forYou/ForYouCard';
 import SvgIcon from '../../components/shared/SvgIcon';
 import {COLORS1} from '../../services/colors.service';
 import {WS_BOLD} from '../../services/fonts.service';
 import {RootState} from '../../store/configureStore';
+import {logoutAction} from '../../store/ducks/authDuck';
 import {IUserData} from '../../types/main';
 
 const ForYouScreen: React.FC<{navigation: any}> = ({navigation}) => {
+  const dispatch = useDispatch();
   const userData: IUserData = useSelector(
     (state: RootState) => state.authReducer.userData,
+  );
+
+  return (
+    <>
+      <View style={styles.header}>
+        <TouchableOpacity style={styles.touchable}>
+          <SvgIcon name="profileSettings" />
+        </TouchableOpacity>
+        <SvgIcon name="empower" />
+        <TouchableOpacity style={styles.touchable}>
+          <SvgIcon name="hart" />
+        </TouchableOpacity>
+      </View>
+      <TouchableOpacity onPress={() => navigation.navigate('ChooseEthosCards')}>
+        <Text>Take ETHOS</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => dispatch(logoutAction())}>
+        <Text>Log Out</Text>
+      </TouchableOpacity>
+    </>
   );
 
   return (

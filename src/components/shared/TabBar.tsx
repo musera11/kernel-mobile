@@ -47,7 +47,6 @@ const TabBar: React.FC<{
       style={[styles.container, {paddingBottom: insets.bottom}]}>
       <View style={styles.tabsWrapper}>
         {state.routes.map((route, index) => {
-          console.log(route.name);
           const {options} = descriptors[route.key];
           const isFocused = state.index === index;
 

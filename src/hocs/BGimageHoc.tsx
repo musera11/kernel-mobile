@@ -9,7 +9,6 @@ const BGimageHoc = <P extends object>(
 ) =>
   class WithLoading extends React.Component<P> {
     render() {
-      console.log({withoutStatusbarMargin});
       const {...props} = this.props;
       return (
         <>
