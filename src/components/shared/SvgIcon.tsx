@@ -29,10 +29,10 @@ import arrowBack from '../../assets/svgs/arrowBack.svg';
 import personPencil from '../../assets/svgs/personPencil.svg';
 import blackX from '../../assets/svgs/blackX.svg';
 import bigSun from '../../assets/svgs/bigSun.svg';
-import emojiScale1 from '../../assets/svgs/emoji-scale-1.svg.svg';
-import emojiScale2 from '../../assets/svgs/emoji-scale-2.svg.svg';
-import emojiScale3 from '../../assets/svgs/emoji-scale-3.svg.svg';
-import emojiScale4 from '../../assets/svgs/emoji-scale-4.svg.svg';
+import emojiScale1 from '../../assets/svgs/emoji-scale-1.svg';
+import emojiScale2 from '../../assets/svgs/emoji-scale-2.svg';
+import emojiScale3 from '../../assets/svgs/emoji-scale-3.svg';
+import emojiScale4 from '../../assets/svgs/emoji-scale-4.svg';
 
 const svgs: any = {
   add,

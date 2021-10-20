@@ -18,6 +18,7 @@ import SubmitSelectedEthosCardsScreen from '../screens/ethos/SubmitSelectedEthos
 import SidebarScreen from '../screens/sidebar/SidebarScreen';
 import MyAccomplishmentsScreen from '../screens/profile/MyAccomplishmentsScreen';
 import CheckInNotesScreen from '../screens/check-in/CheckInNotesScreen';
+import OccupationalFeelingScreen from '../screens/check-in/OccupationalFeelingScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -25,6 +26,10 @@ const Stack = createStackNavigator();
 function MainStack() {
   return (
     <Stack.Navigator screenOptions={{header: () => null}}>
+      <Stack.Screen
+        name="OccupationalFeeling"
+        component={OccupationalFeelingScreen}
+      />
       <Stack.Screen name="Main" component={TabNavigation} />
       <Stack.Screen
         name="ChooseEthosCards"
