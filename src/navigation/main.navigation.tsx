@@ -19,6 +19,12 @@ import SidebarScreen from '../screens/sidebar/SidebarScreen';
 import MyAccomplishmentsScreen from '../screens/profile/MyAccomplishmentsScreen';
 import CheckInNotesScreen from '../screens/check-in/CheckInNotesScreen';
 import OccupationalFeelingScreen from '../screens/check-in/OccupationalFeelingScreen';
+import EmotionalFeelingScreen from '../screens/check-in/EmotionalFeelingScreen';
+import SocialFeelingScreen from '../screens/check-in/SocialFeelingScreen';
+import MentalFeelingScreen from '../screens/check-in/MentalFeelingScreen';
+import EnvironmentalFeelingScreen from '../screens/check-in/EnvironmentalFeelingScreen';
+import SpiritualFeelingScreen from '../screens/check-in/SpiritualFeelingScreen';
+import PhysicalFeelingScreen from '../screens/check-in/PhysicalFeelingScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -26,11 +32,26 @@ const Stack = createStackNavigator();
 function MainStack() {
   return (
     <Stack.Navigator screenOptions={{header: () => null}}>
+      <Stack.Screen name="Main" component={TabNavigation} />
+      <Stack.Screen name="PhysicalFeeling" component={PhysicalFeelingScreen} />
+      <Stack.Screen name="MentalFeeling" component={MentalFeelingScreen} />
+      <Stack.Screen name="SocialFeeling" component={SocialFeelingScreen} />
       <Stack.Screen
         name="OccupationalFeeling"
         component={OccupationalFeelingScreen}
       />
-      <Stack.Screen name="Main" component={TabNavigation} />
+      <Stack.Screen
+        name="EnvironmentalFeeling"
+        component={EnvironmentalFeelingScreen}
+      />
+      <Stack.Screen
+        name="EmotionalFeeling"
+        component={EmotionalFeelingScreen}
+      />
+      <Stack.Screen
+        name="SpiritualFeeling"
+        component={SpiritualFeelingScreen}
+      />
       <Stack.Screen
         name="ChooseEthosCards"
         component={ChooseEthosCardsScreen}

@@ -10,12 +10,26 @@ import {
 import {TextInput, TouchableOpacity} from 'react-native-gesture-handler';
 import LinearGradient from 'react-native-linear-gradient';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {useDispatch} from 'react-redux';
 import SvgIcon from '../../components/shared/SvgIcon';
 import {COLORS1} from '../../services/colors.service';
 import {RS_SEMI_BOLD, WS_BOLD, WS_MEDIUM} from '../../services/fonts.service';
+import {clearFeelings} from '../../store/ducks/checkInDuck';
 
-const CheckInNotesScreen = () => {
+const CheckInNotesScreen: React.FC<{navigation: any}> = ({navigation}) => {
   const insets = useSafeAreaInsets();
+  const dispatch = useDispatch();
+
+  const saveCheckIn = () => {
+    dispatch(clearFeelings());
+    navigation.navigate('Main');
+  };
+
+  const cancelFlow = () => {
+    dispatch(clearFeelings());
+    navigation.navigate('Main');
+  };
+
   return (
     <LinearGradient colors={['#72CCD0', '#87BCBF']} style={styles.flex1}>
       <ScrollView
@@ -26,7 +40,7 @@ const CheckInNotesScreen = () => {
           keyboardVerticalOffset={Platform.select({ios: -130, android: -130})}
           behavior={'position'}>
           <View style={[styles.header, {marginTop: insets.top}]}>
-            <TouchableOpacity style={styles.xWrapper}>
+            <TouchableOpacity style={styles.xWrapper} onPress={cancelFlow}>
               <SvgIcon name="blackX" />
             </TouchableOpacity>
           </View>
@@ -50,7 +64,7 @@ const CheckInNotesScreen = () => {
             />
           </View>
           <View style={styles.buttonWrapper}>
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button} onPress={saveCheckIn}>
               <Text style={styles.buttonText}>SAVE CHECK IN</Text>
             </TouchableOpacity>
           </View>

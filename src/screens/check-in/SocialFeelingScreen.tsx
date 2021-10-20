@@ -24,19 +24,19 @@ import {
   removeFeeling,
 } from '../../store/ducks/checkInDuck';
 
-const PhysicalFeelingScreen: React.FC<{navigation: any}> = ({navigation}) => {
+const SocialFeelingScreen: React.FC<{navigation: any}> = ({navigation}) => {
   const dispatch = useDispatch();
   const insets = useSafeAreaInsets();
   const [sliderValue, setSliderValue] = useState(0);
 
   useEffect(() => {
     return () => {
-      dispatch(removeFeeling('PHYSICAL'));
+      dispatch(removeFeeling('SOCIAL'));
     };
   }, [dispatch]);
 
   const goBack = () => {
-    navigation.navigate('Main');
+    navigation.goBack();
   };
 
   const cancelFlow = () => {
@@ -62,8 +62,8 @@ const PhysicalFeelingScreen: React.FC<{navigation: any}> = ({navigation}) => {
   };
 
   const onContinuePress = () => {
-    dispatch(addFeeling({dimension: 'PHYSICAL', value: sliderValue}));
-    navigation.navigate('MentalFeeling');
+    dispatch(addFeeling({dimension: 'SOCIAL', value: sliderValue}));
+    navigation.navigate('OccupationalFeeling');
   };
 
   return (
@@ -85,7 +85,7 @@ const PhysicalFeelingScreen: React.FC<{navigation: any}> = ({navigation}) => {
         <Text style={styles.majorText}>How are you feeling in your</Text>
         <Text style={styles.majorText}>
           {' '}
-          <Text style={styles.darkText}>physical</Text> dimension of life
+          <Text style={styles.darkText}>social</Text> dimension of life
         </Text>
         <Text style={styles.minorText}>Ethos Name Here</Text>
         <View style={styles.emojiWrapper}>
@@ -111,7 +111,7 @@ const PhysicalFeelingScreen: React.FC<{navigation: any}> = ({navigation}) => {
   );
 };
 
-export default PhysicalFeelingScreen;
+export default SocialFeelingScreen;
 
 const styles = StyleSheet.create({
   flex1: {

@@ -28,6 +28,7 @@ import done from '../../assets/svgs/done.svg';
 import arrowBack from '../../assets/svgs/arrowBack.svg';
 import personPencil from '../../assets/svgs/personPencil.svg';
 import blackX from '../../assets/svgs/blackX.svg';
+import whiteX from '../../assets/svgs/whiteX.svg';
 import bigSun from '../../assets/svgs/bigSun.svg';
 import emojiScale1 from '../../assets/svgs/emoji-scale-1.svg';
 import emojiScale2 from '../../assets/svgs/emoji-scale-2.svg';
@@ -63,6 +64,7 @@ const svgs: any = {
   done,
   tool,
   blackX,
+  whiteX,
   bigSun,
   emojiScale1,
   emojiScale2,

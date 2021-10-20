@@ -9,17 +9,18 @@ const initialState: CheckInState = {
   feelings: [],
 };
 
-export const ethosReducer = (state = initialState, action: AnyAction) => {
+export const checkInReducer = (state = initialState, action: AnyAction) => {
   const [payload] = [action.payload, null];
+  let i: number;
 
   switch (action.type) {
     case ADD_FEELING:
-      state.feelings.push(payload);
+      i = state.feelings.findIndex(f => f.dimension === payload.dimension);
+      i !== -1 ? (state.feelings[i] = payload) : state.feelings.push(payload);
       return {
         ...state,
       };
-    case ADD_FEELING:
-      state.feelings.push(payload);
+    case REMOVE_FEELING:
       return {
         ...state,
         feelings: state.feelings.filter(f => f.dimension !== payload),

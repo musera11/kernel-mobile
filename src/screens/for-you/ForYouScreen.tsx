@@ -6,40 +6,31 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
+import {useSelector} from 'react-redux';
 import ForYouCard from '../../components/forYou/ForYouCard';
 import SvgIcon from '../../components/shared/SvgIcon';
 import {COLORS1} from '../../services/colors.service';
 import {WS_BOLD} from '../../services/fonts.service';
 import {RootState} from '../../store/configureStore';
-import {logoutAction} from '../../store/ducks/authDuck';
+
 import {IUserData} from '../../types/main';
 
 const ForYouScreen: React.FC<{navigation: any}> = ({navigation}) => {
-  const dispatch = useDispatch();
   const userData: IUserData = useSelector(
     (state: RootState) => state.authReducer.userData,
   );
 
-  return (
-    <>
-      <View style={styles.header}>
-        <TouchableOpacity style={styles.touchable}>
-          <SvgIcon name="profileSettings" />
-        </TouchableOpacity>
-        <SvgIcon name="empower" />
-        <TouchableOpacity style={styles.touchable}>
-          <SvgIcon name="hart" />
-        </TouchableOpacity>
-      </View>
-      <TouchableOpacity onPress={() => navigation.navigate('ChooseEthosCards')}>
-        <Text>Take ETHOS</Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => dispatch(logoutAction())}>
-        <Text>Log Out</Text>
-      </TouchableOpacity>
-    </>
-  );
+  const takeEthos = () => {
+    navigation.navigate('ChooseEthosCards');
+  };
+
+  const checkIn = () => {
+    navigation.navigate('PhysicalFeeling');
+  };
+
+  const checkAccomplishments = () => {
+    navigation.navigate('MyAccomplishments');
+  };
 
   return (
     <ScrollView style={styles.container}>
@@ -62,26 +53,31 @@ const ForYouScreen: React.FC<{navigation: any}> = ({navigation}) => {
           title={'Take ETHOS'}
           subTitle={'Discover your Ethos Manifest'}
           icon={'takeEthos'}
-          onPress={() => navigation.navigate('ChooseEthosCards')}
+          onPress={takeEthos}
         />
         <ForYouCard
           title={'Check in'}
           subTitle={'How are you in this moment?'}
           icon={'sun'}
-          onPress={() => navigation.navigate('ChooseEthosCards')}
+          onPress={checkIn}
         />
         <ForYouCard
           title={'My Goals'}
           subTitle={'Achievement starts within'}
           icon={'myGoalsMain'}
-          onPress={() => navigation.navigate('ChooseEthosCards')}
+          onPress={takeEthos}
         />
         <ForYouCard
           title={'My Gratitude Board'}
           subTitle={'What are you thankful for?'}
           icon={'gratitudeMain'}
-          onPress={() => navigation.navigate('ChooseEthosCards')}
+          onPress={takeEthos}
         />
+        <TouchableOpacity
+          style={{padding: 10, margin: 30}}
+          onPress={checkAccomplishments}>
+          <Text>Accountability</Text>
+        </TouchableOpacity>
       </View>
     </ScrollView>
   );

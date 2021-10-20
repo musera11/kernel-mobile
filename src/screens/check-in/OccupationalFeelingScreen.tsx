@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   ScrollView,
   StyleSheet,
@@ -18,7 +18,11 @@ import {
   WS_BOLD,
   WS_SEMI_BOLD,
 } from '../../services/fonts.service';
-import {addFeeling} from '../../store/ducks/checkInDuck';
+import {
+  addFeeling,
+  clearFeelings,
+  removeFeeling,
+} from '../../store/ducks/checkInDuck';
 
 const OccupationalFeelingScreen: React.FC<{navigation: any}> = ({
   navigation,
@@ -26,6 +30,21 @@ const OccupationalFeelingScreen: React.FC<{navigation: any}> = ({
   const dispatch = useDispatch();
   const insets = useSafeAreaInsets();
   const [sliderValue, setSliderValue] = useState(0);
+
+  useEffect(() => {
+    return () => {
+      dispatch(removeFeeling('OCCUPATIONAL'));
+    };
+  }, [dispatch]);
+
+  const goBack = () => {
+    navigation.goBack();
+  };
+
+  const cancelFlow = () => {
+    dispatch(clearFeelings());
+    navigation.navigate('Main');
+  };
 
   const onSliderValueChange = (value: number) => {
     setSliderValue(value);
@@ -45,18 +64,20 @@ const OccupationalFeelingScreen: React.FC<{navigation: any}> = ({
   };
 
   const onContinuePress = () => {
-    dispatch(addFeeling({dimension: 'spiritual', value: sliderValue}));
-    navigation.navigate('');
+    dispatch(addFeeling({dimension: 'OCCUPATIONAL', value: sliderValue}));
+    navigation.navigate('EnvironmentalFeeling');
   };
 
   return (
     <LinearGradient colors={['#72CCD0', '#87BCBF']} style={styles.flex1}>
       <View style={[styles.header, {marginTop: insets.top}]}>
-        <TouchableOpacity style={styles.headerIconsWrapper}>
+        <TouchableOpacity style={styles.headerIconsWrapper} onPress={goBack}>
           <SvgIcon name="arrowBack" />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.headerIconsWrapper}>
-          <SvgIcon name="blackX" />
+        <TouchableOpacity
+          style={styles.headerIconsWrapper}
+          onPress={cancelFlow}>
+          <SvgIcon name="whiteX" />
         </TouchableOpacity>
       </View>
       <ScrollView
@@ -66,7 +87,7 @@ const OccupationalFeelingScreen: React.FC<{navigation: any}> = ({
         <Text style={styles.majorText}>How are you feeling in your</Text>
         <Text style={styles.majorText}>
           {' '}
-          <Text style={styles.darkText}>spiritual</Text> dimension of life
+          <Text style={styles.darkText}>occupational</Text> dimension of life
         </Text>
         <Text style={styles.minorText}>Ethos Name Here</Text>
         <View style={styles.emojiWrapper}>

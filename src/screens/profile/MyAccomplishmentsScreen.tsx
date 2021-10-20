@@ -17,12 +17,17 @@ const ACCOMPLISHMENTS = [
   'SPIRITUAL',
 ];
 
-const MyAccomplishmentsScreen = () => {
+const MyAccomplishmentsScreen: React.FC<{navigation: any}> = ({navigation}) => {
   const insets = useSafeAreaInsets();
+
+  const goBack = () => {
+    navigation.navigate('Main');
+  };
+
   return (
     <View style={styles.container}>
       <View style={[styles.header, {paddingTop: insets.top}]}>
-        <TouchableOpacity style={styles.touchable}>
+        <TouchableOpacity style={styles.touchable} onPress={goBack}>
           <SvgIcon name="arrowBack" />
         </TouchableOpacity>
         <Text style={styles.headerText}>Cody</Text>
