@@ -97,9 +97,10 @@ const PhysicalFeelingScreen: React.FC<{navigation: any}> = ({navigation}) => {
           {' '}
           something bigger <Text style={styles.darkText}>than yourself</Text>
         </Text>
-        <View style={styles.sliderWrapper}>
-          <Slider sliderValueChanged={onSliderValueChange} />
-        </View>
+        <Slider
+          sliderValueChanged={onSliderValueChange}
+          containerStyle={styles.slider}
+        />
         <View style={styles.flex1} />
         <View style={styles.buttonWrapper}>
           <TouchableOpacity style={styles.button} onPress={onContinuePress}>
@@ -167,10 +168,10 @@ const styles = StyleSheet.create({
   darkText: {
     color: COLORS1.gray2,
   },
-  sliderWrapper: {
+  slider: {
     marginTop: 82,
-    paddingLeft: 12,
-    paddingRight: 12,
+    marginLeft: 45,
+    marginRight: 45,
   },
   buttonWrapper: {
     alignItems: 'center',

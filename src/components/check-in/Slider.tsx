@@ -1,12 +1,13 @@
 import React from 'react';
-import {Platform, StyleSheet, View} from 'react-native';
+import {Platform, StyleSheet, View, ViewStyle} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import CommunitySlider from '@react-native-community/slider';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const Slider: React.FC<{sliderValueChanged?: Function}> = ({
-  sliderValueChanged,
-}) => {
+const Slider: React.FC<{
+  sliderValueChanged?: Function;
+  containerStyle?: ViewStyle;
+}> = ({sliderValueChanged, containerStyle}) => {
   const [iconGray, setIconGray] = React.useState();
   const [iconYellow, setIconYellow] = React.useState();
   const [sliderValue, setSliderValue] = React.useState(0);
@@ -36,8 +37,21 @@ const Slider: React.FC<{sliderValueChanged?: Function}> = ({
     return ['#3A464E', '#738B9B'];
   };
 
+  const geThumbImage = () => {
+    if (sliderValue >= 3 / 4) {
+      return require('../../assets/images/greenCircle.png');
+    }
+    if (sliderValue >= 2 / 4) {
+      return require('../../assets/images/yellowCircle.png');
+    }
+    if (sliderValue >= 1 / 4) {
+      return require('../../assets/images/redCircle.png');
+    }
+    return require('../../assets/images/blackCircle.png');
+  };
+
   return (
-    <View style={styles.sliderWrapper}>
+    <View style={[styles.sliderWrapper, containerStyle]}>
       <LinearGradient
         start={{x: 0, y: 1}}
         end={{x: 1, y: 1}}
@@ -52,9 +66,8 @@ const Slider: React.FC<{sliderValueChanged?: Function}> = ({
         maximumValue={1}
         minimumTrackTintColor="transparent"
         maximumTrackTintColor="transparent"
-        thumbImage={sliderValue >= 0.5 ? iconYellow : iconGray}
+        thumbImage={geThumbImage()}
         // thumbImage={require('../../assets/images/splash.png')}
-        // thumbTintColor={'rgba(50, 71, 85, 0.5)'}
       />
     </View>
   );
@@ -69,7 +82,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   sliderWrapper: {
-    flex: 1,
     height: 10,
   },
   sliderGradient: {
