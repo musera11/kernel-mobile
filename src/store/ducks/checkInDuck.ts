@@ -4,6 +4,11 @@ import {CheckInState, Feeling} from '../../types/check-in';
 export const ADD_FEELING = 'empower/check-in/addFeeling';
 export const REMOVE_FEELING = 'empower/check-in/removeFeeling';
 export const CLEAR_FEELINGS = 'empower/check-in/clearFeelings';
+export const POST_CHECK_IN_SG = 'empower/check-in/postCheckIn_sg';
+export const GET_ACCOMPLISHMENTS_SG = 'empower/check-in/getAccomplishments_sg';
+export const SET_ACCOMPLISHMENTS = 'empower/check-in/setAccomplishments';
+export const POST_ACCOMPLISHMENTS_SG =
+  'empower/check-in/postAccomplishments_sg';
 
 const initialState: CheckInState = {
   feelings: [],
@@ -31,6 +36,8 @@ export const checkInReducer = (state = initialState, action: AnyAction) => {
         ...state,
         feelings: [],
       };
+    case SET_ACCOMPLISHMENTS:
+      return state;
     default:
       return state;
   }
@@ -48,4 +55,22 @@ export const removeFeeling = (dimension: string) => ({
 
 export const clearFeelings = () => ({
   type: CLEAR_FEELINGS,
+});
+
+export const postCheckInActionSG = (
+  feelings: any,
+  successCallBack?: Function,
+) => ({
+  type: POST_CHECK_IN_SG,
+  feelings,
+  successCallBack,
+});
+
+export const getAccomplishmentsActionSG = () => ({
+  type: GET_ACCOMPLISHMENTS_SG,
+});
+
+export const setAccomplishmentsAction = (data: any) => ({
+  type: SET_ACCOMPLISHMENTS,
+  payload: data,
 });

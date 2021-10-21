@@ -18,6 +18,8 @@ import {
   postCardsByDimensionSaga,
   postCardsSaga,
 } from './ethosSaga';
+import {GET_ACCOMPLISHMENTS_SG, POST_CHECK_IN_SG} from '../ducks/checkInDuck';
+import {getAccomplishmentsSaga, postCheckInSaga} from './checkInSaga';
 
 function* actionWatcher() {
   yield takeLatest(CHECK_SIGNED_IN, checkSignedInSaga);
@@ -28,6 +30,8 @@ function* actionWatcher() {
   yield takeLatest(GET_CARDS_SG, getCardsSaga);
   yield takeLatest(POST_CARDS_SG, postCardsSaga);
   yield takeLatest(POST_CARDS_BY_DIMENSION_SG, postCardsByDimensionSaga);
+  yield takeLatest(GET_ACCOMPLISHMENTS_SG, getAccomplishmentsSaga);
+  yield takeLatest(POST_CHECK_IN_SG, postCheckInSaga);
 }
 
 export default function* rootSaga() {

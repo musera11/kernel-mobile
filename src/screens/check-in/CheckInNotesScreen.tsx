@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   KeyboardAvoidingView,
   Platform,
@@ -10,17 +10,30 @@ import {
 import {TextInput, TouchableOpacity} from 'react-native-gesture-handler';
 import LinearGradient from 'react-native-linear-gradient';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import SvgIcon from '../../components/shared/SvgIcon';
 import {COLORS1} from '../../services/colors.service';
 import {RS_SEMI_BOLD, WS_BOLD, WS_MEDIUM} from '../../services/fonts.service';
-import {clearFeelings} from '../../store/ducks/checkInDuck';
+import {RootState} from '../../store/configureStore';
+import {
+  clearFeelings,
+  postCheckInActionSG,
+} from '../../store/ducks/checkInDuck';
 
 const CheckInNotesScreen: React.FC<{navigation: any}> = ({navigation}) => {
   const insets = useSafeAreaInsets();
   const dispatch = useDispatch();
-
+  const {feelings} = useSelector((state: RootState) => state.checkInReducer);
+  const [note, setNote] = useState('');
   const saveCheckIn = () => {
+    let data: any = {};
+    for (const f of feelings) {
+      data[f.dimension.toLowerCase()] = Math.round(f.value * 100);
+      if (note) {
+        data.note = note;
+      }
+    }
+    dispatch(postCheckInActionSG(data));
     dispatch(clearFeelings());
     navigation.navigate('Main');
   };
@@ -61,6 +74,7 @@ const CheckInNotesScreen: React.FC<{navigation: any}> = ({navigation}) => {
               multiline
               numberOfLines={10}
               editable
+              onChangeText={text => setNote(text)}
             />
           </View>
           <View style={styles.buttonWrapper}>

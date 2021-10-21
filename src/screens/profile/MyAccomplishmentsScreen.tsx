@@ -1,11 +1,13 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {ScrollView, TouchableOpacity} from 'react-native-gesture-handler';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {useDispatch} from 'react-redux';
 import AccomplishedIndicator from '../../components/profile/AccomplishedIndicator';
 import SvgIcon from '../../components/shared/SvgIcon';
 import {COLORS1} from '../../services/colors.service';
 import {WS_BOLD, WS_MEDIUM} from '../../services/fonts.service';
+import {getAccomplishmentsActionSG} from '../../store/ducks/checkInDuck';
 
 const ACCOMPLISHMENTS = [
   'PHYSICAL',
@@ -19,6 +21,11 @@ const ACCOMPLISHMENTS = [
 
 const MyAccomplishmentsScreen: React.FC<{navigation: any}> = ({navigation}) => {
   const insets = useSafeAreaInsets();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAccomplishmentsActionSG());
+  }, [dispatch]);
 
   const goBack = () => {
     navigation.navigate('Main');

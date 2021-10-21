@@ -2,22 +2,12 @@ import React from 'react';
 import {Platform, StyleSheet, View, ViewStyle} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import CommunitySlider from '@react-native-community/slider';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const Slider: React.FC<{
   sliderValueChanged?: Function;
   containerStyle?: ViewStyle;
 }> = ({sliderValueChanged, containerStyle}) => {
-  const [iconGray, setIconGray] = React.useState();
-  const [iconYellow, setIconYellow] = React.useState();
   const [sliderValue, setSliderValue] = React.useState(0);
-
-  React.useEffect(() => {
-    Icon.getImageSource('circle', 30, 'rgba(50, 71, 85, 1)').then(setIconGray);
-    Icon.getImageSource('circle', 30, 'rgba(235, 196, 106, 1)').then(
-      setIconYellow,
-    );
-  }, []);
 
   const onSliderValueChange = (value: number) => {
     setSliderValue(value);
@@ -67,7 +57,6 @@ const Slider: React.FC<{
         minimumTrackTintColor="transparent"
         maximumTrackTintColor="transparent"
         thumbImage={geThumbImage()}
-        // thumbImage={require('../../assets/images/splash.png')}
       />
     </View>
   );
