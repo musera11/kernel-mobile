@@ -4,25 +4,30 @@ import ProgressCircle from 'react-native-progress-circle';
 import {COLORS1} from '../../services/colors.service';
 import {RS_MEDIUM, RS_SEMI_BOLD} from '../../services/fonts.service';
 
-const AccomplishedIndicator: React.FC<{name: string; percentage: number}> = ({
+const AccomplishedIndicator: React.FC<{name: string; percentage?: number}> = ({
   name,
   percentage,
 }) => {
   return (
-    <View>
-      <ProgressCircle
-        containerStyle={styles.container}
-        percent={percentage}
-        radius={40}
-        borderWidth={4}
-        color={COLORS1.orange}
-        shadowColor="transparent">
-        <View style={styles.innerContent}>
-          <Text style={styles.percentageText}>{`${percentage}%`}</Text>
+    <>
+      {percentage !== undefined ? (
+        <View>
+          <ProgressCircle
+            containerStyle={styles.container}
+            percent={Math.floor(percentage)}
+            radius={40}
+            borderWidth={4}
+            color={COLORS1.orange}
+            shadowColor="#999"
+            bgColor="#fff">
+            <View style={styles.innerContent}>
+              <Text style={styles.percentageText}>{`${percentage}%`}</Text>
+            </View>
+          </ProgressCircle>
+          <Text style={styles.nameText}>{name}</Text>
         </View>
-      </ProgressCircle>
-      <Text style={styles.nameText}>{name}</Text>
-    </View>
+      ) : null}
+    </>
   );
 };
 

@@ -1,13 +1,13 @@
 import {put} from 'redux-saga/effects';
 import axiosInstance from '../../services/interceptor.service';
-import {Feeling} from '../../types/check-in';
+import {Accomplishments, Feeling} from '../../types/check-in';
 import {setAccomplishmentsAction} from '../ducks/checkInDuck';
 import {notifyAction} from '../ducks/mainDuck';
 
 export function* getAccomplishmentsSaga() {
   try {
-    const accomplishments: Object = yield axiosInstance.get(
-      'personal/get_my_last_check_in',
+    const accomplishments: Accomplishments = yield axiosInstance.get(
+      'personal/get_my_achievements',
     );
     yield put(setAccomplishmentsAction(accomplishments));
   } catch (error) {

@@ -1,5 +1,5 @@
 import {AnyAction} from 'redux';
-import {CheckInState, Feeling} from '../../types/check-in';
+import {Accomplishments, CheckInState, Feeling} from '../../types/check-in';
 
 export const ADD_FEELING = 'empower/check-in/addFeeling';
 export const REMOVE_FEELING = 'empower/check-in/removeFeeling';
@@ -12,6 +12,7 @@ export const POST_ACCOMPLISHMENTS_SG =
 
 const initialState: CheckInState = {
   feelings: [],
+  accomplishments: {},
 };
 
 export const checkInReducer = (state = initialState, action: AnyAction) => {
@@ -37,7 +38,10 @@ export const checkInReducer = (state = initialState, action: AnyAction) => {
         feelings: [],
       };
     case SET_ACCOMPLISHMENTS:
-      return state;
+      return {
+        ...state,
+        accomplishments: payload as Accomplishments,
+      };
     default:
       return state;
   }
@@ -70,7 +74,7 @@ export const getAccomplishmentsActionSG = () => ({
   type: GET_ACCOMPLISHMENTS_SG,
 });
 
-export const setAccomplishmentsAction = (data: any) => ({
+export const setAccomplishmentsAction = (data: Accomplishments) => ({
   type: SET_ACCOMPLISHMENTS,
   payload: data,
 });

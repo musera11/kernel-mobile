@@ -2,26 +2,30 @@ import React, {useEffect} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {ScrollView, TouchableOpacity} from 'react-native-gesture-handler';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import AccomplishedIndicator from '../../components/profile/AccomplishedIndicator';
 import SvgIcon from '../../components/shared/SvgIcon';
 import {COLORS1} from '../../services/colors.service';
 import {WS_BOLD, WS_MEDIUM} from '../../services/fonts.service';
+import {RootState} from '../../store/configureStore';
 import {getAccomplishmentsActionSG} from '../../store/ducks/checkInDuck';
 
 const ACCOMPLISHMENTS = [
-  'PHYSICAL',
-  'MENTAL',
-  'SOCIAL',
-  'OCCUPATIONAL',
-  'ENVIRONMENTAL',
-  'EMOTIONAL',
-  'SPIRITUAL',
+  {name: 'PHYSICAL', key: 'physicalAvg'},
+  {name: 'MENTAL', key: 'mentalAvg'},
+  {name: 'SOCIAL', key: 'socialAvg'},
+  {name: 'OCCUPATIONAL', key: 'occupationalAvg'},
+  {name: 'ENVIRONMENTAL', key: 'environmentalAvg'},
+  {name: 'EMOTIONAL', key: 'emotionalAvg'},
+  {name: 'SPIRITUAL', key: 'spiritualAvg'},
 ];
 
 const MyAccomplishmentsScreen: React.FC<{navigation: any}> = ({navigation}) => {
   const insets = useSafeAreaInsets();
   const dispatch = useDispatch();
+  const {accomplishments} = useSelector(
+    (state: RootState) => state.checkInReducer,
+  );
 
   useEffect(() => {
     dispatch(getAccomplishmentsActionSG());
@@ -49,14 +53,16 @@ const MyAccomplishmentsScreen: React.FC<{navigation: any}> = ({navigation}) => {
             <View style={styles.completedItem}>
               <SvgIcon name="done" />
               <View style={styles.completedItemTextWrapper}>
-                <Text style={styles.completedItemCountText}>12</Text>
+                <Text style={styles.completedItemCountText}>0</Text>
                 <Text style={styles.completedItemText}>SESSIONS COMPLETED</Text>
               </View>
             </View>
             <View style={styles.completedItem}>
               <SvgIcon name="personPencil" />
               <View style={styles.completedItemTextWrapper}>
-                <Text style={styles.completedItemCountText}>12</Text>
+                <Text style={styles.completedItemCountText}>
+                  {(accomplishments as any).completedGoalsCount}
+                </Text>
                 <Text style={styles.completedItemText}>GOALS COMPLETED</Text>
               </View>
             </View>
@@ -66,7 +72,10 @@ const MyAccomplishmentsScreen: React.FC<{navigation: any}> = ({navigation}) => {
         <View style={styles.accomplishmentsWrapper}>
           {ACCOMPLISHMENTS.map((item, index) => (
             <View style={styles.accomplishment} key={`${index}`}>
-              <AccomplishedIndicator name={item} percentage={75} />
+              <AccomplishedIndicator
+                name={item.name}
+                percentage={(accomplishments as any)[item.key]}
+              />
             </View>
           ))}
         </View>

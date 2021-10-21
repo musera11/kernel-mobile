@@ -80,10 +80,8 @@ const EnvironmentalFeelingScreen: React.FC<{navigation: any}> = ({
           <SvgIcon name="whiteX" />
         </TouchableOpacity>
       </View>
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        bounces={false}
-        contentContainerStyle={styles.flex1}>
+      <ScrollView showsVerticalScrollIndicator={false} bounces={false}>
+        <View style={styles.scrollTopMargin} />
         <Text style={styles.majorText}>How are you feeling in your</Text>
         <Text style={styles.majorText}>
           {' '}
@@ -103,7 +101,6 @@ const EnvironmentalFeelingScreen: React.FC<{navigation: any}> = ({
           sliderValueChanged={onSliderValueChange}
           containerStyle={styles.slider}
         />
-        <View style={styles.flex1} />
         <View style={styles.buttonWrapper}>
           <TouchableOpacity style={styles.button} onPress={onContinuePress}>
             <Text style={styles.buttonText}>CONTINUE</Text>
@@ -120,10 +117,12 @@ const styles = StyleSheet.create({
   flex1: {
     flex: 1,
   },
+  scrollTopMargin: {
+    marginTop: 90,
+  },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 90,
   },
   headerIconsWrapper: {
     padding: 10,
@@ -178,7 +177,7 @@ const styles = StyleSheet.create({
   buttonWrapper: {
     alignItems: 'center',
     marginBottom: 65,
-    marginTop: 40,
+    marginTop: 90,
   },
   button: {
     justifyContent: 'center',
