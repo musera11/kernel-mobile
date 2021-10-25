@@ -23,6 +23,7 @@ export const COLORS1 = {
   gray2: '#324755',
   gray3: '#464749',
   gray4: '#A9B0B2',
+  gray5: '#C8D1D3',
   black: '#000',
   black1: '#1B1C20',
   green1: '#87BCBF',

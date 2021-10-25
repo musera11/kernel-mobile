@@ -25,6 +25,9 @@ import MentalFeelingScreen from '../screens/check-in/MentalFeelingScreen';
 import EnvironmentalFeelingScreen from '../screens/check-in/EnvironmentalFeelingScreen';
 import SpiritualFeelingScreen from '../screens/check-in/SpiritualFeelingScreen';
 import PhysicalFeelingScreen from '../screens/check-in/PhysicalFeelingScreen';
+import CreateGoalsScreen from '../screens/goals/CreateGoalScreen';
+import GoalsScreen from '../screens/goals/GoalsScreen';
+import GoalDetailsScreen from '../screens/goals/GoalDetailsScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -32,6 +35,9 @@ const Stack = createStackNavigator();
 function MainStack() {
   return (
     <Stack.Navigator screenOptions={{header: () => null}}>
+      <Stack.Screen name="GoalDetailsScreen" component={GoalDetailsScreen} />
+      <Stack.Screen name="GoalsScreen" component={GoalsScreen} />
+      <Stack.Screen name="CreateGoalsScreen" component={CreateGoalsScreen} />
       <Stack.Screen name="Main" component={TabNavigation} />
       <Stack.Screen name="PhysicalFeeling" component={PhysicalFeelingScreen} />
       <Stack.Screen name="MentalFeeling" component={MentalFeelingScreen} />
