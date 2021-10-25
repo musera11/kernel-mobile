@@ -16,7 +16,7 @@ const EmptyGoalsScreenCard = () => {
   return (
     <TouchableOpacity style={styles.container} onPress={navigateToCreateGoal}>
       <View style={styles.upperContainer}>
-        <SvgIcon name="personPencil" />
+        <SvgIcon name="personPencilGreen" />
       </View>
       <LinearGradient
         style={styles.lowerContainer}
@@ -26,7 +26,7 @@ const EmptyGoalsScreenCard = () => {
           <Text style={styles.text}> writing your first goal</Text>
         </View>
         <View style={styles.iconWrapper}>
-          <SvgIcon name="arrowBack" />
+          <SvgIcon name="arrowFrontWhite" />
         </View>
       </LinearGradient>
     </TouchableOpacity>

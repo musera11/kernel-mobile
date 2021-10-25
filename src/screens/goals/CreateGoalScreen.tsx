@@ -11,39 +11,22 @@ import {
 import {TextInput, TouchableOpacity} from 'react-native-gesture-handler';
 import LinearGradient from 'react-native-linear-gradient';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import SvgIcon from '../../components/shared/SvgIcon';
 import {COLORS1} from '../../services/colors.service';
 import {RS_SEMI_BOLD, WS_BOLD} from '../../services/fonts.service';
-import {RootState} from '../../store/configureStore';
-import {
-  clearFeelings,
-  postCheckInActionSG,
-} from '../../store/ducks/checkInDuck';
 
 const CreateGoalsScreen: React.FC<{navigation: any}> = ({navigation}) => {
-  console.log(Dimensions.get('window').width);
   const insets = useSafeAreaInsets();
   const dispatch = useDispatch();
-  const {feelings} = useSelector((state: RootState) => state.checkInReducer);
-  const [note, setNote] = useState('');
-  const saveCheckIn = () => {
-    let data: any = {};
-    for (const f of feelings) {
-      data[f.dimension.toLowerCase()] = Math.round(f.value * 100);
-      if (note) {
-        data.note = note;
-      }
-    }
-    dispatch(postCheckInActionSG(data));
-    dispatch(clearFeelings());
-    navigation.navigate('Main');
+  const [desc, setDesc] = useState('');
+  const [title, setTitle] = useState('');
+
+  const goBack = () => {
+    navigation.goBack();
   };
 
-  const cancelFlow = () => {
-    dispatch(clearFeelings());
-    navigation.navigate('Main');
-  };
+  const addGoal = () => {};
 
   return (
     <LinearGradient colors={['#FFFFFF', '#F0F3F4']} style={styles.flex1}>
@@ -55,7 +38,7 @@ const CreateGoalsScreen: React.FC<{navigation: any}> = ({navigation}) => {
           keyboardVerticalOffset={Platform.select({ios: -70, android: -130})}
           behavior={'position'}>
           <View style={[styles.header, {marginTop: insets.top}]}>
-            <TouchableOpacity style={styles.xWrapper} onPress={cancelFlow}>
+            <TouchableOpacity style={styles.xWrapper} onPress={goBack}>
               <SvgIcon name="blackX" />
             </TouchableOpacity>
           </View>
@@ -75,7 +58,7 @@ const CreateGoalsScreen: React.FC<{navigation: any}> = ({navigation}) => {
               style={styles.input}
               placeholder="TEXT"
               editable
-              onChangeText={text => setNote(text)}
+              onChangeText={text => setTitle(text)}
               maxLength={20}
             />
           </View>
@@ -86,12 +69,12 @@ const CreateGoalsScreen: React.FC<{navigation: any}> = ({navigation}) => {
               multiline
               numberOfLines={10}
               editable
-              onChangeText={text => setNote(text)}
+              onChangeText={text => setDesc(text)}
               maxLength={118}
             />
           </View>
           <View style={styles.buttonWrapper}>
-            <TouchableOpacity style={styles.button} onPress={saveCheckIn}>
+            <TouchableOpacity style={styles.button} onPress={addGoal}>
               <Text style={styles.buttonText}>ADD A GOAL</Text>
             </TouchableOpacity>
           </View>
@@ -116,7 +99,8 @@ const styles = StyleSheet.create({
   },
   xWrapper: {
     padding: 10,
-    margin: 10,
+    marginTop: 10,
+    marginRight: 17,
   },
   firstContainer: {
     alignItems: 'center',

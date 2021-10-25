@@ -28,7 +28,7 @@ const GoalsScreen = () => {
           </View>
         ))}
       </View>
-      {true ? (
+      {false ? (
         <View style={styles.emptyScreenContainer}>
           <View style={styles.flex2} />
           <EmptyGoalsScreenCard />

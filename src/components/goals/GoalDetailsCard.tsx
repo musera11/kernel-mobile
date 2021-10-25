@@ -1,6 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 import {COLORS1} from '../../services/colors.service';
 import {WS_BOLD, WS_REGULAR} from '../../services/fonts.service';
 import SvgIcon from '../shared/SvgIcon';
@@ -14,9 +15,17 @@ const GoalDetailsCard: React.FC<{
   return (
     <View style={[styles.container, {paddingBottom: completed ? 40 : 68}]}>
       <Text style={styles.titleText}>{title}</Text>
-      <View style={styles.iconWrapper}>
-        <SvgIcon name="personPencil" />
-      </View>
+      {completed ? (
+        <LinearGradient
+          style={styles.iconWrapper}
+          colors={['#9FD9CA', '#87BFB0']}>
+          <SvgIcon name="doneWhite" />
+        </LinearGradient>
+      ) : (
+        <View style={styles.iconWrapper}>
+          <SvgIcon name="doneWhite" />
+        </View>
+      )}
       <Text style={styles.descText}>{description}</Text>
       {completed && (
         <Text style={styles.completedText}>Completed{completionDate}</Text>
@@ -53,6 +62,12 @@ const styles = StyleSheet.create({
   iconWrapper: {
     marginTop: 40,
     marginBottom: 40,
+    width: 89,
+    height: 89,
+    borderRadius: 89,
+    backgroundColor: COLORS1.gray6,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   descText: {
     color: COLORS1.gray2,

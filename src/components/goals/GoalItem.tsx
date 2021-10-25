@@ -20,7 +20,7 @@ const GoalItem: React.FC<{
         </Text>
       </View>
       <View style={[styles.iconWrapper, completed && styles.iconWrapper]}>
-        <SvgIcon name="blackX" />
+        <SvgIcon name="arrowFrontBlack" />
       </View>
     </>
   );

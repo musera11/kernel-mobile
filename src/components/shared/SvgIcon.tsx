@@ -34,8 +34,20 @@ import emojiScale1 from '../../assets/svgs/emoji-scale-1.svg';
 import emojiScale2 from '../../assets/svgs/emoji-scale-2.svg';
 import emojiScale3 from '../../assets/svgs/emoji-scale-3.svg';
 import emojiScale4 from '../../assets/svgs/emoji-scale-4.svg';
+import arrowFrontBlack from '../../assets/svgs/arrowFrontBlack.svg';
+import arrowFrontWhite from '../../assets/svgs/arrowFrontWhite.svg';
+import doneGreen from '../../assets/svgs/doneGreen.svg';
+import doneWhite from '../../assets/svgs/doneWhite.svg';
+import personPencilGreen from '../../assets/svgs/personPencilGreen.svg';
+import arrowBackBlack from '../../assets/svgs/arrowBackBlack.svg';
 
 const svgs: any = {
+  arrowBackBlack,
+  arrowFrontBlack,
+  arrowFrontWhite,
+  doneGreen,
+  personPencilGreen,
+  doneWhite,
   add,
   email,
   audio,

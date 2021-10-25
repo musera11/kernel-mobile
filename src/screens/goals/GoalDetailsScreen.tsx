@@ -17,9 +17,9 @@ const GoalDetailsScreen = () => {
       colors={['#FFFFFF', '#F0F3F4']}
       style={[styles.container, {paddingTop: insets.top}]}>
       <View style={styles.header}>
-        <View style={styles.backIconWrapper}>
-          <SvgIcon name="blackX" />
-        </View>
+        <TouchableOpacity style={styles.backIconWrapper}>
+          <SvgIcon name="arrowBackBlack" />
+        </TouchableOpacity>
       </View>
       <View style={styles.flex1} />
       <View style={styles.goalDetailsWrapper}>
@@ -50,6 +50,8 @@ const styles = StyleSheet.create({
   header: {},
   backIconWrapper: {
     padding: 10,
+    marginLeft: 16,
+    marginTop: 5,
   },
   subContainer: {
     paddingLeft: 19,
