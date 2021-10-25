@@ -14,7 +14,7 @@ const AccomplishedIndicator: React.FC<{name: string; percentage?: number}> = ({
         <View>
           <ProgressCircle
             containerStyle={styles.container}
-            percent={Math.floor(percentage)}
+            percent={percentage}
             radius={40}
             borderWidth={4}
             color={COLORS1.orange}

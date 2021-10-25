@@ -54,7 +54,7 @@ const CheckInNotesScreen: React.FC<{navigation: any}> = ({navigation}) => {
           behavior={'position'}>
           <View style={[styles.header, {marginTop: insets.top}]}>
             <TouchableOpacity style={styles.xWrapper} onPress={cancelFlow}>
-              <SvgIcon name="blackX" />
+              <SvgIcon name="whiteX" />
             </TouchableOpacity>
           </View>
           <View style={styles.firstContainer}>

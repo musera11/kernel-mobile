@@ -74,7 +74,7 @@ const MyAccomplishmentsScreen: React.FC<{navigation: any}> = ({navigation}) => {
             <View style={styles.accomplishment} key={`${index}`}>
               <AccomplishedIndicator
                 name={item.name}
-                percentage={(accomplishments as any)[item.key]}
+                percentage={Math.round((accomplishments as any)[item.key])}
               />
             </View>
           ))}
