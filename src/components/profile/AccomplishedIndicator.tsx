@@ -14,14 +14,16 @@ const AccomplishedIndicator: React.FC<{name: string; percentage?: number}> = ({
         <View>
           <ProgressCircle
             containerStyle={styles.container}
-            percent={percentage}
+            percent={isNaN(percentage) ? 0 : percentage}
             radius={40}
             borderWidth={4}
             color={COLORS1.orange}
             shadowColor="#999"
             bgColor="#fff">
             <View style={styles.innerContent}>
-              <Text style={styles.percentageText}>{`${percentage}%`}</Text>
+              <Text style={styles.percentageText}>{`${
+                isNaN(percentage) ? 0 : percentage
+              }%`}</Text>
             </View>
           </ProgressCircle>
           <Text style={styles.nameText}>{name}</Text>
