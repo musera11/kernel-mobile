@@ -1,22 +1,21 @@
-import {useNavigation} from '@react-navigation/core';
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {COLORS1} from '../../services/colors.service';
 import {WS_BOLD} from '../../services/fonts.service';
+import navigationService from '../../services/navigation.service';
 import SvgIcon from '../shared/SvgIcon';
 
 const GoalsHeader = () => {
-  const navigation = useNavigation();
   const insets = useSafeAreaInsets();
 
   const goBack = () => {
-    navigation.canGoBack() && navigation.goBack();
+    navigationService.goBack();
   };
 
   const navigateToAddGoal = () => {
-    navigation.navigate('CreateGoals');
+    // navigationService.navigate('CreateGoals');
   };
 
   return (

@@ -8,7 +8,7 @@ import SvgIcon from '../shared/SvgIcon';
 
 const EmptyGoalsScreenCard = () => {
   const navigateToCreateGoal = () => {
-    navigationService.navigate('CreateGoals');
+    // navigationService.navigate('CreateGoals');
   };
 
   return (
