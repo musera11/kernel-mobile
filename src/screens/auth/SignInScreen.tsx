@@ -53,7 +53,8 @@ const SignInScreen = () => {
       {!showAnimation ? (
         <ScrollView
           showsVerticalScrollIndicator={false}
-          keyboardShouldPersistTaps={'handled'}>
+          keyboardShouldPersistTaps={'handled'}
+          contentContainerStyle={{marginBottom: insets.bottom}}>
           <KeyboardAvoidingView
             style={styles.flex1}
             keyboardVerticalOffset={Platform.select({ios: 50, android: 0})}
@@ -111,7 +112,7 @@ const SignInScreen = () => {
   );
 };
 
-export default BGimageHoc(SignInScreen, true);
+export default BGimageHoc(SignInScreen, true, true);
 
 const styles = StyleSheet.create({
   flex1: {

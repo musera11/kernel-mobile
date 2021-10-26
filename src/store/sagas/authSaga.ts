@@ -49,11 +49,11 @@ export function* signUpSaga(payload: {
       'registration/register',
       payload.data,
     );
-    yield notifyAction(
-      'success',
-      'Success',
-      'You have registered Successfully',
-    );
+    // yield notifyAction(
+    //   'success',
+    //   'Success',
+    //   'You have registered Successfully',
+    // );
     // setMonitoringUsername(res.username);
     yield AsyncStorage.setItem('token', res.accessToken);
     yield put(setUserDataAction(res));

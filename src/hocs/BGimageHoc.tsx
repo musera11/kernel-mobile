@@ -1,13 +1,25 @@
 import React from 'react';
 import {ImageBackground, StatusBar, StyleSheet} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import {Edge, SafeAreaView} from 'react-native-safe-area-context';
 
 const BGimageHoc = <P extends object>(
   Component: React.ComponentType<P>,
   withoutStatusbarMargin?: boolean,
+  withoutBottomMargin?: boolean,
 ) =>
   class WithLoading extends React.Component<P> {
+    getMargins = () => {
+      if (withoutStatusbarMargin && withoutBottomMargin) {
+        return ['right', 'left'];
+      } else if (withoutStatusbarMargin) {
+        return ['right', 'left', 'bottom'];
+      } else if (withoutBottomMargin) {
+        return ['right', 'left', 'top'];
+      }
+      return ['right', 'left', 'top', 'bottom'];
+    };
+
     render() {
       const {...props} = this.props;
       return (
@@ -27,11 +39,7 @@ const BGimageHoc = <P extends object>(
               style={styles.container}>
               <SafeAreaView
                 style={styles.container}
-                edges={
-                  withoutStatusbarMargin
-                    ? ['right', 'left', 'bottom']
-                    : ['right', 'left', 'top', 'bottom']
-                }>
+                edges={this.getMargins() as ReadonlyArray<Edge>}>
                 <Component {...(props as P)} />
               </SafeAreaView>
             </LinearGradient>
