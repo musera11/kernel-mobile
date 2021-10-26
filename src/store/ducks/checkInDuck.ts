@@ -70,7 +70,8 @@ export const postCheckInActionSG = (
   successCallBack,
 });
 
-export const getAccomplishmentsActionSG = () => ({
+export const getAccomplishmentsActionSG = (successCallBack?: Function) => ({
+  successCallBack,
   type: GET_ACCOMPLISHMENTS_SG,
 });
 

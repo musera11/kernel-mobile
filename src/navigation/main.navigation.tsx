@@ -4,7 +4,6 @@ import {createStackNavigator} from '@react-navigation/stack';
 import ForYouScreen from '../screens/for-you/ForYouScreen';
 import TabBar from '../components/shared/TabBar';
 import CheckInScreen from '../screens/check-in/CheckInScreen';
-import BGimageHoc from '../hocs/BGimageHoc';
 import ChooseEthosCardsScreen from '../screens/ethos/ChooseEthosCardsScreen';
 import PhysicalDimensionScreen from '../screens/ethos/PhysicalDimensionScreen';
 import MentalDimensionScreen from '../screens/ethos/MentalDimensionScreen';
@@ -109,7 +108,7 @@ function TabNavigation() {
           tabBarHideOnKeyboard: true,
         };
       }}>
-      <Tab.Screen name="ForYou" component={BGimageHoc(ForYouScreen)} />
+      <Tab.Screen name="ForYou" component={ForYouScreen} />
       <Tab.Screen name="CheckIn" component={CheckInScreen} />
     </Tab.Navigator>
   );

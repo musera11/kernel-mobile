@@ -4,6 +4,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import {useDispatch} from 'react-redux';
 import DimensionContent from '../../components/ethos/DimensionContent';
 import EthosFooter from '../../components/ethos/EthosFooter';
+import EthosHeader from '../../components/ethos/EthosHeader';
 import {COLORS1} from '../../services/colors.service';
 import {RS_BOLD, WS_BOLD} from '../../services/fonts.service';
 import {
@@ -46,6 +47,7 @@ const OccupationalDimensionScreen: React.FC<{navigation: any}> = ({
 
   return (
     <LinearGradient colors={['#fff', '#F0F3F4']} style={styles.flex1}>
+      <EthosHeader />
       <View style={styles.container}>
         <View style={styles.flex1} />
         <Text style={styles.majorText}>

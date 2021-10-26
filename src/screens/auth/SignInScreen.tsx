@@ -17,6 +17,7 @@ import {useDispatch} from 'react-redux';
 import Input from '../../components/auth/Input';
 import SubmitButton from '../../components/auth/SubmitButton';
 import Header from '../../components/shared/Header';
+import BGimageHoc from '../../hocs/BGimageHoc';
 import {COLORS1} from '../../services/colors.service';
 import {WS_BOLD} from '../../services/fonts.service';
 import {signInActionSG} from '../../store/ducks/authDuck';
@@ -110,7 +111,7 @@ const SignInScreen = () => {
   );
 };
 
-export default SignInScreen;
+export default BGimageHoc(SignInScreen, true);
 
 const styles = StyleSheet.create({
   flex1: {

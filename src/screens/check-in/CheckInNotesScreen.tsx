@@ -14,6 +14,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import SvgIcon from '../../components/shared/SvgIcon';
 import {COLORS1} from '../../services/colors.service';
 import {RS_SEMI_BOLD, WS_BOLD, WS_MEDIUM} from '../../services/fonts.service';
+import notificationService from '../../services/notification.service';
 import {RootState} from '../../store/configureStore';
 import {
   clearFeelings,
@@ -33,7 +34,15 @@ const CheckInNotesScreen: React.FC<{navigation: any}> = ({navigation}) => {
         data.note = note;
       }
     }
-    dispatch(postCheckInActionSG(data));
+    dispatch(
+      postCheckInActionSG(data, () => {
+        notificationService.notify(
+          'success',
+          'Success',
+          "you've successfully checked in",
+        );
+      }),
+    );
     dispatch(clearFeelings());
     navigation.navigate('Main');
   };

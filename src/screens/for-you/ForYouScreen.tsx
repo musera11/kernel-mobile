@@ -9,6 +9,7 @@ import {
 import {useSelector} from 'react-redux';
 import ForYouCard from '../../components/forYou/ForYouCard';
 import SvgIcon from '../../components/shared/SvgIcon';
+import BGimageHoc from '../../hocs/BGimageHoc';
 import {COLORS1} from '../../services/colors.service';
 import {WS_BOLD} from '../../services/fonts.service';
 import {RootState} from '../../store/configureStore';
@@ -87,7 +88,7 @@ const ForYouScreen: React.FC<{navigation: any}> = ({navigation}) => {
   );
 };
 
-export default ForYouScreen;
+export default BGimageHoc(ForYouScreen);
 
 const styles = StyleSheet.create({
   container: {

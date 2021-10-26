@@ -49,7 +49,12 @@ export function* updateGoalSaga({
   }
 }
 
-export function* getGoalsSaga({successCallBack}: {successCallBack?: Function}) {
+export function* getGoalsSaga({
+  successCallBack,
+}: {
+  successCallBack?: Function;
+  type: string;
+}) {
   try {
     const goals: Goal[] = yield axiosInstance.get('personal/get_my_goals', {
       params: {type: 'all', offset: 0, limit: 1000},

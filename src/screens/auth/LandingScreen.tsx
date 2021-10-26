@@ -3,6 +3,7 @@ import {Image, StyleSheet, Text, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import LoginButton from '../../components/auth/LoginButton';
 import SignUpButton from '../../components/auth/SignUpButton';
+import BGimageHoc from '../../hocs/BGimageHoc';
 import {COLORS1} from '../../services/colors.service';
 import {WS_BOLD, WS_REGULAR} from '../../services/fonts.service';
 
@@ -40,7 +41,7 @@ const LandingScreen = ({navigation}: {navigation: any}) => {
   );
 };
 
-export default LandingScreen;
+export default BGimageHoc(LandingScreen);
 
 const styles = StyleSheet.create({
   container: {

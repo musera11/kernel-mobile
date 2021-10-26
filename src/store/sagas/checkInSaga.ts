@@ -4,12 +4,18 @@ import {Accomplishments, Feeling} from '../../types/check-in';
 import {setAccomplishmentsAction} from '../ducks/checkInDuck';
 import {notifyAction} from '../ducks/mainDuck';
 
-export function* getAccomplishmentsSaga() {
+export function* getAccomplishmentsSaga({
+  successCallBack,
+}: {
+  successCallBack?: Function;
+  type: string;
+}) {
   try {
     const accomplishments: Accomplishments = yield axiosInstance.get(
       'personal/get_my_achievements',
     );
     yield put(setAccomplishmentsAction(accomplishments));
+    successCallBack && successCallBack();
   } catch (error) {
     yield notifyAction('error', 'Error', 'Something went wrong', true);
   }

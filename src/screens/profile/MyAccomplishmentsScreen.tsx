@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {ScrollView, TouchableOpacity} from 'react-native-gesture-handler';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
@@ -22,13 +22,18 @@ const ACCOMPLISHMENTS = [
 
 const MyAccomplishmentsScreen: React.FC<{navigation: any}> = ({navigation}) => {
   const insets = useSafeAreaInsets();
+  const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
   const {accomplishments} = useSelector(
     (state: RootState) => state.checkInReducer,
   );
 
   useEffect(() => {
-    dispatch(getAccomplishmentsActionSG());
+    dispatch(
+      getAccomplishmentsActionSG(() => {
+        setIsLoading(false);
+      }),
+    );
   }, [dispatch]);
 
   const goBack = () => {
@@ -46,6 +51,7 @@ const MyAccomplishmentsScreen: React.FC<{navigation: any}> = ({navigation}) => {
           <SvgIcon name="tool" />
         </TouchableOpacity>
       </View>
+
       <ScrollView bounces={false}>
         <View style={styles.subHeader}>
           <Text style={styles.subHeaderText}>My accomplishments</Text>
@@ -69,16 +75,18 @@ const MyAccomplishmentsScreen: React.FC<{navigation: any}> = ({navigation}) => {
           </View>
         </View>
         <Text style={styles.overageText}>7 day average</Text>
-        <View style={styles.accomplishmentsWrapper}>
-          {ACCOMPLISHMENTS.map((item, index) => (
-            <View style={styles.accomplishment} key={`${index}`}>
-              <AccomplishedIndicator
-                name={item.name}
-                percentage={Math.round((accomplishments as any)[item.key])}
-              />
-            </View>
-          ))}
-        </View>
+        {isLoading ? null : (
+          <View style={styles.accomplishmentsWrapper}>
+            {ACCOMPLISHMENTS.map((item, index) => (
+              <View style={styles.accomplishment} key={`${index}`}>
+                <AccomplishedIndicator
+                  name={item.name}
+                  percentage={Math.round((accomplishments as any)[item.key])}
+                />
+              </View>
+            ))}
+          </View>
+        )}
       </ScrollView>
     </View>
   );

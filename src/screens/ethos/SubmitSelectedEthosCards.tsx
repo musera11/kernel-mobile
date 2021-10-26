@@ -14,6 +14,7 @@ import SvgIcon from '../../components/shared/SvgIcon';
 import EthosCard from '../../components/ethos/EthosCard';
 import {RootState} from '../../store/configureStore';
 import {useSelector} from 'react-redux';
+import EthosHeader from '../../components/ethos/EthosHeader';
 
 const SubmitSelectedEthosCardsScreen: React.FC<{navigation: any}> = ({
   navigation,
@@ -28,6 +29,7 @@ const SubmitSelectedEthosCardsScreen: React.FC<{navigation: any}> = ({
   return (
     <>
       <LinearGradient colors={['#516A7B', '#324755']} style={styles.flex1}>
+        <EthosHeader />
         <View style={[styles.container, {marginTop: insets.top + 40}]}>
           <Text style={styles.majorText}>Congratulations!</Text>
           <Text style={styles.minorText}>
