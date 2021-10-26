@@ -12,11 +12,11 @@ const GoalsHeader = () => {
   const insets = useSafeAreaInsets();
 
   const goBack = () => {
-    navigation.goBack();
+    navigation.canGoBack() && navigation.goBack();
   };
 
   const navigateToAddGoal = () => {
-    // navigation.navigate('');
+    navigation.navigate('CreateGoals');
   };
 
   return (
@@ -28,7 +28,7 @@ const GoalsHeader = () => {
       </TouchableOpacity>
       <Text style={styles.text}>My Goals</Text>
       <TouchableOpacity style={styles.addWrapper} onPress={navigateToAddGoal}>
-        <SvgIcon name="hart" />
+        <SvgIcon name="plusIconWhite" />
       </TouchableOpacity>
     </LinearGradient>
   );

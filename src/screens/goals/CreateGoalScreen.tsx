@@ -15,6 +15,8 @@ import {useDispatch} from 'react-redux';
 import SvgIcon from '../../components/shared/SvgIcon';
 import {COLORS1} from '../../services/colors.service';
 import {RS_SEMI_BOLD, WS_BOLD} from '../../services/fonts.service';
+import notificationService from '../../services/notification.service';
+import {postGoalActionSG} from '../../store/ducks/goalsDuck';
 
 const CreateGoalsScreen: React.FC<{navigation: any}> = ({navigation}) => {
   const insets = useSafeAreaInsets();
@@ -22,11 +24,26 @@ const CreateGoalsScreen: React.FC<{navigation: any}> = ({navigation}) => {
   const [desc, setDesc] = useState('');
   const [title, setTitle] = useState('');
 
+  const disableSubmit = () => {
+    return desc.length === 0 || title.length === 0;
+  };
+
   const goBack = () => {
     navigation.goBack();
   };
 
-  const addGoal = () => {};
+  const addGoal = () => {
+    dispatch(
+      postGoalActionSG(title, desc, () => {
+        notificationService.notify(
+          'success',
+          'Success',
+          'the goal successfully added',
+        );
+      }),
+    );
+    navigation.navigate('Goals');
+  };
 
   return (
     <LinearGradient colors={['#FFFFFF', '#F0F3F4']} style={styles.flex1}>
@@ -74,7 +91,10 @@ const CreateGoalsScreen: React.FC<{navigation: any}> = ({navigation}) => {
             />
           </View>
           <View style={styles.buttonWrapper}>
-            <TouchableOpacity style={styles.button} onPress={addGoal}>
+            <TouchableOpacity
+              style={[styles.button, disableSubmit() && styles.disabled]}
+              onPress={addGoal}
+              disabled={disableSubmit()}>
               <Text style={styles.buttonText}>ADD A GOAL</Text>
             </TouchableOpacity>
           </View>
@@ -191,5 +211,8 @@ const styles = StyleSheet.create({
     letterSpacing: 2.1,
     fontFamily: RS_SEMI_BOLD,
     color: COLORS1.gray2,
+  },
+  disabled: {
+    opacity: 0.5,
   },
 });

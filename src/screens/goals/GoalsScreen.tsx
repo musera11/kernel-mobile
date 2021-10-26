@@ -1,17 +1,40 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {ScrollView, StyleSheet, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import {useDispatch, useSelector} from 'react-redux';
 import EmptyGoalsScreenCard from '../../components/goals/EmptyGoalsScreenCard';
 import GoalItem from '../../components/goals/GoalItem';
 import GoalsHeader from '../../components/goals/GoalsHeader';
 import GoalsSelectButton from '../../components/goals/GoalsSelectButton';
 import {COLORS1} from '../../services/colors.service';
+import {RootState} from '../../store/configureStore';
+import {getGoalsActionSG} from '../../store/ducks/goalsDuck';
 
 const TABS = ['ALL GOALS', 'COMPLETED', 'INCOMPLETE'];
 
 const GoalsScreen = () => {
-  const [disableTabs, setDisableTabs] = useState(false);
+  const {goals} = useSelector((state: RootState) => state.goalsReducer);
   const [selectedTab, setSelectedTab] = useState('ALL GOALS');
+  const [isLoading, setIsLoading] = useState(true);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(
+      getGoalsActionSG(() => {
+        setIsLoading(false);
+      }),
+    );
+  }, [dispatch]);
+
+  const renderRightGoals = () => {
+    if (selectedTab === 'ALL GOALS') {
+      return goals;
+    } else if (selectedTab === 'COMPLETED') {
+      return goals.filter(g => g.isCompleted === true);
+    } else {
+      return goals.filter(g => g.isCompleted === false);
+    }
+  };
 
   return (
     <LinearGradient colors={['#FFFFFF', '#F0F3F4']} style={styles.flex1}>
@@ -21,27 +44,29 @@ const GoalsScreen = () => {
           <View style={styles.marginRight8} key={t}>
             <GoalsSelectButton
               text={t}
-              disabled={disableTabs}
+              disabled={goals.length === 0}
               selected={t === selectedTab}
               onPress={() => setSelectedTab(t)}
             />
           </View>
         ))}
       </View>
-      {false ? (
-        <View style={styles.emptyScreenContainer}>
-          <View style={styles.flex2} />
-          <EmptyGoalsScreenCard />
-          <View style={styles.flex3} />
-        </View>
-      ) : (
-        <ScrollView contentContainerStyle={styles.scrollView}>
-          <GoalItem
-            title="my goal title"
-            description="some description"
-            containerStyle={styles.goal}
-          />
-        </ScrollView>
+      {isLoading ? null : (
+        <>
+          {goals.length === 0 ? (
+            <View style={styles.emptyScreenContainer}>
+              <View style={styles.flex2} />
+              <EmptyGoalsScreenCard />
+              <View style={styles.flex3} />
+            </View>
+          ) : (
+            <ScrollView contentContainerStyle={styles.scrollView}>
+              {renderRightGoals().map(g => (
+                <GoalItem key={g._id} goal={g} containerStyle={styles.goal} />
+              ))}
+            </ScrollView>
+          )}
+        </>
       )}
     </LinearGradient>
   );

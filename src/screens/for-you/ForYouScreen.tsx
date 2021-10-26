@@ -32,6 +32,10 @@ const ForYouScreen: React.FC<{navigation: any}> = ({navigation}) => {
     navigation.navigate('MyAccomplishments');
   };
 
+  const navigateToGoals = () => {
+    navigation.navigate('Goals');
+  };
+
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
@@ -65,7 +69,7 @@ const ForYouScreen: React.FC<{navigation: any}> = ({navigation}) => {
           title={'My Goals'}
           subTitle={'Achievement starts within'}
           icon={'myGoalsMain'}
-          onPress={takeEthos}
+          onPress={navigateToGoals}
         />
         <ForYouCard
           title={'My Gratitude Board'}

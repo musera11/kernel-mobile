@@ -40,8 +40,10 @@ import doneGreen from '../../assets/svgs/doneGreen.svg';
 import doneWhite from '../../assets/svgs/doneWhite.svg';
 import personPencilGreen from '../../assets/svgs/personPencilGreen.svg';
 import arrowBackBlack from '../../assets/svgs/arrowBackBlack.svg';
+import plusIconWhite from '../../assets/svgs/plusIconWhite.svg';
 
 const svgs: any = {
+  plusIconWhite,
   arrowBackBlack,
   arrowFrontBlack,
   arrowFrontWhite,

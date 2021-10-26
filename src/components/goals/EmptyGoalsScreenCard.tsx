@@ -1,16 +1,14 @@
-import {useNavigation} from '@react-navigation/core';
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {COLORS1} from '../../services/colors.service';
 import {WS_BOLD} from '../../services/fonts.service';
+import navigationService from '../../services/navigation.service';
 import SvgIcon from '../shared/SvgIcon';
 
 const EmptyGoalsScreenCard = () => {
-  const navigation = useNavigation();
-
   const navigateToCreateGoal = () => {
-    // navigation.navigate('')
+    navigationService.navigate('CreateGoals');
   };
 
   return (

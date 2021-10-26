@@ -4,18 +4,17 @@ import {StyleSheet, Text, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {COLORS1} from '../../services/colors.service';
 import {WS_BOLD, WS_REGULAR} from '../../services/fonts.service';
+import {Goal} from '../../types/goals';
 import SvgIcon from '../shared/SvgIcon';
 
 const GoalDetailsCard: React.FC<{
-  title: string;
-  description: string;
-  completed?: boolean;
-  completionDate?: string;
-}> = ({title, description, completionDate, completed}) => {
+  goal: Goal;
+}> = ({goal}) => {
+  const {title, text, isCompletedAt, isCompleted} = goal;
   return (
-    <View style={[styles.container, {paddingBottom: completed ? 40 : 68}]}>
+    <View style={[styles.container, {paddingBottom: isCompleted ? 40 : 68}]}>
       <Text style={styles.titleText}>{title}</Text>
-      {completed ? (
+      {isCompleted ? (
         <LinearGradient
           style={styles.iconWrapper}
           colors={['#9FD9CA', '#87BFB0']}>
@@ -26,9 +25,12 @@ const GoalDetailsCard: React.FC<{
           <SvgIcon name="doneWhite" />
         </View>
       )}
-      <Text style={styles.descText}>{description}</Text>
-      {completed && (
-        <Text style={styles.completedText}>Completed{completionDate}</Text>
+      <Text style={styles.descText}>{text}</Text>
+      {isCompletedAt && (
+        <Text style={styles.completedText}>
+          Completed
+          {` ${isCompletedAt && new Date(isCompletedAt).toLocaleDateString()}`}
+        </Text>
       )}
     </View>
   );
@@ -80,6 +82,6 @@ const styles = StyleSheet.create({
     fontFamily: WS_BOLD,
     fontSize: 12,
     textAlign: 'center',
-    marginTop: 6,
+    marginTop: 10,
   },
 });

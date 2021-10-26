@@ -1,25 +1,37 @@
 import React from 'react';
-import {StyleSheet, Text, View, ViewStyle} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  ViewStyle,
+} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {COLORS1} from '../../services/colors.service';
 import {RS_SEMI_BOLD, WS_BOLD} from '../../services/fonts.service';
+import navigationService from '../../services/navigation.service';
+import {Goal} from '../../types/goals';
 import SvgIcon from '../shared/SvgIcon';
 
 const GoalItem: React.FC<{
-  title: string;
-  description: string;
+  goal: Goal;
   containerStyle?: ViewStyle;
-  completed?: boolean;
-}> = ({title, description, containerStyle, completed}) => {
+}> = ({goal, containerStyle}) => {
+  const {title, text, isCompleted} = goal;
+
+  const navigateToGoalDetails = () => {
+    navigationService.navigate('GoalDetails', {goal});
+  };
+
   const renderContent = () => (
     <>
       <View>
         <Text style={styles.titleText}>{title}</Text>
         <Text style={styles.descText} ellipsizeMode="tail" numberOfLines={1}>
-          {description}
+          {text}
         </Text>
       </View>
-      <View style={[styles.iconWrapper, completed && styles.iconWrapper]}>
+      <View style={[styles.iconWrapper, isCompleted && styles.iconWrapper]}>
         <SvgIcon name="arrowFrontBlack" />
       </View>
     </>
@@ -27,18 +39,20 @@ const GoalItem: React.FC<{
 
   return (
     <>
-      {completed ? (
-        <View style={styles.shadow}>
+      {isCompleted ? (
+        <TouchableOpacity style={styles.shadow} onPress={navigateToGoalDetails}>
           <LinearGradient
             style={[styles.container, containerStyle]}
             colors={['#9FD9CA', '#87BFB0']}>
             {renderContent()}
           </LinearGradient>
-        </View>
+        </TouchableOpacity>
       ) : (
-        <View style={[styles.container, styles.shadow, containerStyle]}>
+        <TouchableOpacity
+          style={[styles.container, styles.shadow, containerStyle]}
+          onPress={navigateToGoalDetails}>
           {renderContent()}
-        </View>
+        </TouchableOpacity>
       )}
     </>
   );

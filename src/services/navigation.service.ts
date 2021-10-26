@@ -18,7 +18,7 @@ const navData = {
   currentScreen: '',
 };
 
-function navigate(name: string, params: Object) {
+function navigate(name: string, params?: Object) {
   _navigator.current?.navigate(name, params);
 }
 

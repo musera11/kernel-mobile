@@ -35,9 +35,6 @@ const Stack = createStackNavigator();
 function MainStack() {
   return (
     <Stack.Navigator screenOptions={{header: () => null}}>
-      <Stack.Screen name="GoalsScreen" component={GoalsScreen} />
-      <Stack.Screen name="CreateGoalsScreen" component={CreateGoalsScreen} />
-      <Stack.Screen name="GoalDetailsScreen" component={GoalDetailsScreen} />
       <Stack.Screen name="Main" component={TabNavigation} />
       <Stack.Screen name="PhysicalFeeling" component={PhysicalFeelingScreen} />
       <Stack.Screen name="MentalFeeling" component={MentalFeelingScreen} />
@@ -95,6 +92,9 @@ function MainStack() {
         component={MyAccomplishmentsScreen}
       />
       <Stack.Screen name="CheckInNotes" component={CheckInNotesScreen} />
+      <Stack.Screen name="Goals" component={GoalsScreen} />
+      <Stack.Screen name="CreateGoals" component={CreateGoalsScreen} />
+      <Stack.Screen name="GoalDetails" component={GoalDetailsScreen} />
     </Stack.Navigator>
   );
 }
