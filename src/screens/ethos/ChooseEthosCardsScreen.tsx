@@ -104,7 +104,7 @@ const ChooseEthosCardsScreen: React.FC<{navigation: any}> = ({navigation}) => {
       <EthosHeader />
       <View style={styles.textsWrapper}>
         <Text style={styles.mainText}>
-          Choose 14 Ethos cards These are the values that guide{' '}
+          Choose 14 ethos cards These are the values that guide{' '}
           <Text style={styles.youText}>your life</Text>
         </Text>
       </View>

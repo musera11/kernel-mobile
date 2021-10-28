@@ -40,7 +40,7 @@ const PhysicalDimensionScreen: React.FC<{navigation: any}> = ({navigation}) => {
       <View style={styles.container}>
         <View style={styles.flex1} />
         <Text style={styles.majorText}>
-          Choose the Ethos card that guides your physical dimension of life
+          Choose the ethos card that guides your physical dimension of life
         </Text>
         <Text style={styles.minorText}>
           This about your vehicle through life

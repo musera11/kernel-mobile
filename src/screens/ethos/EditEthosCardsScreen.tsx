@@ -76,7 +76,7 @@ const EditEthosCardsScreen: React.FC<{navigation: any}> = ({navigation}) => {
     <>
       <EthosHeader />
       <Text style={styles.majorText}>
-        Are there any of these 7 Ethos that fit better than the ones chosen?
+        Are there any of these 7 ethos that fit better than the ones chosen?
       </Text>
       <Text style={styles.minorText}>DRAG AND DROP INTO PLACE</Text>
       <DraxProvider>

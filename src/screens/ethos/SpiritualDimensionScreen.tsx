@@ -51,7 +51,7 @@ const SpiritualDimensionScreen: React.FC<{navigation: any}> = ({
       <View style={styles.container}>
         <View style={styles.flex1} />
         <Text style={styles.majorText}>
-          Choose the Ethos that guides your spiritual dimension of life
+          Choose the ethos that guides your spiritual dimension of life
         </Text>
         <Text style={styles.minorText}>
           This is

@@ -53,11 +53,10 @@ const SignInScreen = () => {
       {!showAnimation ? (
         <ScrollView
           showsVerticalScrollIndicator={false}
-          keyboardShouldPersistTaps={'handled'}
-          contentContainerStyle={{marginBottom: insets.bottom}}>
+          keyboardShouldPersistTaps={'handled'}>
           <KeyboardAvoidingView
             style={styles.flex1}
-            keyboardVerticalOffset={Platform.select({ios: 50, android: 0})}
+            keyboardVerticalOffset={Platform.select({ios: 0, android: -50})}
             behavior={'position'}>
             <LinearGradient
               colors={['rgba(0,0,0,0)', '#516A7B']}
@@ -93,7 +92,8 @@ const SignInScreen = () => {
                   autoCompleteType: 'password',
                 }}
               />
-              <View style={styles.signInWrapper}>
+              <View
+                style={[styles.signInWrapper, {marginBottom: insets.bottom}]}>
                 <SubmitButton onPress={signIn} disabled={disableSubmit()} />
               </View>
             </View>

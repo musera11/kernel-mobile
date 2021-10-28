@@ -51,7 +51,7 @@ const EmotionalDimensionScreen: React.FC<{navigation: any}> = ({
       <View style={styles.container}>
         <View style={styles.flex1} />
         <Text style={styles.majorText}>
-          Choose the Ethos that guides your emotional dimension of life
+          Choose the ethos that guides your emotional dimension of life
         </Text>
         <Text style={styles.minorText}>
           These are

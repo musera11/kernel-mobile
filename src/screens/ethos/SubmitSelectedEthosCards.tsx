@@ -30,17 +30,17 @@ const SubmitSelectedEthosCardsScreen: React.FC<{navigation: any}> = ({
     <>
       <LinearGradient colors={['#516A7B', '#324755']} style={styles.flex1}>
         <EthosHeader />
-        <View style={[styles.container, {marginTop: insets.top + 40}]}>
-          <Text style={styles.majorText}>Congratulations!</Text>
-          <Text style={styles.minorText}>
-            This is your Ethos Manifest. When you live in alignment with your 7
-            Ethos, you will reduce stress and increase your well-being. This is
-            your recipe to live your best life.
-          </Text>
-        </View>
         <ScrollView
           contentContainerStyle={styles.scrollView}
           showsVerticalScrollIndicator={false}>
+          <View style={[styles.container, {marginTop: insets.top + 40}]}>
+            <Text style={styles.majorText}>Congratulations!</Text>
+            <Text style={styles.minorText}>
+              This is your Ethos Manifest. When you live in alignment with your
+              7 Ethos, you will reduce stress and increase your well-being. This
+              is your recipe to live your best life.
+            </Text>
+          </View>
           {cardsByDimension.map((card, i) => (
             <View style={styles.texAndCardWrapper} key={`${i}`}>
               <Text style={styles.dimensionText} numberOfLines={1}>
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
   },
   minorText: {
     fontFamily: WS_REGULAR,
-    fontSize: 18,
+    fontSize: 16,
     color: COLORS1.white,
     textAlign: 'center',
     lineHeight: 25,

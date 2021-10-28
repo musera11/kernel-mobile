@@ -86,7 +86,7 @@ const SignUpScreen = () => {
             keyboardShouldPersistTaps={'handled'}>
             <KeyboardAvoidingView
               keyboardVerticalOffset={Platform.select({
-                ios: 90,
+                ios: 60,
                 android: 0,
               })}
               behavior={'position'}>
@@ -220,6 +220,7 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     borderBottomColor: COLORS1.white,
+    marginBottom: Platform.OS === 'ios' ? 7 : 2,
   },
   animationWrapper: {
     flex: 1,
