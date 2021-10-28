@@ -6,6 +6,7 @@ import {ISignInData, ISignUpData} from '../../types/auth';
 import {IUserData} from '../../types/main';
 // import {setMonitoringUsername} from '../../utils/monitoring';
 import {setUserDataAction} from '../ducks/authDuck';
+import {getLastTimeSelectedCardsActionSG} from '../ducks/ethosDuck';
 import {DEFAULT, notifyAction, resetStoreAction} from '../ducks/mainDuck';
 
 export function* signInSaga(payload: {
@@ -26,6 +27,7 @@ export function* signInSaga(payload: {
     console.log(res);
     // setMonitoringUsername(res.username);
     yield AsyncStorage.setItem('token', res.accessToken);
+    yield put(getLastTimeSelectedCardsActionSG());
     yield put(setUserDataAction(res));
     payload.callback();
   } catch (error: any) {

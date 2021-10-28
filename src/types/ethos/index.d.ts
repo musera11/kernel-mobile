@@ -11,4 +11,5 @@ export interface EthosState {
   selectedCards: EthosCardType[];
   cards: EthosCardType[];
   cardsByDimension: EthosCardWithDimension[];
+  lastTimeSelectedCardsByDimension: EthosCardWithDimension[] | EthosCardType[];
 }

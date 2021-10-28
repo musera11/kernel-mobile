@@ -10,6 +10,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useDispatch} from 'react-redux';
 import Slider from '../../components/check-in/Slider';
+import EmojiAndText from '../../components/forYou/EmojiAndText';
 import SvgIcon from '../../components/shared/SvgIcon';
 import {COLORS1} from '../../services/colors.service';
 import {
@@ -50,19 +51,6 @@ const OccupationalFeelingScreen: React.FC<{navigation: any}> = ({
     setSliderValue(value);
   };
 
-  const getEmojiName = () => {
-    if (sliderValue >= 3 / 4) {
-      return 'emojiScale4';
-    }
-    if (sliderValue >= 2 / 4) {
-      return 'emojiScale3';
-    }
-    if (sliderValue >= 1 / 4) {
-      return 'emojiScale2';
-    }
-    return 'emojiScale1';
-  };
-
   const onContinuePress = () => {
     dispatch(addFeeling({dimension: 'OCCUPATIONAL', value: sliderValue}));
     navigation.navigate('EnvironmentalFeeling');
@@ -87,11 +75,7 @@ const OccupationalFeelingScreen: React.FC<{navigation: any}> = ({
           {' '}
           <Text style={styles.darkText}>occupational</Text> dimension of life
         </Text>
-        <Text style={styles.minorText}>Ethos Name Here</Text>
-        <View style={styles.emojiWrapper}>
-          <SvgIcon name={getEmojiName()} color="#fff" style={styles.emoji} />
-        </View>
-        <Text style={styles.emojiText}>Not the best</Text>
+        <EmojiAndText sliderValue={sliderValue} dimension="OCCUPATIONAL" />
         <Text style={styles.centerText}>This is your connection to</Text>
         <Text style={styles.centerText}>
           {' '}

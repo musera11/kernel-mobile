@@ -10,10 +10,14 @@ const ForYouCard: React.FC<{
   title: string;
   subTitle: string;
   icon: string;
+  disabled?: boolean;
   onPress: () => void;
-}> = ({title, subTitle, onPress, icon}) => {
+}> = ({title, subTitle, onPress, icon, disabled}) => {
   return (
-    <TouchableOpacity style={styles.container} onPress={onPress}>
+    <TouchableOpacity
+      style={[styles.container, disabled && styles.disabled]}
+      onPress={onPress}
+      disabled={disabled}>
       <LinearGradient
         start={{x: 0, y: 1}}
         end={{x: 1, y: 1}}
@@ -39,6 +43,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginBottom: 15,
     height: 105,
+    opacity: 0.5,
   },
   iconContainer: {
     width: 95,
@@ -62,6 +67,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     paddingLeft: 25,
+  },
+  disabled: {
+    opacity: 0.5,
   },
 });
 

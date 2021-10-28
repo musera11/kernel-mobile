@@ -12,9 +12,11 @@ import {
   GET_CARDS_SG,
   POST_CARDS_SG,
   POST_CARDS_BY_DIMENSION_SG,
+  GET_LAST_TIME_SELECTED_CARDS_SG,
 } from '../ducks/ethosDuck';
 import {
   getCardsSaga,
+  getLastTimeSelectedCards,
   postCardsByDimensionSaga,
   postCardsSaga,
 } from './ethosSaga';
@@ -44,6 +46,7 @@ function* actionWatcher() {
   yield takeLatest(POST_CARDS_BY_DIMENSION_SG, postCardsByDimensionSaga);
   yield takeLatest(GET_ACCOMPLISHMENTS_SG, getAccomplishmentsSaga);
   yield takeLatest(POST_CHECK_IN_SG, postCheckInSaga);
+  yield takeLatest(GET_LAST_TIME_SELECTED_CARDS_SG, getLastTimeSelectedCards);
 
   yield takeLatest(GET_GOALS_SG, getGoalsSaga);
   yield takeLatest(POST_GOAL_SG, postGoalSaga);

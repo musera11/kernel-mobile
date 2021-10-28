@@ -20,6 +20,10 @@ const ForYouScreen: React.FC<{navigation: any}> = ({navigation}) => {
   const userData: IUserData = useSelector(
     (state: RootState) => state.authReducer.userData,
   );
+  const cards = useSelector(
+    (state: RootState) => state.ethosReducer.lastTimeSelectedCardsByDimension,
+  );
+  console.log(cards.length);
 
   const takeEthos = () => {
     navigation.navigate('ChooseEthosCards');
@@ -35,6 +39,10 @@ const ForYouScreen: React.FC<{navigation: any}> = ({navigation}) => {
 
   const navigateToGoals = () => {
     navigation.navigate('Goals');
+  };
+
+  const disableCheckIn = () => {
+    return cards.length === 0;
   };
 
   return (
@@ -61,6 +69,7 @@ const ForYouScreen: React.FC<{navigation: any}> = ({navigation}) => {
           onPress={takeEthos}
         />
         <ForYouCard
+          disabled={disableCheckIn()}
           title={'Check in'}
           subTitle={'How are you in this moment?'}
           icon={'sun'}

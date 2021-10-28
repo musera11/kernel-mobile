@@ -9,16 +9,21 @@ export const GET_CARDS_SG = 'empower/ethos/getCards_sg';
 export const POST_CARDS_SG = 'empower/ethos/postCards_sg';
 export const POST_CARDS_BY_DIMENSION_SG =
   'empower/ethos/postCardsByDimension_sg';
+export const GET_LAST_TIME_SELECTED_CARDS_SG =
+  'empower/ethos/getLastTimeSelectedCards_sg';
 export const SET_ALL_CARDS = 'empower/ethos/setAllCards';
 export const SET_SELECTED_CARDS = 'empower/ethos/setSelectedCards';
 export const SET_CARDS_BY_DIMENSION = 'empower/ethos/setCardsByDimension';
 export const ADD_CARD_BY_DIMENSION = 'empower/ethos/addCardByDimension';
 export const REMOVE_CARD_BY_DIMENSION = 'empower/ethos/removeCardByDimension';
+export const SET_LAST_TIME_SELECTED_CARDS =
+  'empower/ethos/setLastTimeSelectedCards';
 
 const initialState: EthosState = {
   cards: [],
   selectedCards: [],
   cardsByDimension: [],
+  lastTimeSelectedCardsByDimension: [],
 };
 
 export const ethosReducer = (state = initialState, action: AnyAction) => {
@@ -60,6 +65,13 @@ export const ethosReducer = (state = initialState, action: AnyAction) => {
       } else {
         return state;
       }
+    case SET_LAST_TIME_SELECTED_CARDS:
+      return {
+        ...state,
+        lastTimeSelectedCardsByDimension: payload as
+          | EthosCardType[]
+          | EthosCardWithDimension[],
+      };
     default:
       return state;
   }
@@ -67,6 +79,15 @@ export const ethosReducer = (state = initialState, action: AnyAction) => {
 
 export const getCardsActionSG = () => ({
   type: GET_CARDS_SG,
+});
+
+export const getLastTimeSelectedCardsActionSG = () => ({
+  type: GET_LAST_TIME_SELECTED_CARDS_SG,
+});
+
+export const setLastTimeSelectedCardsAction = (cards: EthosCardType[]) => ({
+  type: SET_LAST_TIME_SELECTED_CARDS,
+  payload: cards,
 });
 
 export const postCardsActionSG = (cards: any, successCallBack?: Function) => ({
