@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import {
   StyleSheet,
   Text,
@@ -6,21 +6,46 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
+import {Swipeable} from 'react-native-gesture-handler';
 import LinearGradient from 'react-native-linear-gradient';
+import EvilIcons from 'react-native-vector-icons/EvilIcons';
+import FontAwesome from 'react-native-vector-icons/AntDesign';
 import {COLORS1} from '../../services/colors.service';
 import {RS_SEMI_BOLD, WS_BOLD} from '../../services/fonts.service';
 import navigationService from '../../services/navigation.service';
 import {Goal} from '../../types/goals';
 import SvgIcon from '../shared/SvgIcon';
+import {useDispatch} from 'react-redux';
+import {deleteGoalActionSG} from '../../store/ducks/goalsDuck';
+import notificationService from '../../services/notification.service';
 
 const GoalItem: React.FC<{
   goal: Goal;
   containerStyle?: ViewStyle;
 }> = ({goal, containerStyle}) => {
+  const dispatch = useDispatch();
+  const swiper = useRef(null);
   const {title, text, isCompleted} = goal;
 
   const navigateToGoalDetails = () => {
     navigationService.navigate('GoalDetails', {goal});
+  };
+
+  const navigateToEditGoal = () => {
+    navigationService.navigate('EditGoal', {goal});
+    (swiper.current as any).close();
+  };
+
+  const deleteGoal = () => {
+    dispatch(
+      deleteGoalActionSG(goal._id, () =>
+        notificationService.notify(
+          'success',
+          'Success',
+          'the goal successfully updated',
+        ),
+      ),
+    );
   };
 
   const renderContent = () => (
@@ -37,23 +62,51 @@ const GoalItem: React.FC<{
     </>
   );
 
+  const renderRightActions = () => {
+    return (
+      <TouchableOpacity
+        style={styles.rightActionsContainer}
+        onPress={deleteGoal}>
+        <EvilIcons name="trash" color={COLORS1.gray2} size={40} />
+      </TouchableOpacity>
+    );
+  };
+
+  const renderLeftActions = () => {
+    return (
+      <TouchableOpacity
+        style={styles.leftActionsContainer}
+        onPress={navigateToEditGoal}>
+        <FontAwesome name="edit" color={COLORS1.gray2} size={31} />
+      </TouchableOpacity>
+    );
+  };
+
   return (
     <>
-      {isCompleted ? (
-        <TouchableOpacity style={styles.shadow} onPress={navigateToGoalDetails}>
-          <LinearGradient
-            style={[styles.container, containerStyle]}
-            colors={['#9FD9CA', '#87BFB0']}>
+      <Swipeable
+        renderLeftActions={!goal.isCompleted ? renderLeftActions : undefined}
+        renderRightActions={renderRightActions}
+        overshootLeft={false}
+        ref={swiper}>
+        {isCompleted ? (
+          <TouchableOpacity
+            style={styles.shadow}
+            onPress={navigateToGoalDetails}>
+            <LinearGradient
+              style={[styles.container, containerStyle]}
+              colors={['#9FD9CA', '#87BFB0']}>
+              {renderContent()}
+            </LinearGradient>
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            style={[styles.container, styles.shadow, containerStyle]}
+            onPress={navigateToGoalDetails}>
             {renderContent()}
-          </LinearGradient>
-        </TouchableOpacity>
-      ) : (
-        <TouchableOpacity
-          style={[styles.container, styles.shadow, containerStyle]}
-          onPress={navigateToGoalDetails}>
-          {renderContent()}
-        </TouchableOpacity>
-      )}
+          </TouchableOpacity>
+        )}
+      </Swipeable>
     </>
   );
 };
@@ -102,5 +155,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: COLORS1.white,
+  },
+  rightActionsContainer: {
+    height: 79,
+    width: 100,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  leftActionsContainer: {
+    height: 79,
+    width: 100,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

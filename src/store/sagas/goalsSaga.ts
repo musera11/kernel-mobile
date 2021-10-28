@@ -4,6 +4,7 @@ import {Goal} from '../../types/goals';
 import {
   addGoalAction,
   getGoalsActionSG,
+  removeGoalAction,
   setGoalsAction,
 } from '../ducks/goalsDuck';
 import {notifyAction} from '../ducks/mainDuck';
@@ -43,6 +44,23 @@ export function* updateGoalSaga({
       ...goal,
     });
     yield put(getGoalsActionSG());
+    successCallBack && successCallBack();
+  } catch (error) {
+    yield notifyAction('error', 'Error', 'Something went wrong', true);
+  }
+}
+
+export function* deleteGoalSaga({
+  goalId,
+  successCallBack,
+}: {
+  goalId: string;
+  successCallBack?: Function;
+  type: string;
+}) {
+  try {
+    yield put(removeGoalAction(goalId));
+    yield axiosInstance.delete(`personal/goal/${goalId}`);
     successCallBack && successCallBack();
   } catch (error) {
     yield notifyAction('error', 'Error', 'Something went wrong', true);

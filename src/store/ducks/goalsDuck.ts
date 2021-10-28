@@ -40,7 +40,7 @@ export const goalsReducer = (state = initialState, action: AnyAction) => {
     case REMOVE_GOAL:
       return {
         ...state,
-        goals: state.goals.filter(g => g._id !== (payload as Goal)._id),
+        goals: state.goals.filter(g => g._id !== payload),
       };
     default:
       return state;
@@ -93,7 +93,7 @@ export const updateGoalAction = (goal: Goal) => ({
   type: UPDATE_GOAL,
 });
 
-export const removeGoalAction = (goal: Goal) => ({
-  payload: goal,
+export const removeGoalAction = (goalId: string) => ({
+  payload: goalId,
   type: REMOVE_GOAL,
 });

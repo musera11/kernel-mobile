@@ -21,15 +21,22 @@ import {
   WS_SEMI_BOLD,
 } from '../../services/fonts.service';
 import notificationService from '../../services/notification.service';
-import {postGoalActionSG} from '../../store/ducks/goalsDuck';
+import {updateGoalActionSG} from '../../store/ducks/goalsDuck';
+import {Goal} from '../../types/goals';
 
-const CreateGoalScreen: React.FC<{navigation: any}> = ({navigation}) => {
+const EditGoalScreen: React.FC<{
+  navigation: any;
+  route: {params: {goal: Goal}};
+}> = ({navigation, route}) => {
   const insets = useSafeAreaInsets();
   const dispatch = useDispatch();
-  const [desc, setDesc] = useState('');
-  const [title, setTitle] = useState('');
+  const {goal} = route.params;
+  const [desc, setDesc] = useState(goal.text);
+  const [title, setTitle] = useState(goal.title);
 
   const disableSubmit = () => {
+    // console.log({desc}, {title});
+    // console.log(desc.length === 0 || title.length === 0);
     return desc.length === 0 || title.length === 0;
   };
 
@@ -38,12 +45,14 @@ const CreateGoalScreen: React.FC<{navigation: any}> = ({navigation}) => {
   };
 
   const addGoal = () => {
+    goal.title = title;
+    goal.text = desc;
     dispatch(
-      postGoalActionSG(title, desc, () => {
+      updateGoalActionSG(goal, () => {
         notificationService.notify(
           'success',
           'Success',
-          'the goal successfully added',
+          'the goal successfully updated',
         );
       }),
     );
@@ -82,6 +91,7 @@ const CreateGoalScreen: React.FC<{navigation: any}> = ({navigation}) => {
               editable
               onChangeText={text => setTitle(text)}
               maxLength={20}
+              value={title}
             />
           </View>
           <View style={styles.inputWrapper}>
@@ -93,6 +103,7 @@ const CreateGoalScreen: React.FC<{navigation: any}> = ({navigation}) => {
               editable
               onChangeText={text => setDesc(text)}
               maxLength={118}
+              value={desc}
             />
           </View>
           <View style={styles.buttonWrapper}>
@@ -100,7 +111,7 @@ const CreateGoalScreen: React.FC<{navigation: any}> = ({navigation}) => {
               style={[styles.button, disableSubmit() && styles.disabled]}
               onPress={addGoal}
               disabled={disableSubmit()}>
-              <Text style={styles.buttonText}>ADD A GOAL</Text>
+              <Text style={styles.buttonText}>UPDATE A GOAL</Text>
             </TouchableOpacity>
           </View>
         </KeyboardAvoidingView>
@@ -109,7 +120,7 @@ const CreateGoalScreen: React.FC<{navigation: any}> = ({navigation}) => {
   );
 };
 
-export default CreateGoalScreen;
+export default EditGoalScreen;
 
 const styles = StyleSheet.create({
   flex1: {

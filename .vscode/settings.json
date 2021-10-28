@@ -8,6 +8,8 @@
     "Ionicons",
     "middlewares",
     "spinkit",
-    "svgs"
+    "svgs",
+    "Swipeable",
+    "swiper"
   ]
 }

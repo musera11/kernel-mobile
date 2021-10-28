@@ -20,8 +20,18 @@ import {
 } from './ethosSaga';
 import {GET_ACCOMPLISHMENTS_SG, POST_CHECK_IN_SG} from '../ducks/checkInDuck';
 import {getAccomplishmentsSaga, postCheckInSaga} from './checkInSaga';
-import {getGoalsSaga, updateGoalSaga, postGoalSaga} from './goalsSaga';
-import {GET_GOALS_SG, POST_GOAL_SG, UPDATE_GOAL_SG} from '../ducks/goalsDuck';
+import {
+  getGoalsSaga,
+  updateGoalSaga,
+  postGoalSaga,
+  deleteGoalSaga,
+} from './goalsSaga';
+import {
+  DELETE_GOAL_SG,
+  GET_GOALS_SG,
+  POST_GOAL_SG,
+  UPDATE_GOAL_SG,
+} from '../ducks/goalsDuck';
 
 function* actionWatcher() {
   yield takeLatest(CHECK_SIGNED_IN, checkSignedInSaga);
@@ -38,6 +48,7 @@ function* actionWatcher() {
   yield takeLatest(GET_GOALS_SG, getGoalsSaga);
   yield takeLatest(POST_GOAL_SG, postGoalSaga);
   yield takeLatest(UPDATE_GOAL_SG, updateGoalSaga);
+  yield takeLatest(DELETE_GOAL_SG, deleteGoalSaga);
 }
 
 export default function* rootSaga() {

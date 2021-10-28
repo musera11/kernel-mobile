@@ -15,7 +15,7 @@ const GoalsHeader = () => {
   };
 
   const navigateToAddGoal = () => {
-    // navigationService.navigate('CreateGoals');
+    navigationService.navigate('CreateGoal');
   };
 
   return (
