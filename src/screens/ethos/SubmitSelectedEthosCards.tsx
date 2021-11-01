@@ -2,7 +2,6 @@ import React from 'react';
 import {StyleSheet, Text, View, ScrollView} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {COLORS1} from '../../services/colors.service';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {
   RS_MEDIUM,
   RS_SEMI_BOLD,
@@ -19,7 +18,6 @@ import EthosHeader from '../../components/ethos/EthosHeader';
 const SubmitSelectedEthosCardsScreen: React.FC<{navigation: any}> = ({
   navigation,
 }) => {
-  const insets = useSafeAreaInsets();
   const {cardsByDimension} = useSelector(
     (state: RootState) => state.ethosReducer,
   );
@@ -33,7 +31,7 @@ const SubmitSelectedEthosCardsScreen: React.FC<{navigation: any}> = ({
         <ScrollView
           contentContainerStyle={styles.scrollView}
           showsVerticalScrollIndicator={false}>
-          <View style={[styles.container, {marginTop: insets.top + 40}]}>
+          <View style={styles.container}>
             <Text style={styles.majorText}>Congratulations!</Text>
             <Text style={styles.minorText}>
               This is your Ethos Manifest. When you live in alignment with your
@@ -81,6 +79,7 @@ const styles = StyleSheet.create({
     marginBottom: 13,
     paddingLeft: 34,
     paddingRight: 34,
+    marginTop: 20,
   },
   majorText: {
     fontFamily: WS_BOLD,
@@ -124,7 +123,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginTop: 53,
+    marginTop: 15,
     paddingLeft: 31,
     paddingRight: 33,
     marginBottom: 50,

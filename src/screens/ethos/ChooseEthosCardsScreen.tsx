@@ -21,66 +21,28 @@ const ChooseEthosCardsScreen: React.FC<{navigation: any}> = ({navigation}) => {
   const dispatch = useDispatch();
   const {cards} = useSelector((state: RootState) => state.ethosReducer);
   const [selectedCards, setSelectedCards] = useState<EthosCardType[]>([]);
-  const [firstLineCards, setFirstLineCards] = useState<
-    (EthosCardType | null)[]
-  >(Array(7).fill(null));
-  const [secondLineCards, setSecondLineCards] = useState<
-    (EthosCardType | null)[]
-  >(Array(7).fill(null));
 
   useEffect(() => {
     dispatch(getCardsActionSG());
   }, [dispatch]);
 
+  const horizontalCardsArray = () => {
+    return [
+      ...selectedCards,
+      ...new Array(14 - selectedCards.length).fill(null),
+    ];
+  };
+
   const addCard = (card: EthosCardType) => {
-    if (selectedCards.length < Math.floor(REQUIRED_CARDS / 2)) {
-      setFirstLineCards(oldState => {
-        oldState[selectedCards.length] = card;
-        return [...oldState];
-      });
-    } else {
-      setSecondLineCards(oldState => {
-        oldState[selectedCards.length - Math.floor(REQUIRED_CARDS / 2)] = card;
-        return [...oldState];
-      });
-    }
     setSelectedCards(oldState => [...oldState, card]);
   };
 
   const removeCard = (card: EthosCardType) => {
     const i = selectedCards.findIndex(c => c._id === card._id);
-    if (i < Math.floor(REQUIRED_CARDS / 2)) {
-      setFirstLineCards(oldState => {
-        oldState[i] = null;
-        return [...oldState];
-      });
-    } else {
-      setSecondLineCards(oldState => {
-        oldState[i - Math.floor(REQUIRED_CARDS / 2)] = null;
-        return [...oldState];
-      });
-    }
     setSelectedCards(oldState => {
       oldState.splice(i, 1);
       return [...oldState];
     });
-  };
-
-  const showRemove = (i: number, whichLine: number) => {
-    if (
-      whichLine === 1 &&
-      selectedCards.length <= Math.floor(REQUIRED_CARDS / 2) &&
-      i === selectedCards.length - 1
-    ) {
-      return true;
-    } else if (
-      whichLine === 2 &&
-      selectedCards.length > Math.floor(REQUIRED_CARDS / 2) &&
-      i === selectedCards.length - Math.floor(REQUIRED_CARDS / 2) - 1
-    ) {
-      return true;
-    }
-    return false;
   };
 
   const disableCard = (card: EthosCardType) => {
@@ -121,21 +83,19 @@ const ChooseEthosCardsScreen: React.FC<{navigation: any}> = ({navigation}) => {
         ))}
       </ScrollView>
       <View style={styles.lowerContainer}>
-        <View style={styles.firstLineCardsWrapper}>
-          {firstLineCards.map((card, i) =>
+        <ScrollView
+          contentContainerStyle={styles.horizontalScrollView}
+          horizontal
+          showsHorizontalScrollIndicator={false}>
+          {horizontalCardsArray().map((card, i) =>
             card ? (
-              <View
-                style={[
-                  styles.selectedCardWrapper,
-                  !firstLineCards[i + 1] && styles.zIndex1,
-                ]}
-                key={`${i}`}>
+              <View style={[styles.selectedCardWrapper]} key={`${i}`}>
                 <EthosCard
                   card={card}
                   disabled
                   selected
                   containerStyle={styles.selectedCard}
-                  onRemove={showRemove(i, 1) ? removeCard : undefined}
+                  onRemove={removeCard}
                   removeShadow
                 />
               </View>
@@ -143,30 +103,7 @@ const ChooseEthosCardsScreen: React.FC<{navigation: any}> = ({navigation}) => {
               <View style={styles.dashed} key={`${i}`} />
             ),
           )}
-        </View>
-        <View style={styles.secondLineCardsWrapper}>
-          {secondLineCards.map((card, i) =>
-            card ? (
-              <View
-                style={[
-                  styles.selectedCardWrapper,
-                  !secondLineCards[i + 1] && styles.zIndex1,
-                ]}
-                key={`${i}`}>
-                <EthosCard
-                  card={card}
-                  disabled
-                  selected
-                  containerStyle={styles.selectedCard}
-                  onRemove={showRemove(i, 2) ? removeCard : undefined}
-                  removeShadow
-                />
-              </View>
-            ) : (
-              <View style={styles.dashed} key={`${i}`} />
-            ),
-          )}
-        </View>
+        </ScrollView>
         <EthosFooter
           onNext={onNextPress}
           onBack={onBackPress}
@@ -195,8 +132,14 @@ const styles = StyleSheet.create({
     paddingLeft: 25,
     paddingRight: 25,
   },
+  horizontalScrollView: {
+    flexDirection: 'row',
+    paddingLeft: 16,
+    paddingRight: 20,
+    marginTop: 24,
+  },
   lowerContainer: {
-    height: 331,
+    height: 200,
     backgroundColor: COLORS1.gray2,
   },
   divider: {
@@ -233,22 +176,22 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   dashed: {
-    width: 65,
-    height: 75,
+    width: 126,
+    height: 43,
     borderRadius: 10,
+    marginLeft: 8,
     borderStyle: 'dashed',
     borderColor: COLORS1.gray4,
     borderWidth: 2,
-    marginLeft: -20,
     backgroundColor: COLORS1.gray2,
   },
   selectedCard: {
-    width: 65,
-    height: 75,
+    width: 126,
+    height: 43,
     borderRadius: 10,
   },
   selectedCardWrapper: {
-    marginLeft: -20,
+    marginLeft: 8,
   },
   zIndex1: {
     zIndex: 1,

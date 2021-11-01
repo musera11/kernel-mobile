@@ -76,7 +76,8 @@ const EditEthosCardsScreen: React.FC<{navigation: any}> = ({navigation}) => {
     <>
       <EthosHeader />
       <Text style={styles.majorText}>
-        Are there any of these 7 ethos that fit better than the ones chosen?
+        Are there any of these 7 ethos {'\n'} that fit better than the ones
+        chosen?
       </Text>
       <Text style={styles.minorText}>DRAG AND DROP INTO PLACE</Text>
       <DraxProvider>
@@ -104,7 +105,7 @@ const EditEthosCardsScreen: React.FC<{navigation: any}> = ({navigation}) => {
                   removeShadow
                   selected
                   card={card}
-                  containerStyle={styles.card}
+                  containerStyle={styles.secondLineCard}
                   draxViewProps={{
                     receivingStyle: styles.receivingStyle,
                     onReceiveDragDrop: () => onReceiveDragDrop(card),
@@ -125,8 +126,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
-    paddingLeft: 25,
-    paddingRight: 25,
+    paddingLeft: 15,
+    paddingRight: 15,
     paddingBottom: 10,
     flex: 1,
   },
@@ -134,7 +135,7 @@ const styles = StyleSheet.create({
     color: COLORS1.gray2,
     fontSize: 18,
     fontFamily: WS_BOLD,
-    marginTop: Dimensions.get('window').height < 750 ? 35 : 50,
+    marginTop: Dimensions.get('window').height < 750 ? 10 : 50,
     textAlign: 'center',
   },
   minorText: {
@@ -154,18 +155,20 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontFamily: RS_SEMI_BOLD,
     letterSpacing: 0.8,
-    marginTop: Dimensions.get('window').height < 750 ? 5 : 22,
+    marginTop: Dimensions.get('window').height < 750 ? 10 : 22,
+    marginBottom: 3,
   },
   card: {
     margin: 7,
   },
   lineCardsWrapper: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
     marginTop: 30,
-    marginBottom: Dimensions.get('window').height < 750 ? 15 : 34,
-    justifyContent: 'space-around',
-    paddingLeft: 42,
-    paddingRight: 22,
+    marginBottom: Dimensions.get('window').height < 750 ? 20 : 34,
+    justifyContent: 'space-between',
+    paddingLeft: 15,
+    paddingRight: 15,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -176,10 +179,13 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   firstLineCard: {
-    width: 65,
-    height: 75,
-    borderRadius: 10,
-    marginLeft: -20,
+    width: 110,
+    height: 50,
+    marginBottom: 10,
+  },
+  secondLineCard: {
+    width: 110,
+    height: 50,
   },
   receivingStyle: {
     borderColor: COLORS1.orange,
@@ -195,7 +201,7 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
   footer: {
-    marginBottom: 51,
+    marginBottom: 40,
   },
 });
 

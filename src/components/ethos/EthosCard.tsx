@@ -41,7 +41,7 @@ const EthosCard: React.FC<{
           {selected ? (
             <LinearGradient
               colors={['#72CCD0', '#87BCBF']}
-              style={styles.container}>
+              style={[styles.container, containerStyle]}>
               <Text style={styles.text}>{card.title}</Text>
             </LinearGradient>
           ) : (
@@ -59,7 +59,7 @@ const EthosCard: React.FC<{
           {selected ? (
             <LinearGradient
               colors={['#72CCD0', '#87BCBF']}
-              style={styles.container}>
+              style={[styles.container, containerStyle]}>
               <Text style={styles.text}>{card.title}</Text>
             </LinearGradient>
           ) : (
@@ -82,8 +82,8 @@ export default EthosCard;
 
 const styles = StyleSheet.create({
   container: {
-    width: 70,
-    height: 75,
+    width: 145,
+    height: 55,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 10,
@@ -100,8 +100,8 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   containerWithoutShadow: {
-    width: 70,
-    height: 75,
+    width: 145,
+    height: 55,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 10,
