@@ -8,32 +8,6 @@ import {
   REQUEST_SIGN_IN_SG,
   REQUEST_SIGN_UP_SG,
 } from '../ducks/authDuck';
-import {
-  GET_CARDS_SG,
-  POST_CARDS_SG,
-  POST_CARDS_BY_DIMENSION_SG,
-  GET_LAST_TIME_SELECTED_CARDS_SG,
-} from '../ducks/ethosDuck';
-import {
-  getCardsSaga,
-  getLastTimeSelectedCards,
-  postCardsByDimensionSaga,
-  postCardsSaga,
-} from './ethosSaga';
-import {GET_ACCOMPLISHMENTS_SG, POST_CHECK_IN_SG} from '../ducks/checkInDuck';
-import {getAccomplishmentsSaga, postCheckInSaga} from './checkInSaga';
-import {
-  getGoalsSaga,
-  updateGoalSaga,
-  postGoalSaga,
-  deleteGoalSaga,
-} from './goalsSaga';
-import {
-  DELETE_GOAL_SG,
-  GET_GOALS_SG,
-  POST_GOAL_SG,
-  UPDATE_GOAL_SG,
-} from '../ducks/goalsDuck';
 
 function* actionWatcher() {
   yield takeLatest(CHECK_SIGNED_IN, checkSignedInSaga);
@@ -41,17 +15,6 @@ function* actionWatcher() {
   yield takeLatest(REQUEST_SIGN_IN_SG, signInSaga);
   yield takeLatest(REQUEST_SIGN_UP_SG, signUpSaga);
   yield takeLatest(LOGOUT, logoutSaga);
-  yield takeLatest(GET_CARDS_SG, getCardsSaga);
-  yield takeLatest(POST_CARDS_SG, postCardsSaga);
-  yield takeLatest(POST_CARDS_BY_DIMENSION_SG, postCardsByDimensionSaga);
-  yield takeLatest(GET_ACCOMPLISHMENTS_SG, getAccomplishmentsSaga);
-  yield takeLatest(POST_CHECK_IN_SG, postCheckInSaga);
-  yield takeLatest(GET_LAST_TIME_SELECTED_CARDS_SG, getLastTimeSelectedCards);
-
-  yield takeLatest(GET_GOALS_SG, getGoalsSaga);
-  yield takeLatest(POST_GOAL_SG, postGoalSaga);
-  yield takeLatest(UPDATE_GOAL_SG, updateGoalSaga);
-  yield takeLatest(DELETE_GOAL_SG, deleteGoalSaga);
 }
 
 export default function* rootSaga() {

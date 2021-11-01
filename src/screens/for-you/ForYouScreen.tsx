@@ -1,50 +1,11 @@
 import React from 'react';
-import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-import {useSelector} from 'react-redux';
-import ForYouCard from '../../components/forYou/ForYouCard';
+import {ScrollView, StyleSheet, TouchableOpacity, View} from 'react-native';
 import SvgIcon from '../../components/shared/SvgIcon';
 import BGimageHoc from '../../hocs/BGimageHoc';
 import {COLORS1} from '../../services/colors.service';
 import {WS_BOLD} from '../../services/fonts.service';
-import {RootState} from '../../store/configureStore';
-
-import {IUserData} from '../../types/main';
 
 const ForYouScreen: React.FC<{navigation: any}> = ({navigation}) => {
-  const userData: IUserData = useSelector(
-    (state: RootState) => state.authReducer.userData,
-  );
-  const cards = useSelector(
-    (state: RootState) => state.ethosReducer.lastTimeSelectedCardsByDimension,
-  );
-  console.log(cards.length);
-
-  const takeEthos = () => {
-    navigation.navigate('ChooseEthosCards');
-  };
-
-  const checkIn = () => {
-    navigation.navigate('PhysicalFeeling');
-  };
-
-  const checkAccomplishments = () => {
-    navigation.navigate('MyAccomplishments');
-  };
-
-  const navigateToGoals = () => {
-    navigation.navigate('Goals');
-  };
-
-  const disableCheckIn = () => {
-    return cards.length === 0;
-  };
-
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
@@ -52,45 +13,6 @@ const ForYouScreen: React.FC<{navigation: any}> = ({navigation}) => {
           style={styles.touchable}
           onPress={() => navigation.navigate('Sidebar')}>
           <SvgIcon name="profileSettings" />
-        </TouchableOpacity>
-        <SvgIcon name="empower" />
-        <TouchableOpacity style={styles.touchable}>
-          <SvgIcon name="hart" />
-        </TouchableOpacity>
-      </View>
-      <Text style={styles.title}>
-        Good morning, {'\n' + userData.firstName}
-      </Text>
-      <View style={styles.cardsContainer}>
-        <ForYouCard
-          title={'Take ETHOS'}
-          subTitle={'Discover your Ethos Manifest'}
-          icon={'takeEthos'}
-          onPress={takeEthos}
-        />
-        <ForYouCard
-          disabled={disableCheckIn()}
-          title={'Check in'}
-          subTitle={'How are you in this moment?'}
-          icon={'sun'}
-          onPress={checkIn}
-        />
-        <ForYouCard
-          title={'My Goals'}
-          subTitle={'Achievement starts within'}
-          icon={'myGoalsMain'}
-          onPress={navigateToGoals}
-        />
-        <ForYouCard
-          title={'My Gratitude Board'}
-          subTitle={'What are you thankful for?'}
-          icon={'gratitudeMain'}
-          onPress={takeEthos}
-        />
-        <TouchableOpacity
-          style={{padding: 10, margin: 30}}
-          onPress={checkAccomplishments}>
-          <Text>Accountability</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>

@@ -4,7 +4,6 @@ import axiosInstance from '../../services/interceptor.service';
 import {IUserData} from '../../types/main';
 // import {setMonitoringUsername} from '../../utils/monitoring';
 import {setUserDataAction} from '../ducks/authDuck';
-import {getLastTimeSelectedCardsActionSG} from '../ducks/ethosDuck';
 import {checkedSignedInAction, DEFAULT} from '../ducks/mainDuck';
 
 export function* checkSignedInSaga() {
@@ -20,7 +19,6 @@ export function* checkSignedInSaga() {
       yield AsyncStorage.setItem('token', userData.accessToken);
     }
     // setMonitoringUsername(userData.username);
-    yield put(getLastTimeSelectedCardsActionSG());
     yield put(setUserDataAction(userData));
     yield put(checkedSignedInAction(true));
   } catch (error) {

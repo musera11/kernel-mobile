@@ -23,8 +23,6 @@ const TabBar: React.FC<{
     switch (route) {
       case 'ForYou':
         return 'person';
-      case 'CheckIn':
-        return 'sun';
       default:
         break;
     }
@@ -34,8 +32,6 @@ const TabBar: React.FC<{
     switch (route) {
       case 'ForYou':
         return 'FOR YOU';
-      case 'CheckIn':
-        return 'CHECK IN';
       default:
         break;
     }

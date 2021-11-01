@@ -16,7 +16,7 @@ import {RS_SEMI_BOLD, WS_LIGHT} from '../../services/fonts.service';
 import {logoutAction} from '../../store/ducks/authDuck';
 import DeviceInfo from 'react-native-device-info';
 
-const SidebarScreen: React.FC<{navigation: any}> = ({navigation}) => {
+const SidebarScreen: React.FC<{navigation: any}> = () => {
   const dispatch = useDispatch();
   return (
     <LinearGradient colors={['#FFFFFF', '#F0F3F4']} style={styles.container}>
