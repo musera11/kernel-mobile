@@ -26,11 +26,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#516A7B',
+    backgroundColor: 'white',
   },
   image: {
-    width: 176,
-    height: 133,
+    width: 200,
+    height: 200,
   },
 });
 

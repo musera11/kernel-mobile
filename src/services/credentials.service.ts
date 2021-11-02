@@ -10,4 +10,3 @@ export const backendUrl = 'https://api-dev.empowerofyou.com/api/';
 
 //long polling
 export const cleanBackendUrl = backendUrl.split('api')[0];
-// export const cleanBackendUrl = 'wss://192.168.1.5:8080/';

@@ -1,47 +1,13 @@
 import React from 'react';
-import {Image, StyleSheet, Text, View} from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
-import LoginButton from '../../components/auth/LoginButton';
-import SignUpButton from '../../components/auth/SignUpButton';
-import BGimageHoc from '../../hocs/BGimageHoc';
+import {StyleSheet, View} from 'react-native';
 import {COLORS1} from '../../services/colors.service';
 import {WS_BOLD, WS_REGULAR} from '../../services/fonts.service';
 
 const LandingScreen = ({navigation}: {navigation: any}) => {
-  const onLoginPress = () => {
-    navigation.navigate('SignIn');
-  };
-  const onSignUpPress = () => {
-    navigation.navigate('SignUp');
-  };
-  return (
-    <View style={styles.container}>
-      <LinearGradient
-        colors={['rgba(0,0,0,0)', '#516A7B']}
-        style={styles.container}>
-        <View style={styles.upperContainer}>
-          <Image
-            resizeMethod={'auto'}
-            source={require('../../assets/images/empower.png')}
-            style={styles.image}
-          />
-        </View>
-      </LinearGradient>
-      <View style={styles.lowerContainer}>
-        <Text style={styles.majorText}>Your Journey Begins Here.</Text>
-        <View style={styles.line} />
-        <Text style={styles.minorText}>Holistic wellness is within reach.</Text>
-        <View style={styles.buttonsWrapper}>
-          <LoginButton onPress={onLoginPress} />
-          <View style={styles.buttonsDivider} />
-          <SignUpButton onPress={onSignUpPress} />
-        </View>
-      </View>
-    </View>
-  );
+  return <View style={styles.container} />;
 };
 
-export default BGimageHoc(LandingScreen);
+export default LandingScreen;
 
 const styles = StyleSheet.create({
   container: {

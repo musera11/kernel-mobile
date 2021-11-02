@@ -3,7 +3,7 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 platform :ios, '11.0'
 
-target 'Empower' do
+target 'RevvUp' do
   config = use_native_modules!
 
   use_react_native!(
@@ -17,7 +17,7 @@ target 'Empower' do
 
   pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
 
-  target 'EmpowerTests' do
+  target 'RevvUpTests' do
     inherit! :complete
     # Pods for testing
   end

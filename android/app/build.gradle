@@ -132,11 +132,11 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.empowerofyou.app"
+        applicationId "com.revvup"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 3
-        versionName "1.2"
+        versionCode 1
+        versionName "1.1"
     }
     splits {
         abi {
