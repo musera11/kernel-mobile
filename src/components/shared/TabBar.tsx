@@ -1,16 +1,16 @@
-import React from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import LinearGradient from 'react-native-linear-gradient';
-import SvgIcon from './SvgIcon';
-import {COLORS1} from '../../services/colors.service';
-import {RS_BOLD, RS_SEMI_BOLD} from '../../services/fonts.service';
-import {ParamListBase, TabNavigationState} from '@react-navigation/routers';
 import {
   BottomTabDescriptorMap,
-  BottomTabNavigationEventMap,
+  BottomTabNavigationEventMap
 } from '@react-navigation/bottom-tabs/lib/typescript/src/types';
-import {NavigationHelpers} from '@react-navigation/core';
+import { NavigationHelpers } from '@react-navigation/core';
+import { ParamListBase, TabNavigationState } from '@react-navigation/routers';
+import React from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { COLORS1 } from '../../services/colors.service';
+import { WS_SEMI_BOLD, WS_BOLD } from '../../services/fonts.service';
+import SvgIcon from './SvgIcon';
 
 const TabBar: React.FC<{
   state: TabNavigationState<ParamListBase>;
@@ -50,7 +50,7 @@ const TabBar: React.FC<{
             const event = navigation.emit({
               type: 'tabPress',
               target: route.key,
-              canPreventDefault: true,
+              canPreventDefault: true
             });
 
             if (!isFocused && !event.defaultPrevented) {
@@ -63,7 +63,7 @@ const TabBar: React.FC<{
           const onLongPress = () => {
             navigation.emit({
               type: 'tabLongPress',
-              target: route.key,
+              target: route.key
             });
           };
 
@@ -77,10 +77,10 @@ const TabBar: React.FC<{
               onPress={onPress}
               onLongPress={onLongPress}
               style={styles.tab}>
-              <SvgIcon
-                name={getIconNameByRoute(route.name)}
-                style={isFocused ? styles.selectedSvg : styles.svg}
-              />
+              {/*<SvgIcon*/}
+              {/*  name={getIconNameByRoute(route.name)}*/}
+              {/*  style={isFocused ? styles.selectedSvg : styles.svg}*/}
+              {/*/>*/}
               <Text style={[styles.label, isFocused && styles.sleetedLabel]}>
                 {getLabelByRoute(route.name)}
               </Text>
@@ -100,33 +100,33 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: 0,
     bottom: 0,
-    right: 0,
+    right: 0
   },
   tabsWrapper: {
     flexDirection: 'row',
     paddingLeft: 15,
-    paddingRight: 15,
+    paddingRight: 15
   },
   tab: {
     alignItems: 'center',
-    padding: 10,
+    padding: 10
   },
   label: {
     fontSize: 12,
     color: COLORS1.white,
-    fontFamily: RS_SEMI_BOLD,
+    fontFamily: WS_SEMI_BOLD,
     marginTop: 6,
     opacity: 0.7,
-    letterSpacing: 1.2,
+    letterSpacing: 1.2
   },
   sleetedLabel: {
-    fontFamily: RS_BOLD,
-    opacity: 1,
+    fontFamily: WS_BOLD,
+    opacity: 1
   },
   svg: {
-    opacity: 0.9,
+    opacity: 0.9
   },
   selectedSvg: {
-    opacity: 1,
-  },
+    opacity: 1
+  }
 });

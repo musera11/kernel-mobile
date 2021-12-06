@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {COLORS1} from '../../services/colors.service';
-import {RS_SEMI_BOLD} from '../../services/fonts.service';
+import {WS_SEMI_BOLD} from '../../services/fonts.service';
 import SvgIcon from '../shared/SvgIcon';
 
 const SignUpButton: React.FC<{
@@ -14,7 +14,7 @@ const SignUpButton: React.FC<{
 }> = ({onPress}) => {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
-      <SvgIcon name="email" style={styles.sgv} />
+      {/*<SvgIcon name="email" style={styles.sgv} />*/}
       <Text style={styles.text}>SIGN UP WITH EMAIL</Text>
     </TouchableOpacity>
   );
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: COLORS1.black1,
     marginLeft: 5,
-    fontFamily: RS_SEMI_BOLD,
+    fontFamily: WS_SEMI_BOLD,
     letterSpacing: 2,
   },
   sgv: {

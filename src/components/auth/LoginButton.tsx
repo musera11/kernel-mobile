@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {COLORS1} from '../../services/colors.service';
-import {RS_SEMI_BOLD} from '../../services/fonts.service';
+import {WS_SEMI_BOLD} from '../../services/fonts.service';
 
 const LoginButton: React.FC<{onPress: (event: GestureResponderEvent) => void}> =
   ({onPress}) => {
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 14,
     color: COLORS1.white,
-    fontFamily: RS_SEMI_BOLD,
+    fontFamily: WS_SEMI_BOLD,
     letterSpacing: 2,
   },
 });

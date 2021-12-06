@@ -3,7 +3,7 @@ import {StyleSheet, Text, View} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {COLORS1} from '../../services/colors.service';
-import {RS_SEMI_BOLD} from '../../services/fonts.service';
+import {WS_SEMI_BOLD} from '../../services/fonts.service';
 
 const SidebarButton: React.FC<{
   title?: string;
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   title: {
     color: COLORS1.green3,
     fontSize: 13,
-    fontFamily: RS_SEMI_BOLD,
+    fontFamily: WS_SEMI_BOLD,
   },
   rightSide: {
     flexDirection: 'row',
