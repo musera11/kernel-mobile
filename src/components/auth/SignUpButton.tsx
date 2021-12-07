@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {COLORS1} from '../../services/colors.service';
-import {WS_SEMI_BOLD} from '../../services/fonts.service';
+import {F_SEMI_BOLD} from '../../services/fonts.service';
 import SvgIcon from '../shared/SvgIcon';
 
 const SignUpButton: React.FC<{
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: COLORS1.black1,
     marginLeft: 5,
-    fontFamily: WS_SEMI_BOLD,
+    fontFamily: F_SEMI_BOLD,
     letterSpacing: 2,
   },
   sgv: {

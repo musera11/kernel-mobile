@@ -9,7 +9,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { COLORS1 } from '../../services/colors.service';
-import { WS_SEMI_BOLD, WS_BOLD } from '../../services/fonts.service';
+import { F_SEMI_BOLD, F_BOOK } from '../../services/fonts.service';
 import SvgIcon from './SvgIcon';
 
 const TabBar: React.FC<{
@@ -114,13 +114,13 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 12,
     color: COLORS1.white,
-    fontFamily: WS_SEMI_BOLD,
+    fontFamily: F_SEMI_BOLD,
     marginTop: 6,
     opacity: 0.7,
     letterSpacing: 1.2
   },
   sleetedLabel: {
-    fontFamily: WS_BOLD,
+    fontFamily: F_BOOK,
     opacity: 1
   },
   svg: {

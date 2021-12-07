@@ -6,7 +6,7 @@ import DropdownAlert from 'react-native-dropdownalert';
 import {setDropdownRef} from './services/notification.service';
 import {StyleSheet} from 'react-native';
 import {COLORS1} from './services/colors.service';
-import {WS_SEMI_BOLD} from './services/fonts.service';
+import {F_SEMI_BOLD} from './services/fonts.service';
 
 export let loaderRef: any;
 
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   titleStyle: {
     marginTop: 10,
     color: COLORS1.white,
-    fontFamily: WS_SEMI_BOLD,
+    fontFamily: F_SEMI_BOLD,
     fontSize: 15,
   },
 });

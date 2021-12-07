@@ -6,7 +6,7 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {COLORS1} from '../../services/colors.service';
-import {WS_BOLD} from '../../services/fonts.service';
+import {F_BOOK} from '../../services/fonts.service';
 
 const Header: React.FC<{
   style?: ViewStyle;
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
   title: {
     color: COLORS1.gray2,
     fontSize: 18,
-    fontFamily: WS_BOLD,
+    fontFamily: F_BOOK,
   },
   emptyBox: {
     width: 35,

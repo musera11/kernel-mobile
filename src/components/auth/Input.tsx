@@ -11,7 +11,7 @@ import {
   ViewStyle,
 } from 'react-native';
 import {COLORS1} from '../../services/colors.service';
-import {WS_MEDIUM} from '../../services/fonts.service';
+import {F_REGULAR} from '../../services/fonts.service';
 
 const showError = false;
 
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
   textInput: {
     color: COLORS1.white,
     fontSize: 15,
-    fontFamily: WS_MEDIUM,
+    fontFamily: F_REGULAR,
     width: Dimensions.get('window').width - 123,
   },
   errorText: {

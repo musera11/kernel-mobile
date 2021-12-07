@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.coldvision.boilerplate">
+  package="kerneltools.gb.webview">
 
     <uses-permission android:name="android.permission.INTERNET" />
 

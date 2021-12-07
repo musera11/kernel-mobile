@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {StyleSheet, View, Image} from 'react-native';
+import {Image, StyleSheet, View} from 'react-native';
 import {useDispatch} from 'react-redux';
 import {checkSignedInAction} from '../../store/ducks/authDuck';
 
