@@ -4,22 +4,22 @@ import Button from '../../components/shared/Button';
 import Slider, {SliderItem} from '../../components/shared/Slider';
 
 const LandingScreen = () => {
-  const DATA:SliderItem[] = [
+  const DATA: SliderItem[] = [
     {
       title: 'Make Invoicing Easy',
       text: 'Create official invoices in seconds',
-      imageName: 'slide2'
-    }, 
+      imageName: 'slide2',
+    },
     {
       title: 'Automate Your Invoices',
       text: 'Automate the creation and sending of your recurring invoices',
-      imageName: 'slide3'
+      imageName: 'slide3',
     },
     {
       title: 'Control Your Cash Flow',
       text: 'Update your payment status and send reminders for overdue invoices',
-      imageName: 'slide4'
-    }
+      imageName: 'slide4',
+    },
   ];
 
   return (
@@ -31,7 +31,7 @@ const LandingScreen = () => {
         />
       </View>
       <View style={styles.slider}>
-        <Slider data={DATA}/>
+        <Slider data={DATA} />
       </View>
       <View style={styles.button}>
         <Button

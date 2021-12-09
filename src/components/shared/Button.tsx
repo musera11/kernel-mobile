@@ -14,9 +14,7 @@ const ButtonComp = (props: Props) => {
 
   return (
     <Pressable style={{...styles.container, backgroundColor, top, borderColor}}>
-      <Text style={{...styles.text, color}}>
-        {title}
-      </Text>
+      <Text style={{...styles.text, color}}>{title}</Text>
     </Pressable>
   );
 };
