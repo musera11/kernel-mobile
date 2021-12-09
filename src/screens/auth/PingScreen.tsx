@@ -1,7 +1,8 @@
 import React, {useEffect} from 'react';
-import {Image, StyleSheet, View} from 'react-native';
+import {StyleSheet, View, Text} from 'react-native';
 import {useDispatch} from 'react-redux';
 import {checkSignedInAction} from '../../store/ducks/authDuck';
+import SvgIcon from '../../components/shared/SvgIcon'
 
 const PingScreen = () => {
   const dispatch = useDispatch();
@@ -12,11 +13,11 @@ const PingScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Image
-        source={require('../../assets/images/splash.png')}
-        resizeMode="contain"
+      <SvgIcon
+        name='logo'
         style={styles.image}
       />
+      <Text style={styles.text}>Simple invoicing and financial tools</Text>
     </View>
   );
 };
@@ -26,11 +27,16 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'white',
+    backgroundColor: '#fff',
   },
   image: {
-    width: 200,
-    height: 200,
+    // width: 130,
+    height: 40,
+  },
+  text: {
+    marginTop: 18,
+    color: '#293961',
+    fontSize: 20,
   },
 });
 

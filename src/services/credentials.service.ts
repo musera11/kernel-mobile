@@ -1,5 +1,5 @@
 export const ENV = 'dev';
-export const backendUrl = 'https://api-dev.domain.com/api/';
+export const backendUrl = 'https://dev.kernel.tools/api/';
 
 //web socket
 // export const cleanBackendUrl = `wss://${
