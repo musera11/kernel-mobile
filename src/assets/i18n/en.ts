@@ -1,3 +1,4 @@
 export default {
-  LOG_IN: 'Sign in',
+  LOG_IN: 'Log In',
+  GET_STARTED: 'Get Started',
 };
