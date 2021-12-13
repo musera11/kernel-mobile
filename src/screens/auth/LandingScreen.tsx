@@ -37,7 +37,7 @@ const LandingScreen = () => {
         />
       </View>
       <View style={styles.slider}>
-        <Slider imageOnly={true} data={DATA} />
+        <Slider data={DATA} />
       </View>
       <View style={styles.button}>
         <Button

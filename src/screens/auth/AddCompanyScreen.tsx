@@ -2,10 +2,9 @@ import React from 'react';
 import {useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {StyleSheet, View, Text} from 'react-native';
-// import {Checkbox} from 'react-native-paper';
 import Input from '../../components/shared/Input';
 import Button from '../../components/shared/Button';
-// import Headline from '../../components/shared/Headline';
+import Headline from '../../components/shared/Headline';
 
 const AddCompanyScreen = () => {
   const translate = useTranslation().t;
@@ -14,9 +13,7 @@ const AddCompanyScreen = () => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.textt}>
-        <Text>Headlie</Text>
-      </View>
+      <Headline text={translate('AddCompany.headline')} />
       <View style={styles.inputContainer}>
         <Input
           value={inputText}
@@ -40,27 +37,18 @@ const AddCompanyScreen = () => {
           <View>
             <Text style={styles.checkboxLabel}>VAT Payer</Text>
           </View>
-          {/* <Checkbox
-            status={checked ? 'checked' : 'unchecked'}
-            onPress={() => {
-              setChecked(!checked);
-            }}
-            color="#00D369"
-          /> */}
         </View>
       </View>
 
       <View style={styles.nextButton}>
         <Button
+          onPress={() => console.log(1)}
           title="Next"
           color="#fff"
           backgroundColor="#3FA9F5"
           borderColor="#3FA9F5"
           top={0}
         />
-      </View>
-      <View style={styles.titleContainer}>
-        {/* <Headline text="Add My Company Information" /> */}
       </View>
     </View>
   );

@@ -9,4 +9,11 @@ export default {
     subTitle: 'Choose your favorite template',
     buttonText: 'Next',
   },
+  AddCompany: {
+    headline: 'add my company information',
+    name: 'My Company Name',
+    country: 'Country',
+    tax: 'Tax ID',
+    vat: 'VAT Payer',
+  },
 };
