@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import React, {useState, useRef, useCallback} from 'react';
 import {Text, View, StyleSheet, Image} from 'react-native';
+=======
+import React, {useCallback, useRef, useState} from 'react';
+import {StyleSheet, Text, View} from 'react-native';
+>>>>>>> ff25884c8d0f5b197d7a3d28db05f41cacef371e
 import Carousel from 'react-native-snap-carousel';
 import SvgIcon from './SvgIcon';
 

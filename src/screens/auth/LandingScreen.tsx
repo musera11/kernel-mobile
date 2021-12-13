@@ -1,9 +1,11 @@
 import React from 'react';
+import {useTranslation} from 'react-i18next';
 import {StyleSheet, View, Image} from 'react-native';
 import Button from '../../components/shared/Button';
 import Slider, {SliderItem} from '../../components/shared/Slider';
 
 const LandingScreen = () => {
+  const translate = useTranslation().t;
   const DATA: SliderItem[] = [
     {
       title: 'Make Invoicing Easy',
@@ -35,13 +37,13 @@ const LandingScreen = () => {
       </View>
       <View style={styles.button}>
         <Button
-          title="Get Started"
+          title={translate('GET_STARTED')}
           color="#fff"
           backgroundColor="#293961"
           top={0}
         />
         <Button
-          title="Log In"
+          title={translate('LOG_IN')}
           color="#293961"
           backgroundColor="#fff"
           top={16}

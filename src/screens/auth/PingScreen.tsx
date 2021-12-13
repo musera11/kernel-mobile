@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import {useDispatch} from 'react-redux';
-import {checkSignedInAction} from '../../store/ducks/authDuck';
 import SvgIcon from '../../components/shared/SvgIcon';
+import {checkSignedInAction} from '../../store/ducks/authDuck';
 
 const PingScreen = () => {
   const dispatch = useDispatch();

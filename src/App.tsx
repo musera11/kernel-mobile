@@ -1,14 +1,16 @@
 import {DefaultTheme} from '@react-navigation/native';
 import React from 'react';
+import {StyleSheet} from 'react-native';
+import DropdownAlert from 'react-native-dropdownalert';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import StartupNavigation from './navigation/startup.navigation';
-import DropdownAlert from 'react-native-dropdownalert';
-import {setDropdownRef} from './services/notification.service';
-import {StyleSheet} from 'react-native';
 import {COLORS1} from './services/colors.service';
 import {F_SEMI_BOLD} from './services/fonts.service';
+import {initLocalize} from './services/localize.service';
+import {setDropdownRef} from './services/notification.service';
 
 export let loaderRef: any;
+initLocalize();
 
 const MyTheme = {
   ...DefaultTheme,
