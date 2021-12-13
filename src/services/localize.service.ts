@@ -8,6 +8,7 @@ let i18nextConfig = null;
 
 export const initLocalize = () => {
   i18nextConfig = i18next.use(initReactI18next).init({
+    compatibilityJSON: 'v3',
     resources: {
       en: {translation: en},
       ka: {translation: ka},
@@ -18,9 +19,8 @@ export const initLocalize = () => {
       escapeValue: false,
     },
     nsSeparator: false,
-  })
+  });
 };
-
 
 export const globalData = {
   lang: 'en',
