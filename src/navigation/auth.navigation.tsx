@@ -3,6 +3,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import LandingScreen from '../screens/auth/LandingScreen';
 import TemplateScreen from '../screens/auth/TemplateScren';
 import AddCompanyScreen from '../screens/auth/AddCompanyScreen';
+import SignUpSocialsScreen from '../screens/auth/SignUpSocialsScreen';
 
 const Stack = createStackNavigator();
 
@@ -12,6 +13,7 @@ function AuthStack() {
       <Stack.Screen name="Landing" component={LandingScreen} />
       <Stack.Screen name="Template" component={TemplateScreen} />
       <Stack.Screen name="AddCompany" component={AddCompanyScreen} />
+      <Stack.Screen name="SignUpSocials" component={SignUpSocialsScreen} />
     </Stack.Navigator>
   );
 }

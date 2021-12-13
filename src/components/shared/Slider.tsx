@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 import SvgIcon from './SvgIcon';
-import {setUserDataAction,} from '../../store/ducks/authDuck';
+import {setUserDataAction} from '../../store/ducks/authDuck';
 import {put} from 'redux-saga/effects';
 
 const win = Dimensions.get('window');

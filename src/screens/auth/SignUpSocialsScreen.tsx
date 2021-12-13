@@ -1,13 +1,13 @@
 import React from 'react';
 import {useState} from 'react';
 import {useTranslation} from 'react-i18next';
-import {StyleSheet, View, Text} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 // import {Checkbox} from 'react-native-paper';
-import Input from '../../components/shared/Input';
+// import Input from '../../components/shared/Input';
 import Button from '../../components/shared/Button';
-// import Headline from '../../components/shared/Headline';
+import Headline from '../../components/shared/Headline';
 
-const AddCompanyScreen = () => {
+const SignUpSocialsScreen = () => {
   const translate = useTranslation().t;
   const [inputText, setInputText] = useState('');
   // const [checked, setChecked] = useState(false);
@@ -15,41 +15,8 @@ const AddCompanyScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.textt}>
-        <Text>Headlie</Text>
+        <Headline text="as" />
       </View>
-      <View style={styles.inputContainer}>
-        <Input
-          value={inputText}
-          onChangeText={setInputText}
-          textInput={inputText}
-          label="My Company Name"
-        />
-        <Input
-          value={inputText}
-          onChangeText={setInputText}
-          textInput={inputText}
-          label="Country"
-        />
-        <Input
-          value={inputText}
-          onChangeText={setInputText}
-          textInput={inputText}
-          label="Tax ID"
-        />
-        <View style={styles.checkboxContainer}>
-          <View>
-            <Text style={styles.checkboxLabel}>VAT Payer</Text>
-          </View>
-          {/* <Checkbox
-            status={checked ? 'checked' : 'unchecked'}
-            onPress={() => {
-              setChecked(!checked);
-            }}
-            color="#00D369"
-          /> */}
-        </View>
-      </View>
-
       <View style={styles.nextButton}>
         <Button
           title="Next"
@@ -66,7 +33,7 @@ const AddCompanyScreen = () => {
   );
 };
 
-export default AddCompanyScreen;
+export default SignUpSocialsScreen;
 
 const styles = StyleSheet.create({
   container: {
