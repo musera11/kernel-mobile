@@ -105,4 +105,5 @@ const styles = StyleSheet.create({
     marginRight: 3,
   },
 });
+
 export default Slider;
