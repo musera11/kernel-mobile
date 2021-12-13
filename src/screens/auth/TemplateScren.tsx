@@ -9,20 +9,23 @@ const TemplateScreen = () => {
   const translate = useTranslation().t;
   const DATA: SliderItem[] = [
     {
-      title: '1',
+      title: '',
       text: '',
+      index: 0,
       imageName: require('../../assets/images/GreenInvoiceTemplate.png'),
       imageOnly: true,
     },
     {
-      title: '2',
+      title: '',
       text: '',
+      index: 1,
       imageName: require('../../assets/images/PinkInvoiceTemplate.png'),
       imageOnly: true,
     },
     {
-      title: '3',
+      title: '',
       text: '',
+      index: 2,
       imageName: require('../../assets/images/PlainInvoiceTemplate.png'),
       imageOnly: true,
     },
@@ -67,10 +70,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   button: {
+    marginTop: 30,
     flex: 1,
     alignItems: 'center',
   },
   slider: {
-    flex: 1,
+    flex: 4,
   },
 });

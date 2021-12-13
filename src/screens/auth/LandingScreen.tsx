@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
   button: {
     flex: 1,
     alignItems: 'center',
-    top: 130,
+    top: 100,
   },
   slider: {
     flex: 1,

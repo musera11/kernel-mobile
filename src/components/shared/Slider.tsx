@@ -1,13 +1,26 @@
 import React, {useState, useRef, useCallback} from 'react';
-import {Text, View, StyleSheet, Image} from 'react-native';
+import {
+  Text,
+  View,
+  StyleSheet,
+  Image,
+  Dimensions,
+  TouchableOpacity,
+} from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 import SvgIcon from './SvgIcon';
+import {setUserDataAction,} from '../../store/ducks/authDuck';
+import {put} from 'redux-saga/effects';
+
+const win = Dimensions.get('window');
+const ratio = win.width / 898;
 
 export interface SliderItem {
   title: string;
   text: string;
   imageName: string;
   imageOnly: boolean;
+  index?: number;
 }
 
 interface Props {
@@ -18,17 +31,30 @@ const Slider = (props: Props) => {
   const [index, setIndex] = useState<number>(0);
   const ref = useRef(null);
 
+  const activate = (indexItem: SliderItem) => {
+    const templateArr = [
+      'GreenInvoiceTemplate',
+      'PinkInvoiceTemplate',
+      'PlainInvoiceTemplate',
+    ];
+    if (indexItem.index && templateArr[indexItem.index]) {
+      put(setUserDataAction({templateName: templateArr[indexItem.index]}));
+    }
+  };
+
   const renderItem = useCallback(
     ({item}) => (
       <View style={styles.container}>
         <Text style={styles.title}>{item.title}</Text>
         <Text style={styles.description}>{item.text}</Text>
         {item.imageOnly ? (
-          <Image
-            source={item.imageName}
-            style={{width: 400}}
-            resizeMode="cover"
-          />
+          <TouchableOpacity onPress={() => activate(item)}>
+            <Image
+              resizeMode={'contain'}
+              source={item.imageName}
+              style={{width: win.width, height: 1255 * ratio}}
+            />
+          </TouchableOpacity>
         ) : (
           <SvgIcon style={styles.image} name={item.imageName} />
         )}
@@ -49,8 +75,8 @@ const Slider = (props: Props) => {
         ref={ref}
         data={props.data}
         renderItem={renderItem}
-        sliderWidth={300}
-        itemWidth={300}
+        sliderWidth={win.width - 60}
+        itemWidth={win.width - 60}
         containerCustomStyle={styles.carouselContainer}
         inactiveSlideShift={0}
         onSnapToItem={(indexItem: number) => setIndex(indexItem)}
