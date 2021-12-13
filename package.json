@@ -5,7 +5,7 @@
   "scripts": {
     "android": "react-native run-android",
     "pixel4": "react-native run-android --deviceId=emulator-5554",
-    "iosgega": "react-native run-ios --udid 4f95cc1e1b4e89b99a43436ce3efa5460d2aebd2",
+    "iosgega": "react-native run-ios --udid 9FE78C98-F52D-4C6D-ABA3-EAFB8A78BDEA",
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",

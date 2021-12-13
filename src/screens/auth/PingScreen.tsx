@@ -3,9 +3,11 @@ import {StyleSheet, Text, View} from 'react-native';
 import {useDispatch} from 'react-redux';
 import SvgIcon from '../../components/shared/SvgIcon';
 import {checkSignedInAction} from '../../store/ducks/authDuck';
+import {useTranslation} from 'react-i18next';
 
 const PingScreen = () => {
   const dispatch = useDispatch();
+  const translate = useTranslation().t;
 
   useEffect(() => {
     dispatch(checkSignedInAction());
@@ -14,7 +16,7 @@ const PingScreen = () => {
   return (
     <View style={styles.container}>
       <SvgIcon name="logo" style={styles.image} />
-      <Text style={styles.text}>Simple invoicing and financial tools</Text>
+      <Text style={styles.text}>{translate('PING.msg')}</Text>
     </View>
   );
 };

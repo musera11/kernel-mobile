@@ -1,5 +1,7 @@
 import React from 'react';
-import {Pressable, StyleSheet, Text} from 'react-native';
+import {Pressable, StyleSheet, Text, Dimensions} from 'react-native';
+
+const windowWidth = Dimensions.get('window').width - 32;
 
 interface Props {
   title: string;
@@ -7,13 +9,16 @@ interface Props {
   color: string;
   top: number;
   borderColor?: string;
+  onPress(): void;
 }
 
 const ButtonComp = (props: Props) => {
-  const {title, backgroundColor, color, top, borderColor} = props;
+  const {title, backgroundColor, color, top, borderColor, onPress} = props;
 
   return (
-    <Pressable style={{...styles.container, backgroundColor, top, borderColor}}>
+    <Pressable
+      onPress={onPress}
+      style={{...styles.container, backgroundColor, top, borderColor}}>
       <Text style={{...styles.text, color}}>{title}</Text>
     </Pressable>
   );
@@ -27,7 +32,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: 4,
     height: 48,
-    width: 288,
+    width: windowWidth,
   },
   text: {
     fontSize: 18,

@@ -1,11 +1,11 @@
 import React from 'react';
 import {useTranslation} from 'react-i18next';
-import {StyleSheet, View, Image} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import Button from '../../components/shared/Button';
 import Slider, {SliderItem} from '../../components/shared/Slider';
 import navigationService from '../../services/navigation.service';
 
-const LandingScreen = () => {
+const AddCompanyScreen = () => {
   const translate = useTranslation().t;
   const DATA: SliderItem[] = [
     {
@@ -30,25 +30,12 @@ const LandingScreen = () => {
 
   return (
     <View style={styles.container}>
-      <View>
-        <Image
-          source={require('.././../assets/images/logo.png')}
-          resizeMode="contain"
-        />
-      </View>
       <View style={styles.slider}>
-        <Slider imageOnly={true} data={DATA} />
+        <Slider data={DATA} />
       </View>
       <View style={styles.button}>
         <Button
-          onPress={() => navigationService.navigate('Template')}
-          title={translate('GET_STARTED')}
-          color="#fff"
-          backgroundColor="#293961"
-          top={0}
-        />
-        <Button
-          onPress={() => navigationService.navigate('AddCompany')}
+          onPress={() => navigationService.navigate('template')}
           title={translate('LOG_IN')}
           color="#293961"
           backgroundColor="#fff"
@@ -59,7 +46,7 @@ const LandingScreen = () => {
   );
 };
 
-export default LandingScreen;
+export default AddCompanyScreen;
 
 const styles = StyleSheet.create({
   container: {

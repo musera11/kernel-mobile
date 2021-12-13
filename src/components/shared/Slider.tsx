@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 import React, {useState, useRef, useCallback} from 'react';
 import {Text, View, StyleSheet, Image} from 'react-native';
-=======
-import React, {useCallback, useRef, useState} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
->>>>>>> ff25884c8d0f5b197d7a3d28db05f41cacef371e
 import Carousel from 'react-native-snap-carousel';
 import SvgIcon from './SvgIcon';
 
@@ -12,6 +7,7 @@ export interface SliderItem {
   title: string;
   text: string;
   imageName: string;
+  imageOnly: boolean;
 }
 
 interface Props {
@@ -23,11 +19,19 @@ const Slider = (props: Props) => {
   const ref = useRef(null);
 
   const renderItem = useCallback(
-    ({item, index}) => (
+    ({item}) => (
       <View style={styles.container}>
         <Text style={styles.title}>{item.title}</Text>
         <Text style={styles.description}>{item.text}</Text>
-        <SvgIcon style={styles.image} name={item.imageName} />
+        {item.imageOnly ? (
+          <Image
+            source={item.imageName}
+            style={{width: 400}}
+            resizeMode="cover"
+          />
+        ) : (
+          <SvgIcon style={styles.image} name={item.imageName} />
+        )}
       </View>
     ),
     [],
@@ -49,7 +53,7 @@ const Slider = (props: Props) => {
         itemWidth={300}
         containerCustomStyle={styles.carouselContainer}
         inactiveSlideShift={0}
-        onSnapToItem={(index: number) => setIndex(index)}
+        onSnapToItem={(indexItem: number) => setIndex(indexItem)}
         useScrollView={true}
       />
 
