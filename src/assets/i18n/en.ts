@@ -15,5 +15,6 @@ export default {
     country: 'Country',
     tax: 'Tax ID',
     vat: 'VAT Payer',
+    buttonText: 'Next',
   },
 };

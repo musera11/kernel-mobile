@@ -1,5 +1,7 @@
 import React from 'react';
-import {View, TextInput, StyleSheet, Text} from 'react-native';
+import {View, TextInput, StyleSheet, Text, Dimensions} from 'react-native';
+
+const windowWidth = Dimensions.get('window').width - 32;
 
 interface Props {
   value: string;
@@ -26,7 +28,7 @@ export default Input;
 
 const styles = StyleSheet.create({
   input: {
-    width: 330,
+    width: windowWidth,
     height: 50,
     borderWidth: 0.5,
     borderColor: '#C4C4C4',

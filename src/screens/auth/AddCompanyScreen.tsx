@@ -9,14 +9,17 @@ import {
   Text,
   View,
 } from 'react-native';
+import CheckBox from 'react-native-check-box';
 import Button from '../../components/shared/Button';
 import Headline from '../../components/shared/Headline';
 import Input from '../../components/shared/Input';
 
 const AddCompanyScreen = () => {
   const translate = useTranslation().t;
-  const [inputText, setInputText] = useState('');
-  // const [checked, setChecked] = useState(false);
+  const [companyName, setCompanyName] = useState<string>('');
+  const [country, setCountry] = useState<string>('');
+  const [tax, setTax] = useState<string>('');
+  const [isSelected, setSelection] = useState<boolean>(false);
 
   return (
     <SafeAreaView style={styles.flex1}>
@@ -28,34 +31,39 @@ const AddCompanyScreen = () => {
             <Headline text={translate('AddCompany.headline')} />
             <View style={styles.inputContainer}>
               <Input
-                value={inputText}
-                onChangeText={setInputText}
-                textInput={inputText}
-                label="My Company Name"
+                value={companyName}
+                onChangeText={setCompanyName}
+                textInput={companyName}
+                label={translate('AddCompany.name')}
               />
               <Input
-                value={inputText}
-                onChangeText={setInputText}
-                textInput={inputText}
-                label="Country"
+                value={country}
+                onChangeText={setCountry}
+                textInput={country}
+                label={translate('AddCompany.country')}
               />
               <Input
-                value={inputText}
-                onChangeText={setInputText}
-                textInput={inputText}
-                label="Tax ID"
+                value={tax}
+                onChangeText={setTax}
+                textInput={tax}
+                label={translate('AddCompany.tax')}
               />
               <View style={styles.checkboxContainer}>
-                <View>
-                  <Text style={styles.checkboxLabel}>VAT Payer</Text>
-                </View>
+                <Text style={styles.checkboxLabel}>
+                  {translate('AddCompany.vat')}
+                </Text>
+                <CheckBox
+                  isChecked={isSelected}
+                  onClick={() => setSelection(!isSelected)}
+                  style={styles.checkbox}
+                />
               </View>
             </View>
 
             <View style={styles.nextButton}>
               <Button
                 onPress={() => console.log(1)}
-                title="Next"
+                title={translate('AddCompany.buttonText')}
                 color="#fff"
                 backgroundColor="#3FA9F5"
                 borderColor="#3FA9F5"
@@ -96,16 +104,21 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     flex: 1,
+    marginTop: 20,
   },
   checkboxContainer: {
     flexDirection: 'row',
     marginBottom: 20,
-    alignItems: 'center',
-    justifyContent: 'space-between',
   },
   checkboxLabel: {
     color: '#293961',
     fontSize: 16,
     fontWeight: '400',
+    flex: 1,
+  },
+  checkbox: {
+    // flex: 1,
+    alignSelf: 'flex-end',
+    marginLeft: 'auto',
   },
 });
