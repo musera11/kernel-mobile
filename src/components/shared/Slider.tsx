@@ -1,16 +1,16 @@
-import React, {useState, useRef, useCallback} from 'react';
+import React, {useCallback, useRef, useState} from 'react';
 import {
-  Text,
-  View,
-  StyleSheet,
-  Image,
   Dimensions,
+  Image,
+  StyleSheet,
+  Text,
   TouchableOpacity,
+  View,
 } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
-import SvgIcon from './SvgIcon';
+import {useDispatch} from 'react-redux';
 import {setUserDataAction} from '../../store/ducks/authDuck';
-import {put} from 'redux-saga/effects';
+import SvgIcon from './SvgIcon';
 
 const win = Dimensions.get('window');
 const ratio = win.width / 898;
@@ -30,6 +30,7 @@ interface Props {
 const Slider = (props: Props) => {
   const [index, setIndex] = useState<number>(0);
   const ref = useRef(null);
+  const dispatch = useDispatch();
 
   const activate = (indexItem: SliderItem) => {
     const templateArr = [
@@ -38,7 +39,7 @@ const Slider = (props: Props) => {
       'PlainInvoiceTemplate',
     ];
     if (indexItem.index && templateArr[indexItem.index]) {
-      put(setUserDataAction({templateName: templateArr[indexItem.index]}));
+      dispatch(setUserDataAction({templateName: templateArr[indexItem.index]}));
     }
   };
 
@@ -60,7 +61,7 @@ const Slider = (props: Props) => {
         )}
       </View>
     ),
-    [],
+    [activate],
   );
 
   const activeStyle = (itemIndex: number) => {
