@@ -1,10 +1,17 @@
-import React from 'react';
-import {useState} from 'react';
+import React, {useState} from 'react';
 import {useTranslation} from 'react-i18next';
-import {StyleSheet, View, Text, SafeAreaView} from 'react-native';
-import Input from '../../components/shared/Input';
+import {
+  KeyboardAvoidingView,
+  Platform,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import Button from '../../components/shared/Button';
 import Headline from '../../components/shared/Headline';
+import Input from '../../components/shared/Input';
 
 const AddCompanyScreen = () => {
   const translate = useTranslation().t;
@@ -13,45 +20,51 @@ const AddCompanyScreen = () => {
 
   return (
     <SafeAreaView style={styles.flex1}>
-      <View style={styles.container}>
-        <Headline text={translate('AddCompany.headline')} />
-        <View style={styles.inputContainer}>
-          <Input
-            value={inputText}
-            onChangeText={setInputText}
-            textInput={inputText}
-            label="My Company Name"
-          />
-          <Input
-            value={inputText}
-            onChangeText={setInputText}
-            textInput={inputText}
-            label="Country"
-          />
-          <Input
-            value={inputText}
-            onChangeText={setInputText}
-            textInput={inputText}
-            label="Tax ID"
-          />
-          <View style={styles.checkboxContainer}>
-            <View>
-              <Text style={styles.checkboxLabel}>VAT Payer</Text>
+      <KeyboardAvoidingView
+        style={styles.flex1}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+        <View style={styles.container}>
+          <ScrollView style={styles.flex1}>
+            <Headline text={translate('AddCompany.headline')} />
+            <View style={styles.inputContainer}>
+              <Input
+                value={inputText}
+                onChangeText={setInputText}
+                textInput={inputText}
+                label="My Company Name"
+              />
+              <Input
+                value={inputText}
+                onChangeText={setInputText}
+                textInput={inputText}
+                label="Country"
+              />
+              <Input
+                value={inputText}
+                onChangeText={setInputText}
+                textInput={inputText}
+                label="Tax ID"
+              />
+              <View style={styles.checkboxContainer}>
+                <View>
+                  <Text style={styles.checkboxLabel}>VAT Payer</Text>
+                </View>
+              </View>
             </View>
-          </View>
-        </View>
 
-        <View style={styles.nextButton}>
-          <Button
-            onPress={() => console.log(1)}
-            title="Next"
-            color="#fff"
-            backgroundColor="#3FA9F5"
-            borderColor="#3FA9F5"
-            top={0}
-          />
+            <View style={styles.nextButton}>
+              <Button
+                onPress={() => console.log(1)}
+                title="Next"
+                color="#fff"
+                backgroundColor="#3FA9F5"
+                borderColor="#3FA9F5"
+                top={0}
+              />
+            </View>
+          </ScrollView>
         </View>
-      </View>
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 };
@@ -74,10 +87,6 @@ const styles = StyleSheet.create({
   },
   nextButton: {
     marginBottom: 20,
-  },
-  slider: {
-    flex: 1,
-    marginBottom: 50,
   },
   titleContainer: {
     flexDirection: 'row',

@@ -1,6 +1,6 @@
 import React from 'react';
 import {useTranslation} from 'react-i18next';
-import {StyleSheet, View, Image} from 'react-native';
+import {StyleSheet, View, Image, SafeAreaView} from 'react-native';
 import Button from '../../components/shared/Button';
 import Slider, {SliderItem} from '../../components/shared/Slider';
 import navigationService from '../../services/navigation.service';
@@ -29,39 +29,42 @@ const LandingScreen = () => {
   ];
 
   return (
-    <View style={styles.container}>
-      <View>
+    <SafeAreaView style={styles.flex1}>
+      <View style={styles.container}>
         <Image
           source={require('.././../assets/images/logo.png')}
           resizeMode="contain"
         />
+        <View style={styles.slider}>
+          <Slider data={DATA} />
+        </View>
+        <View style={styles.button}>
+          <Button
+            onPress={() => navigationService.navigate('Template')}
+            title={translate('GET_STARTED')}
+            color="#fff"
+            backgroundColor="#293961"
+            top={0}
+          />
+          <Button
+            onPress={() => navigationService.navigate('AddCompany')}
+            title={translate('LOG_IN')}
+            color="#293961"
+            backgroundColor="#fff"
+            top={16}
+          />
+        </View>
       </View>
-      <View style={styles.slider}>
-        <Slider data={DATA} />
-      </View>
-      <View style={styles.button}>
-        <Button
-          onPress={() => navigationService.navigate('Template')}
-          title={translate('GET_STARTED')}
-          color="#fff"
-          backgroundColor="#293961"
-          top={0}
-        />
-        <Button
-          onPress={() => navigationService.navigate('AddCompany')}
-          title={translate('LOG_IN')}
-          color="#293961"
-          backgroundColor="#fff"
-          top={16}
-        />
-      </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
 export default LandingScreen;
 
 const styles = StyleSheet.create({
+  flex1: {
+    flex: 1,
+  },
   container: {
     flex: 1,
     alignItems: 'center',
@@ -69,12 +72,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   button: {
-    flex: 1,
+    height: 150,
     alignItems: 'center',
-    top: 100,
   },
   slider: {
     flex: 1,
-    marginBottom: 50,
+    marginBottom: 30,
   },
 });
