@@ -1,5 +1,6 @@
+import {useNavigation} from '@react-navigation/core';
 import React from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
 import Svgicon from './SvgIcon';
 
 interface HeadlineProps {
@@ -7,11 +8,15 @@ interface HeadlineProps {
 }
 
 const Headline = (props: HeadlineProps) => {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.headlineContainer}>
-      <View style={styles.arrow}>
+      <TouchableOpacity
+        style={styles.arrow}
+        onPress={() => navigation.goBack()}>
         <Svgicon name="shape" />
-      </View>
+      </TouchableOpacity>
       <View>
         <Text style={styles.text}>{props.text}</Text>
       </View>
